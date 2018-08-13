@@ -454,11 +454,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
+      "projectUniqueName": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
       "projectName": "EnterpriseAddLogs.Services",
-      "projectPath": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
+      "projectPath": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
       "packagesPath": "C:\\Users\\nallu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\obj\\",
+      "outputPath": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -477,8 +477,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj": {
-              "projectPath": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj"
+            "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj": {
+              "projectPath": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj"
             }
           }
         }

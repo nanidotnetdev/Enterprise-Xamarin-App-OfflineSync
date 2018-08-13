@@ -30,6 +30,8 @@
 
             Title = "Logs";
 
+            _logs = new ObservableCollection<LogEntity>();
+
             ExecuteLoadAllLogs();
         }
 

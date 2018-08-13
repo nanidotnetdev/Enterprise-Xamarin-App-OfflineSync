@@ -182,11 +182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
+      "projectUniqueName": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
       "projectName": "EnterpriseAddLogs.Models",
-      "projectPath": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
+      "projectPath": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
       "packagesPath": "C:\\Users\\nallu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nallu\\Desktop\\p\\Enterprise-Xamarin-App\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\obj\\",
+      "outputPath": "C:\\E-X-P\\p\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

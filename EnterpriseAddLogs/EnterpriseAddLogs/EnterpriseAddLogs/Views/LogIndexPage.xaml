@@ -4,7 +4,7 @@
              x:Class="EnterpriseAddLogs.Views.LogIndexPage">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="ADD">
+        <ToolbarItem Text="ADD" Clicked="btnAddLogClicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
@@ -18,7 +18,7 @@
             <ListView x:Name="UserListView"
                 ItemsSource="{Binding Logs}"
                       VerticalOptions="FillAndExpand"
-                      HasUnevenRows="True">
+                      HasUnevenRows="True" ItemTapped="UserListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

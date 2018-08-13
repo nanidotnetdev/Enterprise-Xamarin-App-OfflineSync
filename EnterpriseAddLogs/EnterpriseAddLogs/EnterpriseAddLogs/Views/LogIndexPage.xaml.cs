@@ -1,7 +1,6 @@
 ﻿namespace EnterpriseAddLogs.Views
 {
     using Autofac;
-    using Autofac.Core;
     using EnterpriseAddLogs.ViewModels;
 
     using Xamarin.Forms;
@@ -10,23 +9,27 @@
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LogIndexPage : ContentPage
 	{
-        private LogViewModel logViewModel;
-
-        private IContainer _container;
-
 		public LogIndexPage()
 		{
 			InitializeComponent ();
 
-            //_container = container;
-
-            //BindingContext = logViewModel = _container.Resolve<LogViewModel>();
+            BindingContext = Ioc.Container.Resolve<LogViewModel>();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
+        }
+
+        private void UserListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
+
+        private async void btnAddLogClicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new LogCreatePage());
         }
     }
 }
