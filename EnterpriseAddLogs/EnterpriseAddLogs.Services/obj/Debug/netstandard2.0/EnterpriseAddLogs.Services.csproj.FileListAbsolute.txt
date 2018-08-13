@@ -1,0 +1,12 @@
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.deps.json
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csproj.CoreCompileInputs.cache
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.AssemblyInfoInputs.cache
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.AssemblyInfo.cs
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.pdb
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csprojAssemblyReference.cache
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csproj.CopyComplete
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.pdb
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Models.dll
+C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Models.pdb
