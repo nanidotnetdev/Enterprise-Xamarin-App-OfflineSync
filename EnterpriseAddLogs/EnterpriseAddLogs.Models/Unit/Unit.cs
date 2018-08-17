@@ -4,7 +4,7 @@
 
     public class UnitEntity
     {
-        public Guid Id { get; set; }
+        public Guid UnitID { get; set; }
 
         public string UnitNumber { get; set; }
 
@@ -14,7 +14,7 @@
 
         public string VIN { get; set; }
 
-        public DateTime SetupDate { get; set; }
+        public DateTime? SetupDate { get; set; }
 
         public Guid? ModelYearID { get; set; }
         public Guid? TestTypeID { get; set; }
@@ -39,8 +39,8 @@
 
         public bool IsActive { get; set; }
 
-        public DateTime CreatedDate { get; set; }
-        public Guid CreatedBy { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public Guid? CreatedBy { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
         public Guid? UpdatedBy { get; set; }

@@ -4,7 +4,7 @@
 
     public class LogTypeEntity
     {
-        public Guid Id { get; set; }
+        public Guid LogTypeID { get; set; }
 
         public string LogType { get; set; }
 

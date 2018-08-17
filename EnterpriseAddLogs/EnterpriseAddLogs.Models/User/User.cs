@@ -4,7 +4,7 @@
 
     public class UserEntity
     {
-        public Guid Id { get; set; }
+        public Guid UserID { get; set; }
 
         public int? MemberShipUserID { get; set; }
 

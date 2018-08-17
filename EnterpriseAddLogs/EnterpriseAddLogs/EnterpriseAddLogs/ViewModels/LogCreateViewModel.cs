@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EnterpriseAddLogs.ViewModels
 {
-    public class LogCreateViewModel: PageViewModel
+    public class LogCreateViewModel : PageViewModel
     {
         private readonly IUserService _userService;
 
@@ -20,15 +20,65 @@ namespace EnterpriseAddLogs.ViewModels
 
         private readonly ILogTypeService _logTypeService;
 
-        private static List<ProductGroupEntity> _productGroupEntities;
+        private static ObservableCollection<ProductGroupEntity> _productGroupEntities { get; set; }
 
-        private static List<UnitEntity> _unitEntities;
+        public ObservableCollection<ProductGroupEntity> ProductGroupEntities
+        {
+            get
+            {
+                return _productGroupEntities;
+            }
+            set
+            {
+                _productGroupEntities = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        private static List<UserEntity> _userEntities;
+        private ObservableCollection<UnitEntity> _unitEntities;
 
-        private readonly List<LogTypeEntity> _logTypeEntities;
+        public ObservableCollection<UnitEntity> UnitEntities
+        {
+            get
+            {
+                return _unitEntities;
+            }
+            set
+            {
+                _unitEntities = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public LogCreateViewModel(IUserService userService, IUnitService unitService, 
+        public ObservableCollection<UserEntity> _userEntities { get; set; }
+        public ObservableCollection<UserEntity> UserEntities
+        {
+            get
+            {
+                return _userEntities;
+            }
+            set
+            {
+                _userEntities = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<LogTypeEntity> _logTypeEntities { get; set; }
+        public ObservableCollection<LogTypeEntity> LogTypeEntities
+        {
+            get
+            {
+                return _logTypeEntities;
+            }
+            set
+            {
+                _logTypeEntities = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public LogCreateViewModel(IUserService userService, IUnitService unitService,
             IProductGroupService productGroupService, ILogService logService, ILogTypeService logTypeService)
         {
             _userService = userService;
@@ -37,17 +87,17 @@ namespace EnterpriseAddLogs.ViewModels
             _logService = logService;
             _logTypeService = logTypeService;
 
-            _productGroupEntities = new List<ProductGroupEntity>();
-            _unitEntities = new List<UnitEntity>();
-            _userEntities = new List<UserEntity>();
-            _logTypeEntities = new List<LogTypeEntity>();
+            _productGroupEntities = new ObservableCollection<ProductGroupEntity>();
+            _unitEntities = new ObservableCollection<UnitEntity>();
+            _userEntities = new ObservableCollection<UserEntity>();
+            _logTypeEntities = new ObservableCollection<LogTypeEntity>();
 
-            ExecuteLoadStaticDropdowns();
+            ExecuteLoadStaticDropdownsAsync();
+
         }
 
-        private async void ExecuteLoadStaticDropdowns()
+        private async Task ExecuteLoadStaticDropdownsAsync()
         {
-
             var t1 = ExecuteLoadProductGroupEntities();
             var t2 = ExecuteLoadUnitEntities();
             var t3 = ExecuteLoadUserEntities();
@@ -58,28 +108,41 @@ namespace EnterpriseAddLogs.ViewModels
 
         private async Task ExecuteLoadProductGroupEntities()
         {
-            ICollection<ProductGroupEntity> productGroupEntities = await _productGroupService.GetAllProductgroupEntitiesAsync();
+            ICollection<ProductGroupEntity> Entities = await _productGroupService.GetAllProductgroupEntitiesAsync();
 
-            _productGroupEntities.AddRange(productGroupEntities);
+            foreach (var item in Entities)
+            {
+                ProductGroupEntities.Add(item);
+            }
         }
 
         private async Task ExecuteLoadUnitEntities()
         {
-            ICollection<UnitEntity> unitEntities = await _unitService.GetAllUnitEntitiesAsync();
+            ICollection<UnitEntity> Entities = await _unitService.GetAllUnitEntitiesAsync();
 
-            _unitEntities.AddRange(unitEntities);
+            foreach (var item in Entities)
+            {
+                UnitEntities.Add(item);
+            }
         }
 
         private async Task ExecuteLoadUserEntities()
         {
-            ICollection<UserEntity> userEntities = await _userService.GetAllUsersAsync();
-            _userEntities.AddRange(userEntities);
+            ICollection<UserEntity> Entities = await _userService.GetAllUsersAsync();
+            foreach (var item in Entities)
+            {
+                UserEntities.Add(item);
+            }
         }
 
         private async Task ExecuteLoadLogTypeEntities()
         {
-            ICollection<LogTypeEntity> logTypeEntities = await _logTypeService.GetAllLogTypeEntitiesAsync();
-            _logTypeEntities.AddRange(logTypeEntities);
+            ICollection<LogTypeEntity> Entities = await _logTypeService.GetAllLogTypeEntitiesAsync();
+
+            foreach (var item in Entities)
+            {
+                LogTypeEntities.Add(item);
+            }
         }
 
     }

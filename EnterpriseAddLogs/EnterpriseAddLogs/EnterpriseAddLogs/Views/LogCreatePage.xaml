@@ -3,10 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EnterpriseAddLogs.Views.LogCreatePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="5">
+            <Label Text="Product Group"/>
+            <Picker x:Name="pcrProductGroup"
+                ItemsSource="{Binding ProductGroupEntities, Mode=TwoWay}"
+                Title="Select Product group"
+                ItemDisplayBinding="{Binding GroupName}" />
+
+            <Label Text="Unit Number"/>
+            <Picker x:Name="pcrUnit"
+                ItemsSource="{Binding UnitEntities, Mode=TwoWay}"
+                Title="Select Unit Number"
+                ItemDisplayBinding="{Binding UnitNumber}" />
+
+            <Label Text="Assigned User"/>
+            <Picker x:Name="pcrUser"
+                ItemsSource="{Binding UserEntities, Mode=TwoWay}"
+                Title="Select User"
+                ItemDisplayBinding="{Binding EmpName}" />
+
+            <Label Text="Log Type"/>
+            <Picker x:Name="pcrLogType"
+                ItemsSource="{Binding LogTypeEntities, Mode=TwoWay}"
+                Title="Select LogType"
+                ItemDisplayBinding="{Binding LogType}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

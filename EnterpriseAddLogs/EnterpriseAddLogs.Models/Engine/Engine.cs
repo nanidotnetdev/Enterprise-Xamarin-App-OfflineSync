@@ -4,7 +4,7 @@
 
     public class EngineEntity
     {
-        public Guid Id { get; set; }
+        public Guid EngineID { get; set; }
 
         public string EngineNumber { get; set; }
 

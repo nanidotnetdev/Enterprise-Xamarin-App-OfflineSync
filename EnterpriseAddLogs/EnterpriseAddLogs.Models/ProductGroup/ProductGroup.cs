@@ -4,7 +4,7 @@
 
     public class ProductGroupEntity
     {
-        public Guid Id { get; set; }
+        public Guid ProductGroupID { get; set; }
 
         public string GroupName { get; set; }
 
