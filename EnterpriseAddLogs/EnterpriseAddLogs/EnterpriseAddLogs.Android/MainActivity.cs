@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 
 namespace EnterpriseAddLogs.Droid
 {
@@ -17,8 +18,17 @@ namespace EnterpriseAddLogs.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Ioc.Container = new AndroidBootstrapper().Bootstrap();
 
+            global::Xamarin.Essentials.Platform.Init(this, bundle);
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

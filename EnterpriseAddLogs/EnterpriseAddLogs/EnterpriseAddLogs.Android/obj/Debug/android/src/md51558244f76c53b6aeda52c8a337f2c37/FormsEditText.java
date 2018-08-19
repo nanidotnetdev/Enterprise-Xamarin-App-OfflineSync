@@ -12,6 +12,7 @@ public class FormsEditText
 		__md_methods = 
 			"n_onKeyPreIme:(ILandroid/view/KeyEvent;)Z:GetOnKeyPreIme_ILandroid_view_KeyEvent_Handler\n" +
 			"n_requestFocus:(ILandroid/graphics/Rect;)Z:GetRequestFocus_ILandroid_graphics_Rect_Handler\n" +
+			"n_onSelectionChanged:(II)V:GetOnSelectionChanged_IIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.FormsEditText, Xamarin.Forms.Platform.Android", FormsEditText.class, __md_methods);
 	}
@@ -63,6 +64,14 @@ public class FormsEditText
 	}
 
 	private native boolean n_requestFocus (int p0, android.graphics.Rect p1);
+
+
+	public void onSelectionChanged (int p0, int p1)
+	{
+		n_onSelectionChanged (p0, p1);
+	}
+
+	private native void n_onSelectionChanged (int p0, int p1);
 
 	private java.util.ArrayList refList;
 	public void monodroidAddReference (java.lang.Object obj)

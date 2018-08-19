@@ -1,1 +1,1 @@
-C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\EnterpriseAddLogs.UWP.csproj;x86
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\EnterpriseAddLogs.UWP.csproj;x86

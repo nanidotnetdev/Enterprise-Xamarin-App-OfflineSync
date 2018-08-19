@@ -10,6 +10,8 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.IO.Compression.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Net.Http.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Numerics.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Numerics.Vectors.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Xml.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Xml.Linq.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Arch.Core.Common.dll
@@ -20,6 +22,7 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Compat.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Core.UI.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Core.Utils.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.CustomTabs.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Fragment.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Media.Compat.dll
@@ -31,6 +34,7 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.Palette.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.v7.RecyclerView.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Essentials.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.dll
@@ -53,7 +57,6 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\netstandard.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Data.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Numerics.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Transactions.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Diagnostics.StackTrace.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Globalization.Extensions.dll

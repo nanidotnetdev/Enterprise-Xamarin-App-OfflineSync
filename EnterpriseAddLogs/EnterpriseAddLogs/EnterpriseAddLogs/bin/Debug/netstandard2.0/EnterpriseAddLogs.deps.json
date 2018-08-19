@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "f4663c26a44420dd48da5c6c8e72b0049163b4bd"
+    "signature": "44424a0480b57fffe8d5687b91d9a7da878f2c2d"
   },
   "compilationOptions": {},
   "targets": {
@@ -12,7 +12,8 @@
           "Autofac": "4.8.1",
           "EnterpriseAddLogs.Services": "1.0.0",
           "NETStandard.Library": "2.0.3",
-          "Xamarin.Forms": "3.0.0.561731"
+          "Xamarin.Essentials": "0.10.0-preview",
+          "Xamarin.Forms": "3.2.0.729530-pre2"
         },
         "runtime": {
           "EnterpriseAddLogs.dll": {}
@@ -56,13 +57,32 @@
           }
         }
       },
+      "System.Numerics.Vectors/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.4.0",
+            "fileVersion": "4.6.26515.6"
+          }
+        }
+      },
       "System.Runtime/4.1.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.0.1"
         }
       },
-      "Xamarin.Forms/3.0.0.561731": {
+      "Xamarin.Essentials/0.10.0-preview": {
+        "dependencies": {
+          "System.Numerics.Vectors": "4.5.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Essentials.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xamarin.Forms/3.2.0.729530-pre2": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
@@ -143,6 +163,13 @@
       "path": "system.componentmodel/4.0.1",
       "hashPath": "system.componentmodel.4.0.1.nupkg.sha512"
     },
+    "System.Numerics.Vectors/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MNcaYxUJvUcoXOa+jgKl/GDw/Mh+wMrxDjW4dre7qrp35LUGTjUBNtZsNjxsWX592ocdyqt1X5hMJB+5OStoYw==",
+      "path": "system.numerics.vectors/4.5.0",
+      "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
     "System.Runtime/4.1.0": {
       "type": "package",
       "serviceable": true,
@@ -150,12 +177,19 @@
       "path": "system.runtime/4.1.0",
       "hashPath": "system.runtime.4.1.0.nupkg.sha512"
     },
-    "Xamarin.Forms/3.0.0.561731": {
+    "Xamarin.Essentials/0.10.0-preview": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZnpuSybty6uZsgInJQD2QoYsjsdzPmu25EltSNJTnwgiQCW0MVZfwU6//jbt4Sf0ZfAiryi8MZFhU1I0NAP6Ew==",
-      "path": "xamarin.forms/3.0.0.561731",
-      "hashPath": "xamarin.forms.3.0.0.561731.nupkg.sha512"
+      "sha512": "sha512-oA8oAHIHf4ymPPQoi7sLKF0704fFgwoqmQDy1G1kOxXrEZF0W5XpTXS2y2h4/RC/7bn0DzhTS6wiC90Om4YSHA==",
+      "path": "xamarin.essentials/0.10.0-preview",
+      "hashPath": "xamarin.essentials.0.10.0-preview.nupkg.sha512"
+    },
+    "Xamarin.Forms/3.2.0.729530-pre2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qSP/FC32sxFzq6e6/dQ8s35fvryxwoziSMvzy05ouBQTiETs2hTwvb7tn8UQmF5fRAcoT8jNQQdgMsgCjCedMw==",
+      "path": "xamarin.forms/3.2.0.729530-pre2",
+      "hashPath": "xamarin.forms.3.2.0.729530-pre2.nupkg.sha512"
     },
     "EnterpriseAddLogs.Models/1.0.0": {
       "type": "project",

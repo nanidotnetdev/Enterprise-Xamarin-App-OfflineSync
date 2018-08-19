@@ -10,23 +10,29 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>ec0cc741-fd3e-485c-81be-68815c480690</PackageIdentityName>
     <PackageIdentityPublisher>CN=483b15fd-8eef-4874-aef0-bd450df35c7b</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\EnterpriseAddLogs.UWP.exe">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\EnterpriseAddLogs.UWP.exe">
       <PackagePath>entrypoint\EnterpriseAddLogs.UWP.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\autofac\4.8.1\lib\netstandard1.1\Autofac.dll">
+      <PackagePath>Autofac.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.1\runtimes\win10-x86\nativeassets\uap10.0.15138\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
@@ -520,182 +526,194 @@
     <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.0.1\runtimes\win10-x86\lib\uap10.0.15138\netstandard.dll">
       <PackagePath>netstandard.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Core.dll">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.essentials\0.10.0-preview\lib\uap10.0.16299\Xamarin.Essentials.dll">
+      <PackagePath>Xamarin.Essentials.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Core.dll">
       <PackagePath>Xamarin.Forms.Core.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP.dll">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP.dll">
       <PackagePath>Xamarin.Forms.Platform.UAP.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.dll">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.dll">
       <PackagePath>Xamarin.Forms.Platform.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Xaml.dll">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.dll">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.dll">
       <PackagePath>EnterpriseAddLogs.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll">
+      <PackagePath>EnterpriseAddLogs.Services.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.Models.dll">
+      <PackagePath>EnterpriseAddLogs.Models.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\EnterpriseAddLogs.UWP.xr.xml">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\EnterpriseAddLogs.UWP.xr.xml">
       <PackagePath>EnterpriseAddLogs.UWP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\AutoSuggestStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\AutoSuggestStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\AutoSuggestStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsCommandBarStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsCommandBarStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\FormsCommandBarStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsEmbeddedPageWrapper.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsEmbeddedPageWrapper.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\FormsEmbeddedPageWrapper.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsFlyout.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsFlyout.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\FormsFlyout.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsProgressBarStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsProgressBarStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\FormsProgressBarStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsTextBoxStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\FormsTextBoxStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\FormsTextBoxStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\MasterDetailControlStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\MasterDetailControlStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\MasterDetailControlStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\PageControlStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\PageControlStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\PageControlStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\Resources.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\Resources.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\Resources.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\TabbedPageStyle.xbf">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\SliderStyle.xbf">
+      <PackagePath>Xamarin.Forms.Platform.UAP\SliderStyle.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\TabbedPageStyle.xbf">
       <PackagePath>Xamarin.Forms.Platform.UAP\TabbedPageStyle.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.0.0.561731\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
+    <AppxPackagedFile Include="C:\Users\nallu\.nuget\packages\xamarin.forms\3.2.0.729530-pre2\lib\uap10.0\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
       <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\nallu\source\repos\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\Core\EnterpriseAddLogs.UWP.exe">
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\bin\x86\Debug\Core\EnterpriseAddLogs.UWP.exe">
       <PackagePath>EnterpriseAddLogs.UWP.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

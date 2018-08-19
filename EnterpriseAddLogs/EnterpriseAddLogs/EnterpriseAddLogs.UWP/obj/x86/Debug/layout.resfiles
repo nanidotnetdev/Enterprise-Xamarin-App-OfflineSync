@@ -1,4 +1,3 @@
-WinMetadata\Windows.winmd
 Assets\LargeTile.scale-100.png
 Assets\LargeTile.scale-200.png
 Assets\LargeTile.scale-400.png
@@ -30,3 +29,4 @@ App.xbf
 EnterpriseAddLogs.UWP.xr.xml
 MainPage.xbf
 Properties\Default.rd.xml
+WinMetadata\Windows.winmd
