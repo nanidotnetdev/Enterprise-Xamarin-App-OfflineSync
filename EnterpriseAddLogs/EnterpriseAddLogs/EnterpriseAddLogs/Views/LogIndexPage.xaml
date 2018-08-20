@@ -15,10 +15,10 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="UserListView"
+            <ListView x:Name="LogListView"
                 ItemsSource="{Binding Logs}"
                       VerticalOptions="FillAndExpand"
-                      HasUnevenRows="True" ItemTapped="UserListView_ItemTapped">
+                      HasUnevenRows="True" ItemTapped="Log_Selected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

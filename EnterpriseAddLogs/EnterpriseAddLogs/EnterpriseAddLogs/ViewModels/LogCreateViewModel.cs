@@ -1,4 +1,5 @@
-﻿using EnterpriseAddLogs.Models;
+﻿using EnterpriseAddLogs.Helpers;
+using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
 using System;
 using System.Collections.Generic;
@@ -79,7 +80,8 @@ namespace EnterpriseAddLogs.ViewModels
         }
 
         public LogCreateViewModel(IUserService userService, IUnitService unitService,
-            IProductGroupService productGroupService, ILogService logService, ILogTypeService logTypeService)
+            IProductGroupService productGroupService, ILogService logService,
+            ILogTypeService logTypeService, INavigator navigator): base(navigator)
         {
             _userService = userService;
             _unitService = unitService;
@@ -145,5 +147,9 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        public override Task OnNavigatedToAsync(object parameter = null)
+        {
+            return base.OnNavigatedToAsync(parameter);
+        }
     }
 }

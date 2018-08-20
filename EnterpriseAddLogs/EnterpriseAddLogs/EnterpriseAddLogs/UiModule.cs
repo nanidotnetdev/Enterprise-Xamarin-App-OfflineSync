@@ -1,6 +1,7 @@
 ﻿namespace EnterpriseAddLogs
 {
     using Autofac;
+    using EnterpriseAddLogs.Helpers;
     using EnterpriseAddLogs.ViewModels;
     using Xamarin.Forms;
 
@@ -16,6 +17,9 @@
                 .Where(t => t.IsSubclassOf(typeof(Page)));
             builder.RegisterAssemblyTypes(typeof(UiModule).Assembly)
                 .Where(t => t.IsSubclassOf(typeof(ViewModel)));
+
+            builder.RegisterType<ViewResolver>().AsImplementedInterfaces();
+            builder.RegisterType<Navigator>().SingleInstance().AsImplementedInterfaces();
         }
     }
 }

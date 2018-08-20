@@ -1,6 +1,7 @@
 ﻿namespace EnterpriseAddLogs.Views
 {
     using Autofac;
+    using EnterpriseAddLogs.Models;
     using EnterpriseAddLogs.ViewModels;
 
     using Xamarin.Forms;
@@ -13,7 +14,7 @@
 		{
 			InitializeComponent ();
 
-            BindingContext = Ioc.Container.Resolve<LogViewModel>();
+            //BindingContext = Ioc.Container.Resolve<LogViewModel>();
         }
 
         protected override void OnAppearing()
@@ -22,8 +23,17 @@
 
         }
 
-        private void UserListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void Log_Selected(object sender, ItemTappedEventArgs e)
         {
+            var selectedLog = e.Item as LogEntity;
+
+            if (selectedLog == null)
+                return;
+
+            var viewModel = (LogViewModel)BindingContext;
+            viewModel.LogEntity = selectedLog;
+            LogListView.SelectedItem = null;
+            await viewModel.LogPageAsync();
 
         }
 

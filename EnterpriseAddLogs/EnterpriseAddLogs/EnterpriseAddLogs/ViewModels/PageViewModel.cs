@@ -1,12 +1,15 @@
 ﻿namespace EnterpriseAddLogs.ViewModels
 {
+    using EnterpriseAddLogs.Helpers;
     using System.Threading.Tasks;
 
     public class PageViewModel: ViewModel
     {
-        public PageViewModel()
-        {
+        protected INavigator Navigator { get; private set; }
 
+        public PageViewModel(INavigator navigator)
+        {
+            Navigator = navigator;
         }
 
         private bool isBusy;

@@ -1,3 +1,4 @@
+using EnterpriseAddLogs.Helpers;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,8 +12,10 @@ namespace EnterpriseAddLogs
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
-		}
+            MainPage = new MainPage();
+            MainPage.BindingContext = Ioc.Resolve<MainPage>();
+            Ioc.Resolve<INavigator>().Navigation = MainPage.Navigation;
+        }
 
 		protected override void OnStart ()
 		{
