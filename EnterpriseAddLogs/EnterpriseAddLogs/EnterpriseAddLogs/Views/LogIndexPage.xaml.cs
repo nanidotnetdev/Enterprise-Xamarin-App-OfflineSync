@@ -14,7 +14,7 @@
 		{
 			InitializeComponent ();
 
-            //BindingContext = Ioc.Container.Resolve<LogViewModel>();
+            BindingContext = Ioc.Container.Resolve<LogIndexPageViewModel>();
         }
 
         protected override void OnAppearing()
@@ -30,7 +30,7 @@
             if (selectedLog == null)
                 return;
 
-            var viewModel = (LogViewModel)BindingContext;
+            var viewModel = (LogIndexPageViewModel)BindingContext;
             viewModel.LogEntity = selectedLog;
             LogListView.SelectedItem = null;
             await viewModel.LogPageAsync();

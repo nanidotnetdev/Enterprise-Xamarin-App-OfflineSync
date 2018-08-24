@@ -12,7 +12,7 @@ namespace EnterpriseAddLogs.Views
 		{
 			InitializeComponent ();
 
-            var viewModel = Ioc.Container.Resolve<LogCreateViewModel>();
+            var viewModel = Ioc.Container.Resolve<LogCreatePageViewModel>();
         }
     }
 }

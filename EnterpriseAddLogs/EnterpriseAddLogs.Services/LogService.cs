@@ -36,7 +36,7 @@ namespace EnterpriseAddLogs.Services
 
                     var json = await response.Content.ReadAsStringAsync();
 
-                    return JsonConvert.DeserializeObject<ICollection<LogEntity>>(json);
+                    return JsonConvert.DeserializeObject<List<LogEntity>>(json);
                 }
             }
         }

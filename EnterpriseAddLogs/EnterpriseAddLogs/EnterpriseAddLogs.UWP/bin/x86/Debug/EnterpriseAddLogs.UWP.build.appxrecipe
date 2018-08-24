@@ -544,11 +544,11 @@
     <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.dll">
       <PackagePath>EnterpriseAddLogs.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll">
-      <PackagePath>EnterpriseAddLogs.Services.dll</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.Models.dll">
       <PackagePath>EnterpriseAddLogs.Models.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll">
+      <PackagePath>EnterpriseAddLogs.Services.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
