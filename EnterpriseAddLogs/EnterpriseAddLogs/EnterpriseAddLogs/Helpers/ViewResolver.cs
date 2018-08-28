@@ -14,6 +14,11 @@
             var viewName = viewModelType.AssemblyQualifiedName.Replace(
                 viewModelType.Name,
                 viewModelType.Name.Replace("ViewModel", string.Empty));
+            //log createpage view model
+            //logcreatepage
+
+            var t = Type.GetType(viewName);
+
 
             return Ioc.Resolve(Type.GetType(viewName.Replace("Model", string.Empty))) as Page;
         }

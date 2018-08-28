@@ -6,6 +6,8 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
+    using System.Windows.Input;
+    using Xamarin.Forms;
 
     public class LogIndexPageViewModel : PageViewModel
     {
@@ -38,6 +40,9 @@
 
         private ILogService _logService;
 
+        public ICommand AddLogCommand { get; set; }
+
+
         public LogIndexPageViewModel(ILogService logService, INavigator navigator)
             :base(navigator)
         {
@@ -47,7 +52,14 @@
 
             _logs = new ObservableCollection<LogEntity>();
 
+            AddLogCommand = new Command(AddLogPageCommand);
+
             ExecuteLoadAllLogs();
+        }
+
+        private async void AddLogPageCommand()
+        {
+            await Navigator.NavigateToDetailViewModelAsync<LogCreatePageViewModel>();
         }
 
         private async void ExecuteLoadAllLogs()
@@ -66,7 +78,6 @@
         {
             await Navigator.NavigateToViewModelAsync<LogCreatePageViewModel>(LogEntity);
         }
-
 
     }
 }

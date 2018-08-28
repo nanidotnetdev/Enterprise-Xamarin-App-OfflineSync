@@ -4,7 +4,7 @@
              x:Class="EnterpriseAddLogs.Views.LogIndexPage">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="ADD" Clicked="btnAddLogClicked">
+        <ToolbarItem Text="ADD" Command="{Binding AddLogCommand}">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>

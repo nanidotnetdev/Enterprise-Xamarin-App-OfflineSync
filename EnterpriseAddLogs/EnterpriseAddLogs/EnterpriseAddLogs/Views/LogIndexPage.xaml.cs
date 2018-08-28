@@ -37,9 +37,9 @@
 
         }
 
-        private async void btnAddLogClicked(object sender, System.EventArgs e)
-        {
-            await Navigation.PushAsync(new LogCreatePage());
-        }
+        //private async void btnAddLogClicked(object sender, System.EventArgs e)
+        //{
+        //    await Navigation
+        //}
     }
 }

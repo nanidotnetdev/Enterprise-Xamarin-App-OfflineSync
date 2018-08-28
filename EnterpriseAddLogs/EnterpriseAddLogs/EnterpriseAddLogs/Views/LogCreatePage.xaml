@@ -8,7 +8,8 @@
             <Picker x:Name="pcrProductGroup"
                 ItemsSource="{Binding ProductGroupEntities, Mode=TwoWay}"
                 Title="Select Product group"
-                ItemDisplayBinding="{Binding GroupName}" />
+                ItemDisplayBinding="{Binding GroupName}"
+                    SelectedItem="{Binding SelectedProductGroup}"/>
 
             <Label Text="Unit Number"/>
             <Picker x:Name="pcrUnit"
@@ -27,6 +28,8 @@
                 ItemsSource="{Binding LogTypeEntities, Mode=TwoWay}"
                 Title="Select LogType"
                 ItemDisplayBinding="{Binding LogType}" />
+
+            <Button Command="{Binding SaveLogCommand}" Text="Save"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

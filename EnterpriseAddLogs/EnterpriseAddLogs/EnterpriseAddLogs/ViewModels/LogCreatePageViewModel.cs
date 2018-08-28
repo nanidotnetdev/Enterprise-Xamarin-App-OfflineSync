@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace EnterpriseAddLogs.ViewModels
 {
@@ -32,6 +34,19 @@ namespace EnterpriseAddLogs.ViewModels
             set
             {
                 _productGroupEntities = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private ProductGroupEntity _selectedProductGroup { get; set; }
+
+        public ProductGroupEntity SelectedProductGroup
+        {
+            get {
+                return _selectedProductGroup;
+            }
+            set{
+                _selectedProductGroup = value;
                 NotifyPropertyChanged();
             }
         }
@@ -79,6 +94,8 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        public ICommand SaveLogCommand { get; set; }
+
         public LogCreatePageViewModel(IUserService userService, IUnitService unitService,
             IProductGroupService productGroupService, ILogService logService,
             ILogTypeService logTypeService, INavigator navigator): base(navigator)
@@ -96,6 +113,14 @@ namespace EnterpriseAddLogs.ViewModels
 
             ExecuteLoadStaticDropdownsAsync();
 
+            SaveLogCommand = new Command(SaveLogAsync);
+
+        }
+
+        private async void SaveLogAsync()
+        {
+            var prId = SelectedProductGroup.ProductGroupID;
+            await Navigator.CloseModalAsync();
         }
 
         private async Task ExecuteLoadStaticDropdownsAsync()
