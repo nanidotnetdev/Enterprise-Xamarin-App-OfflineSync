@@ -59,6 +59,12 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneS
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.iOS.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\Autofac.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.IO.Compression.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Net.Http.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.Algorithms.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.Encoding.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.X509Certificates.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\Xamarin.Essentials.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.pdb
@@ -102,11 +108,11 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneS
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\zh-Hans\Xamarin.Forms.Platform.iOS.resources.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.Services.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.Models.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.Services.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.Services.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.Models.pdb
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\EnterpriseAddLogs.Services.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items
@@ -119,9 +125,3 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneS
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneSimulator\Debug\EnterpriseAddLogs.iOS.csproj.CopyComplete
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneSimulator\Debug\EnterpriseAddLogs.iOS.exe
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\obj\iPhoneSimulator\Debug\EnterpriseAddLogs.iOS.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.IO.Compression.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Net.Http.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.Algorithms.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.Encoding.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.X509Certificates.dll

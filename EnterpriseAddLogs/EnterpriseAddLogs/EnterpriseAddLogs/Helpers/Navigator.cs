@@ -111,11 +111,11 @@
             }
             else
             {
-                if (Navigation.NavigationStack.Last().GetType().Name == view.GetType().Name)
-                {
-                    // Already on the requested page.
-                    return;
-                }
+                //if (Navigation.NavigationStack.Last().GetType().Name == view.GetType().Name)
+                //{
+                //    // Already on the requested page.
+                //    return;
+                //}
 
                 await Navigation.PushAsync(view);
             }

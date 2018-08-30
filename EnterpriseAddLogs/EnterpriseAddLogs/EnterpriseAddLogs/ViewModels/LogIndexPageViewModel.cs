@@ -59,19 +59,19 @@
 
         private async void AddLogPageCommand()
         {
-            await Navigator.NavigateToDetailViewModelAsync<LogCreatePageViewModel>();
+            await Navigator.NavigateToViewModelAsync<LogCreatePageViewModel>();
         }
 
         private async void ExecuteLoadAllLogs()
         {
-            ICollection<LogEntity> logs = await _logService.GetAllLogsAsync();
+            //ICollection<LogEntity> logs = await _logService.GetAllLogsAsync();
 
-            Logs.Clear();
+            //Logs.Clear();
 
-            foreach (var log in logs)
-            {
-                Logs.Add(log);
-            }
+            //foreach (var log in logs)
+            //{
+            //    Logs.Add(log);
+            //}
         }
 
         public async Task LogPageAsync()

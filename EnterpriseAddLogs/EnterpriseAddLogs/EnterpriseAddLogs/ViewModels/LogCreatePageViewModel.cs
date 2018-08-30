@@ -172,9 +172,9 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        public override Task OnNavigatedToAsync(object parameter = null)
-        {
-            return base.OnNavigatedToAsync(parameter);
-        }
+        //public override Task OnNavigatedToAsync(object parameter = null)
+        //{
+        //    return base.OnNavigatedToAsync(parameter);
+        //}
     }
 }

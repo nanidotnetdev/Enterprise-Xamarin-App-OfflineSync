@@ -1,4 +1,6 @@
+using Autofac;
 using EnterpriseAddLogs.Helpers;
+using EnterpriseAddLogs.ViewModels;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,17 +14,19 @@ namespace EnterpriseAddLogs
 		{
 			InitializeComponent();
 
-            MainPage = new MainPage();
-            MainPage.BindingContext = Ioc.Resolve<MainPage>();
+            MainPage = Ioc.Resolve<IViewResolver>().ResolveView<MainPageViewModel>();
+            MainPage.BindingContext = Ioc.Resolve<MainPageViewModel>();
             Ioc.Resolve<INavigator>().Navigation = MainPage.Navigation;
         }
 
-		protected override void OnStart ()
+		protected override async void OnStart ()
 		{
-			// Handle when your app starts
-		}
+            // Handle when your app starts
+            await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<HomePageViewModel>();
 
-		protected override void OnSleep ()
+        }
+
+        protected override void OnSleep ()
 		{
 			// Handle when your app sleeps
 		}

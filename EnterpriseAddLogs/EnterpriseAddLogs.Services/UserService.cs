@@ -64,7 +64,9 @@
 
                     var json = await response.Content.ReadAsStringAsync();
 
-                    return JsonConvert.DeserializeObject<ICollection<UserEntity>>(json);
+                    var result = JsonConvert.DeserializeObject<ICollection<UserEntity>>(json);
+
+                    return result;
                 }
             }
         }

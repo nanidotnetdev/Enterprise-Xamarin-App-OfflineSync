@@ -29,8 +29,8 @@ Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
-EnterpriseAddLogs.Services
 EnterpriseAddLogs.Models
+EnterpriseAddLogs.Services
 System.Resources.ResourceManager
 System.Diagnostics.Tools
 System.Reflection.Primitives
