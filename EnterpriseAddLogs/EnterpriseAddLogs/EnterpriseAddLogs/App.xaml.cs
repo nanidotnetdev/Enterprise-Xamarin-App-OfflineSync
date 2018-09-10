@@ -22,7 +22,7 @@ namespace EnterpriseAddLogs
 		protected override async void OnStart ()
 		{
             // Handle when your app starts
-            await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<HomePageViewModel>();
+            await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<LoginPageViewModel>();
 
         }
 

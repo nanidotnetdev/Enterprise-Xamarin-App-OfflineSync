@@ -1,1 +1,0 @@
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\EnterpriseAddLogs.UWP.csproj;x86

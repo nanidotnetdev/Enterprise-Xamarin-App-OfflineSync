@@ -2,6 +2,7 @@
 {
     using Autofac;
     using EnterpriseAddLogs.Helpers;
+    using EnterpriseAddLogs.Messaging;
     using EnterpriseAddLogs.ViewModels;
     using Xamarin.Forms;
 
@@ -20,6 +21,8 @@
 
             builder.RegisterType<ViewResolver>().AsImplementedInterfaces();
             builder.RegisterType<Navigator>().SingleInstance().AsImplementedInterfaces();
+            builder.RegisterType<MessageBus>().SingleInstance().AsImplementedInterfaces();
+
         }
     }
 }

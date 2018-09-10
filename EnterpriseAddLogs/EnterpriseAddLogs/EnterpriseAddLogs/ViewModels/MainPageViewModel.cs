@@ -1,4 +1,5 @@
 ﻿using EnterpriseAddLogs.Helpers;
+using EnterpriseAddLogs.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,9 +8,19 @@ namespace EnterpriseAddLogs.ViewModels
 {
     public sealed class MainPageViewModel: PageViewModel
     {
-        public MainPageViewModel(INavigator navigator): base(navigator)
+        public MainPageViewModel(INavigator navigator, IMessageBus messageBus): base(navigator)
         {
-            Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
+            messageBus.Subscribe<LoginStateChangedMessage>(async message =>
+            {
+                if (message.IsLoggedIn)
+                {
+
+                }
+                else
+                {
+                    await Navigator.NavigateToDetailViewModelAsync<LoginPageViewModel>();
+                }
+            });
         }
     }
 }

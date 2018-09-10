@@ -14,7 +14,7 @@
 		{
 			InitializeComponent ();
 
-            BindingContext = Ioc.Container.Resolve<LogIndexPageViewModel>();
+            //BindingContext = Ioc.Container.Resolve<LogIndexPageViewModel>();
         }
 
         protected override void OnAppearing()
@@ -23,19 +23,19 @@
 
         }
 
-        private async void Log_Selected(object sender, ItemTappedEventArgs e)
-        {
-            var selectedLog = e.Item as LogEntity;
+        //private async void Log_Selected(object sender, ItemTappedEventArgs e)
+        //{
+        //    var selectedLog = e.Item as LogEntity;
 
-            if (selectedLog == null)
-                return;
+        //    if (selectedLog == null)
+        //        return;
 
-            var viewModel = (LogIndexPageViewModel)BindingContext;
-            viewModel.LogEntity = selectedLog;
-            LogListView.SelectedItem = null;
-            await viewModel.LogPageAsync();
+        //    var viewModel = (LogIndexPageViewModel)BindingContext;
+        //    viewModel.LogEntity = selectedLog;
+        //    LogListView.SelectedItem = null;
+        //    await viewModel.LogPageAsync();
 
-        }
+        //}
 
         //private async void btnAddLogClicked(object sender, System.EventArgs e)
         //{

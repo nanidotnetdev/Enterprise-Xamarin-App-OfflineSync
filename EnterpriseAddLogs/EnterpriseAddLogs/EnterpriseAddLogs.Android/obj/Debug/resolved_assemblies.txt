@@ -69,8 +69,8 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Security.SecureString.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Web.Services.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Xml.XPath.XDocument.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.Models.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.Services.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.Models.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Dynamic.Runtime.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.ObjectModel.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll

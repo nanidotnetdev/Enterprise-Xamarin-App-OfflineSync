@@ -15,6 +15,10 @@
                 viewModelType.Name,
                 viewModelType.Name.Replace("ViewModel", string.Empty));
 
+
+            var nn = viewName.Replace("Model", string.Empty);
+            var tt = Type.GetType(nn);
+
             return Ioc.Resolve(Type.GetType(viewName.Replace("Model", string.Empty))) as Page;
         }
     }

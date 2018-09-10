@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
     using Xamarin.Forms;
     using EnterpriseAddLogs.ViewModels;
+    using EnterpriseAddLogs.Messaging;
 
     public sealed class Navigator : INavigator
     {
@@ -11,9 +12,13 @@
 
         private IViewResolver ViewResolver { get; set; }
 
-        public Navigator(IViewResolver viewResolver)
+        private IMessageBus MessageBus { get; set; }
+
+
+        public Navigator(IViewResolver viewResolver, IMessageBus messageBus)
         {
             ViewResolver = viewResolver;
+            MessageBus = messageBus;
         }
 
         public async Task NavigateToViewModelAsync<TViewModel>(object parameter = null)
@@ -31,10 +36,13 @@
         public async Task NavigateToDetailViewModelAsync<TViewModel>(object parameter = null)
             where TViewModel : PageViewModel
         {
+            //Logger.Track("NavigateToDetailViewModel", new Dictionary<string, string> { { "Page", typeof(TViewModel).Name } });
+
             var view = ViewResolver.ResolveView<TViewModel>();
 
             if (view == null)
             {
+                //Logger.Information("Skipping navigation to view model {ViewModelName}", typeof(TViewModel).Name);
                 return;
             }
 
@@ -42,9 +50,13 @@
 
             view.BindingContext = viewModel;
 
+            var message = new ShowDetailPageMessage(view);
+            MessageBus.Publish(message);
+
             viewModel.OnNavigatedTo(parameter);
             await viewModel.OnNavigatedToAsync(parameter);
         }
+
 
         public void Remove(PageViewModel viewModel)
         {
@@ -111,11 +123,11 @@
             }
             else
             {
-                //if (Navigation.NavigationStack.Last().GetType().Name == view.GetType().Name)
-                //{
-                //    // Already on the requested page.
-                //    return;
-                //}
+                if (Navigation.NavigationStack.Last().GetType().Name == view.GetType().Name)
+                {
+                    // Already on the requested page.
+                    return;
+                }
 
                 await Navigation.PushAsync(view);
             }

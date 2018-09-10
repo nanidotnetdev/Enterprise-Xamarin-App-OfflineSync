@@ -1,3 +1,4 @@
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csprojAssemblyReference.cache
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Android.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Android.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\com.companyname.EnterpriseAddLogs.apk
@@ -8,7 +9,6 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Models.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Services.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csprojAssemblyReference.cache
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csproj.CoreCompileInputs.cache
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\XamlC.stamp
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csproj.CopyComplete
@@ -110,7 +110,6 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Android.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\EnterpriseAddLogs.Android.dll.mdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

@@ -18,7 +18,7 @@
             <ListView x:Name="LogListView"
                 ItemsSource="{Binding Logs}"
                       VerticalOptions="FillAndExpand"
-                      HasUnevenRows="True" ItemTapped="Log_Selected">
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

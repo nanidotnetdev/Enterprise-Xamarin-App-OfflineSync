@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnterpriseAddLogs.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace EnterpriseAddLogs.Views
 		public HomePage ()
 		{
 			InitializeComponent ();
-		}
+
+            //BindingContext = Ioc.Resolve<HomePageViewModel>();
+        }
 	}
 }

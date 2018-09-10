@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnterpriseAddLogs\EnterpriseAddLogs.csproj">
-      <Project>{0495B081-C1DA-4C79-B404-B8837E3E6804}</Project>
+      <Project>{7d4d28aa-08fd-4887-ae11-8b36f025d822}</Project>
       <Name>EnterpriseAddLogs</Name>
     </ProjectReference>
   </ItemGroup>

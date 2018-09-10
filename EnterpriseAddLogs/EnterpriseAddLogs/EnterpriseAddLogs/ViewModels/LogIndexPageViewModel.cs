@@ -3,7 +3,7 @@
     using EnterpriseAddLogs.Helpers;
     using EnterpriseAddLogs.Models;
     using EnterpriseAddLogs.Services;
-    using System.Collections.Generic;
+    using System;
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
     using System.Windows.Input;
@@ -42,7 +42,6 @@
 
         public ICommand AddLogCommand { get; set; }
 
-
         public LogIndexPageViewModel(ILogService logService, INavigator navigator)
             :base(navigator)
         {
@@ -66,7 +65,26 @@
         {
             //ICollection<LogEntity> logs = await _logService.GetAllLogsAsync();
 
-            //Logs.Clear();
+            Logs.Clear();
+
+            Logs.Add(new LogEntity
+            {
+                LogNumber= 1,
+                Id = Guid.NewGuid()
+                
+            });
+            Logs.Add(new LogEntity
+            {
+                LogNumber= 2,
+                Id = Guid.NewGuid()
+                
+            });
+            Logs.Add(new LogEntity
+            {
+                LogNumber= 3,
+                Id = Guid.NewGuid()
+                
+            });
 
             //foreach (var log in logs)
             //{
