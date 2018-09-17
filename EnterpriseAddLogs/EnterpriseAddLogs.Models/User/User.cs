@@ -1,10 +1,12 @@
 ﻿namespace EnterpriseAddLogs.Models
 {
+    using Newtonsoft.Json;
     using System;
 
     public class UserEntity
     {
-        public Guid UserID { get; set; }
+        [JsonProperty("Id")]
+        public Guid UserId { get; set; }
 
         public int? MemberShipUserID { get; set; }
 
@@ -18,17 +20,17 @@
 
         public string Phone { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
 
-        public bool IsContractor { get; set; }
+        public bool? IsContractor { get; set; }
 
         public Guid? RoleID { get; set; }
 
         public string ProfilePhotoID { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
-        public Guid CreatedBy { get; set; }
+        public Guid? CreatedBy { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
 

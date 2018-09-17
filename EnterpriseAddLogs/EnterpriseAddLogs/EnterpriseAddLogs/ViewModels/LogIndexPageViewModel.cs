@@ -4,7 +4,9 @@
     using EnterpriseAddLogs.Models;
     using EnterpriseAddLogs.Services;
     using System;
+    using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -26,14 +28,14 @@
             }
         }
 
-        private LogEntity _logEntity;
+        private LogEntity _selectedLog;
 
-        public LogEntity LogEntity
+        public LogEntity SelectedLog
         {
-            get { return _logEntity; }
+            get { return _selectedLog; }
             set
             {
-                _logEntity = value;
+                _selectedLog = value;
                 NotifyPropertyChanged();
             }
         }
@@ -45,6 +47,8 @@
         public LogIndexPageViewModel(ILogService logService, INavigator navigator)
             :base(navigator)
         {
+            IsBusy = true;
+
             _logService = logService;
 
             Title = "Logs";
@@ -56,45 +60,45 @@
             ExecuteLoadAllLogs();
         }
 
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    IsBusy = true;
+
+                    await ExecuteLoadAllLogs();
+
+                    IsBusy = false;
+                });
+            }
+        }
+
         private async void AddLogPageCommand()
         {
             await Navigator.NavigateToViewModelAsync<LogCreatePageViewModel>();
         }
 
-        private async void ExecuteLoadAllLogs()
+        private async Task ExecuteLoadAllLogs()
         {
-            //ICollection<LogEntity> logs = await _logService.GetAllLogsAsync();
+            ICollection<LogEntity> logs = await _logService.GetAllLogsAsync();
 
             Logs.Clear();
 
-            Logs.Add(new LogEntity
+            foreach (var log in logs)
             {
-                LogNumber= 1,
-                Id = Guid.NewGuid()
-                
-            });
-            Logs.Add(new LogEntity
-            {
-                LogNumber= 2,
-                Id = Guid.NewGuid()
-                
-            });
-            Logs.Add(new LogEntity
-            {
-                LogNumber= 3,
-                Id = Guid.NewGuid()
-                
-            });
+                Logs.Add(log);
+            }
 
-            //foreach (var log in logs)
-            //{
-            //    Logs.Add(log);
-            //}
+            IsBusy = false;
         }
 
-        public async Task LogPageAsync()
+        public async Task LogSelected()
         {
-            await Navigator.NavigateToViewModelAsync<LogCreatePageViewModel>(LogEntity);
+            var selLog = SelectedLog;
+
+            await Navigator.NavigateToViewModelAsync<LogCreatePageViewModel>(SelectedLog.LogNumber);
         }
 
     }

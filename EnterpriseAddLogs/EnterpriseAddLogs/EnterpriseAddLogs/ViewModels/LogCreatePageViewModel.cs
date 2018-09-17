@@ -66,6 +66,21 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        private UnitEntity _selectedUnitNumber { get; set; }
+
+        public UnitEntity SelectedUnitNumber
+        {
+            get
+            {
+                return _selectedUnitNumber;
+            }
+            set
+            {
+                _selectedUnitNumber = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public ObservableCollection<UserEntity> _userEntities { get; set; }
         public ObservableCollection<UserEntity> UserEntities
         {
@@ -80,7 +95,37 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        public ObservableCollection<LogTypeEntity> _logTypeEntities { get; set; }
+        private UserEntity _selectedAssignedDriver { get; set; }
+
+        public UserEntity SelectedAssignedDriver
+        {
+            get
+            {
+                return _selectedAssignedDriver;
+            }
+            set
+            {
+                _selectedAssignedDriver = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private UserEntity _selectedEnteredBy { get; set; }
+
+        public UserEntity SelectedEnteredBy
+        {
+            get
+            {
+                return _selectedEnteredBy;
+            }
+            set
+            {
+                _selectedEnteredBy = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private ObservableCollection<LogTypeEntity> _logTypeEntities { get; set; }
         public ObservableCollection<LogTypeEntity> LogTypeEntities
         {
             get
@@ -94,12 +139,60 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        private LogTypeEntity _selectedLogType { get; set; }
+
+        public LogTypeEntity SelectedLogType
+        {
+            get
+            {
+                return _selectedLogType;
+            }
+            set
+            {
+                _selectedLogType = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _logCreatedDate { get; set; }
+
+        private DateTime LogCreatedDate
+        {
+            get
+            {
+                return _logCreatedDate;
+            }
+            set
+            {
+                _logCreatedDate = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public ICommand SaveLogCommand { get; set; }
+
+        private ObservableCollection<CommentEntity> _logComments { get; set; }
+
+        public ObservableCollection<CommentEntity> LogComments
+        {
+            get
+            {
+                return _logComments;
+            }
+            set
+            {
+                _logComments = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public LogCreatePageViewModel(IUserService userService, IUnitService unitService,
             IProductGroupService productGroupService, ILogService logService,
             ILogTypeService logTypeService, INavigator navigator): base(navigator)
         {
+
+            IsBusy = true;
+
             _userService = userService;
             _unitService = unitService;
             _productGroupService = productGroupService;
@@ -111,16 +204,31 @@ namespace EnterpriseAddLogs.ViewModels
             _userEntities = new ObservableCollection<UserEntity>();
             _logTypeEntities = new ObservableCollection<LogTypeEntity>();
 
+            LogCreatedDate = DateTime.Now;
+
             ExecuteLoadStaticDropdownsAsync();
 
             SaveLogCommand = new Command(SaveLogAsync);
-
         }
 
         private async void SaveLogAsync()
         {
-            var prId = SelectedProductGroup.ProductGroupID;
-            await Navigator.CloseModalAsync();
+            IsBusy = true;
+
+            var logentity = new LogEntity
+            {
+                UnitID = SelectedUnitNumber.UnitID,
+                AssignedDriver = SelectedAssignedDriver.UserId,
+                LogTypeID = SelectedLogType.LogTypeID,
+                ProductGroupID = SelectedProductGroup.ProductGroupId,
+                EnteredBy = SelectedEnteredBy.UserId,
+                EnteredDate = DateTime.Now
+            };
+
+            await _logService.SaveLogAsync(logentity);
+            IsBusy = false;
+
+            await Navigator.NavigateToViewModelAsync<LogIndexPageViewModel>();
         }
 
         private async Task ExecuteLoadStaticDropdownsAsync()
@@ -129,8 +237,30 @@ namespace EnterpriseAddLogs.ViewModels
             var t2 = ExecuteLoadUnitEntities();
             var t3 = ExecuteLoadUserEntities();
             var t4 = ExecuteLoadLogTypeEntities();
+            var t5 = ExecuteLoadCommentEntities();
 
             await Task.WhenAll(t1, t2, t3, t4);
+
+            IsBusy = false;
+        }
+
+        private async Task ExecuteLoadCommentEntities()
+        {
+            LogComments = new ObservableCollection<CommentEntity>
+            {
+                new CommentEntity
+                {
+                    CommentId = Guid.NewGuid(),
+                    CreatedByName = "Narendra",
+                    Comment ="The break rod was broken. need to replace \n. Find the order and replace."
+                },
+                new CommentEntity
+                {
+                    CommentId = Guid.NewGuid(),
+                    CreatedByName = "Kavan",
+                    Comment ="The break rod was broken.\n need to replace \n. Find the order and replace."
+                }
+            };
         }
 
         private async Task ExecuteLoadProductGroupEntities()
@@ -158,6 +288,7 @@ namespace EnterpriseAddLogs.ViewModels
             ICollection<UserEntity> Entities = await _userService.GetAllUsersAsync();
             foreach (var item in Entities)
             {
+                var id = item.UserId;
                 UserEntities.Add(item);
             }
         }
@@ -172,9 +303,11 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        //public override Task OnNavigatedToAsync(object parameter = null)
-        //{
-        //    return base.OnNavigatedToAsync(parameter);
-        //}
+        public override Task OnNavigatedToAsync(object parameter = null)
+        {
+            var selLog = parameter;
+
+            return base.OnNavigatedToAsync(parameter);
+        }
     }
 }

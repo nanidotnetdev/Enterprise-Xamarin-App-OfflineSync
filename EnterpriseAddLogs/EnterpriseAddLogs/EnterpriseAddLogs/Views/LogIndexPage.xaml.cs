@@ -3,7 +3,7 @@
     using Autofac;
     using EnterpriseAddLogs.Models;
     using EnterpriseAddLogs.ViewModels;
-
+    using System;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
 
@@ -22,6 +22,21 @@
             base.OnAppearing();
 
         }
+
+        private void LogListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var log = e.Item as LogEntity;
+            var Id = log.Id;
+
+            var VM = (LogIndexPageViewModel)BindingContext;
+            VM.LogSelected();
+        }
+
+        //private void LogListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    var selectedLog = e.Item as LogEntity;
+
+        //}
 
         //private async void Log_Selected(object sender, ItemTappedEventArgs e)
         //{

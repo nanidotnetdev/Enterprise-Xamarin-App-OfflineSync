@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "44424a0480b57fffe8d5687b91d9a7da878f2c2d"
+    "signature": "5a4399b1b7a4d2c557ed52895cbfb53b7a76dc44"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,25 +9,25 @@
     ".NETStandard,Version=v2.0/": {
       "EnterpriseAddLogs/1.0.0": {
         "dependencies": {
-          "Autofac": "4.8.1",
+          "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
           "NETStandard.Library": "2.0.3",
           "Xamarin.Essentials": "0.10.0-preview",
-          "Xamarin.Forms": "3.2.0.729530-pre2"
+          "Xamarin.Forms": "3.2.0.809874-pre3"
         },
         "runtime": {
           "EnterpriseAddLogs.dll": {}
         }
       },
-      "Autofac/4.8.1": {
+      "Autofac/4.9.0-beta1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "System.ComponentModel": "4.0.1"
         },
         "runtime": {
           "lib/netstandard1.1/Autofac.dll": {
-            "assemblyVersion": "4.8.1.0",
-            "fileVersion": "4.8.1.0"
+            "assemblyVersion": "4.9.0.0",
+            "fileVersion": "4.9.0.0"
           }
         }
       },
@@ -82,7 +82,7 @@
           }
         }
       },
-      "Xamarin.Forms/3.2.0.729530-pre2": {
+      "Xamarin.Forms/3.2.0.809874-pre3": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
@@ -99,13 +99,16 @@
         }
       },
       "EnterpriseAddLogs.Models/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
         "runtime": {
           "EnterpriseAddLogs.Models.dll": {}
         }
       },
       "EnterpriseAddLogs.Services/1.0.0": {
         "dependencies": {
-          "Autofac": "4.8.1",
+          "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Models": "1.0.0",
           "Newtonsoft.Json": "11.0.2"
         },
@@ -121,12 +124,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Autofac/4.8.1": {
+    "Autofac/4.9.0-beta1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aIT9rupCOdab5RMfxvWTBmOxGU77tLqmvSF4V89SzV6oQcJrtuKw/Xp55xy9EijSktbMka55SbroAPOyT+lziw==",
-      "path": "autofac/4.8.1",
-      "hashPath": "autofac.4.8.1.nupkg.sha512"
+      "sha512": "sha512-ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
+      "path": "autofac/4.9.0-beta1",
+      "hashPath": "autofac.4.9.0-beta1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -184,12 +187,12 @@
       "path": "xamarin.essentials/0.10.0-preview",
       "hashPath": "xamarin.essentials.0.10.0-preview.nupkg.sha512"
     },
-    "Xamarin.Forms/3.2.0.729530-pre2": {
+    "Xamarin.Forms/3.2.0.809874-pre3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qSP/FC32sxFzq6e6/dQ8s35fvryxwoziSMvzy05ouBQTiETs2hTwvb7tn8UQmF5fRAcoT8jNQQdgMsgCjCedMw==",
-      "path": "xamarin.forms/3.2.0.729530-pre2",
-      "hashPath": "xamarin.forms.3.2.0.729530-pre2.nupkg.sha512"
+      "sha512": "sha512-wp3vSLE/buUaSKW4gSMXQqISjLzpWiS3g61kWhTLHAgErx30WpG/UiI7pLfwLsoksf79fTOyy/M11ClLbTcxHQ==",
+      "path": "xamarin.forms/3.2.0.809874-pre3",
+      "hashPath": "xamarin.forms.3.2.0.809874-pre3.nupkg.sha512"
     },
     "EnterpriseAddLogs.Models/1.0.0": {
       "type": "project",

@@ -1,10 +1,12 @@
 ﻿namespace EnterpriseAddLogs.Models
 {
+    using Newtonsoft.Json;
     using System;
 
     public class ProductGroupEntity
     {
-        public Guid ProductGroupID { get; set; }
+        [JsonProperty("Id")]
+        public Guid ProductGroupId { get; set; }
 
         public string GroupName { get; set; }
 

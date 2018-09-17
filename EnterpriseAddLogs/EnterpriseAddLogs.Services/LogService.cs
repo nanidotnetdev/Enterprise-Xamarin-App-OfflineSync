@@ -91,7 +91,7 @@ namespace EnterpriseAddLogs.Services
                     HttpResponseMessage response = null;
 
                     //Instead of POST Async add content in the request.
-                    request.Content = new StringContent(JsonConvert.SerializeObject(log), Encoding.UTF8, "application/json"); ;
+                    request.Content = new StringContent(JsonConvert.SerializeObject(log), Encoding.UTF8, "application/json");
 
                     using (var cancellationToken = new CancellationTokenSource())
                     {

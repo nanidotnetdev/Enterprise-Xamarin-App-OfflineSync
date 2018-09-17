@@ -1,9 +1,11 @@
 ﻿namespace EnterpriseAddLogs.Models
 {
+    using Newtonsoft.Json;
     using System;
 
     public class LogTypeEntity
     {
+        [JsonProperty("Id")]
         public Guid LogTypeID { get; set; }
 
         public string LogType { get; set; }

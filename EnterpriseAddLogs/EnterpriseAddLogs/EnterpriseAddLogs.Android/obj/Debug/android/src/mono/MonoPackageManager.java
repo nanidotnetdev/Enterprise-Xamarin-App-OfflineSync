@@ -136,8 +136,8 @@ class MonoPackageManager_Resources {
 		"Xamarin.Forms.Platform.Android.dll",
 		"Xamarin.Forms.Platform.dll",
 		"Xamarin.Forms.Xaml.dll",
-		"EnterpriseAddLogs.Services.dll",
 		"EnterpriseAddLogs.Models.dll",
+		"EnterpriseAddLogs.Services.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

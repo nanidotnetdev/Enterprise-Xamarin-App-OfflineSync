@@ -36,3 +36,17 @@ System.Diagnostics.Tools
 System.Reflection.Primitives
 System.ComponentModel
 System.Reflection.Extensions
+System.Runtime.Numerics
+System.Xml.XmlDocument
+System.Xml.XDocument
+System.Collections
+System.Globalization
+System.Threading.Tasks
+System.Diagnostics.Debug
+System.Dynamic.Runtime
+System.Runtime.Serialization.Formatters
+System.ObjectModel
+System.Xml.ReaderWriter
+System.Text.Encoding
+System.Threading
+System.Text.Encoding.Extensions

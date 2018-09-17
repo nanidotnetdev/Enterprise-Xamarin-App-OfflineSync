@@ -22,6 +22,16 @@
             }
         }
 
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get { return isRefreshing; }
+            set
+            {
+                SetProperty(ref isRefreshing, value);
+            }
+        }
+
         private string title = string.Empty;
 
         public string Title

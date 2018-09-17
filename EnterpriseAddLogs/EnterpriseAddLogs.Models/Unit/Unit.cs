@@ -1,9 +1,11 @@
 ﻿namespace EnterpriseAddLogs.Models
 {
+    using Newtonsoft.Json;
     using System;
 
     public class UnitEntity
     {
+        [JsonProperty("Id")]
         public Guid UnitID { get; set; }
 
         public string UnitNumber { get; set; }

@@ -66,6 +66,15 @@
 
                     var result = JsonConvert.DeserializeObject<ICollection<UserEntity>>(json);
 
+                    var itemsss = new List<UserEntity>();
+
+                    foreach (var item in result)
+                    {
+                        var id = item.UserId;
+                        var d = item.CreatedDate;
+                        itemsss.Add(item);
+                    }
+
                     return result;
                 }
             }

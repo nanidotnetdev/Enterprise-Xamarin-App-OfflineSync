@@ -1,9 +1,11 @@
 ﻿namespace EnterpriseAddLogs.Models
 {
+    using Newtonsoft.Json;
     using System;
 
     public class LogEntity
     {
+        [JsonProperty("LogID")]
         public Guid Id { get; set; }
 
         public int LogNumber { get; set; }
@@ -62,6 +64,5 @@
         public Guid? UpdatedBy { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
-
     }
 }

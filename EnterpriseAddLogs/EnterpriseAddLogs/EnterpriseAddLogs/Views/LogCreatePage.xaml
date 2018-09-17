@@ -3,33 +3,75 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EnterpriseAddLogs.Views.LogCreatePage">
     <ContentPage.Content>
-        <StackLayout Padding="5">
-            <Label Text="Product Group"/>
-            <Picker x:Name="pcrProductGroup"
+        <ScrollView>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" 
+                        VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Label Text="Product Group"/>
+                <Picker x:Name="pcrProductGroup"
                 ItemsSource="{Binding ProductGroupEntities, Mode=TwoWay}"
                 Title="Select Product group"
                 ItemDisplayBinding="{Binding GroupName}"
                     SelectedItem="{Binding SelectedProductGroup}"/>
-
-            <Label Text="Unit Number"/>
-            <Picker x:Name="pcrUnit"
+                
+                <Label Text="Unit Number"/>
+                <Picker x:Name="pcrUnit"
                 ItemsSource="{Binding UnitEntities, Mode=TwoWay}"
                 Title="Select Unit Number"
-                ItemDisplayBinding="{Binding UnitNumber}" />
-
-            <Label Text="Assigned User"/>
-            <Picker x:Name="pcrUser"
-                ItemsSource="{Binding UserEntities, Mode=TwoWay}"
-                Title="Select User"
-                ItemDisplayBinding="{Binding EmpName}" />
-
-            <Label Text="Log Type"/>
-            <Picker x:Name="pcrLogType"
+                ItemDisplayBinding="{Binding UnitNumber}"
+                    SelectedItem="{Binding SelectedUnitNumber}"/>
+                
+                <Label Text="Log Type"/>
+                <Picker x:Name="pcrLogType"
                 ItemsSource="{Binding LogTypeEntities, Mode=TwoWay}"
                 Title="Select LogType"
-                ItemDisplayBinding="{Binding LogType}" />
+                ItemDisplayBinding="{Binding LogType}"
+                    SelectedItem="{Binding SelectedLogType}"/>
+                
+                <Label Text="Assigned User"/>
+                <Picker x:Name="pcrAssignedDriver"
+                ItemsSource="{Binding UserEntities, Mode=TwoWay}"
+                Title="Select User"
+                ItemDisplayBinding="{Binding EmpName}"
+                    SelectedItem="{Binding SelectedAssignedDriver}"/>
 
-            <Button Command="{Binding SaveLogCommand}" Text="Save"/>
-        </StackLayout>
+                <Label Text="Entred By"/>
+                <Picker x:Name="pcrEnteredBy"
+                ItemsSource="{Binding UserEntities, Mode=TwoWay}"
+                Title="Select Entered by"
+                ItemDisplayBinding="{Binding EmpName}"
+                    SelectedItem="{Binding SelectedEnteredBy}"/>
+
+                <ListView x:Name="LogCommentsList"
+                ItemsSource="{Binding LogComments}"
+                          HasUnevenRows="True"
+                      VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="10">
+                                        <Label Text="{Binding CreatedByName}" 
+                                       LineBreakMode="NoWrap" 
+                                       FontSize="16" />
+                                        <Label Text="{Binding Comment}" 
+                                       LineBreakMode="CharacterWrap"
+                                       FontSize="12" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Button Command="{Binding SaveLogCommand}" Text="Save"/>
+            </StackLayout>
+            
+            <StackLayout 
+                IsVisible="{Binding IsBusy}" Padding="12"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Gray"/>
+            </StackLayout>
+        </AbsoluteLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

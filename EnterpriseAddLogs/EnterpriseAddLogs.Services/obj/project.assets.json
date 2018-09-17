@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "Autofac/4.8.1": {
+      "Autofac/4.9.0-beta1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.0",
@@ -82,6 +82,9 @@
       "EnterpriseAddLogs.Models/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
         "compile": {
           "bin/placeholder/EnterpriseAddLogs.Models.dll": {}
         },
@@ -92,16 +95,19 @@
     }
   },
   "libraries": {
-    "Autofac/4.8.1": {
-      "sha512": "aIT9rupCOdab5RMfxvWTBmOxGU77tLqmvSF4V89SzV6oQcJrtuKw/Xp55xy9EijSktbMka55SbroAPOyT+lziw==",
+    "Autofac/4.9.0-beta1": {
+      "sha512": "ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
       "type": "package",
-      "path": "autofac/4.8.1",
+      "path": "autofac/4.9.0-beta1",
       "files": [
-        "autofac.4.8.1.nupkg.sha512",
+        ".signature.p7s",
+        "autofac.4.9.0-beta1.nupkg.sha512",
         "autofac.nuspec",
         "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.pdb",
         "lib/net45/Autofac.xml",
         "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.pdb",
         "lib/netstandard1.1/Autofac.xml"
       ]
     },
@@ -441,7 +447,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "Autofac >= 4.8.1",
+      "Autofac >= 4.9.0-beta1",
       "EnterpriseAddLogs.Models >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 11.0.2"
@@ -494,7 +500,7 @@
         "dependencies": {
           "Autofac": {
             "target": "Package",
-            "version": "[4.8.1, )"
+            "version": "[4.9.0-beta1, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",

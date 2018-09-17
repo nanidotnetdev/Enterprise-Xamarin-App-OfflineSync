@@ -150,12 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Autofac">
-      <Version>4.8.1</Version>
+      <Version>4.9.0-beta1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>0.10.0-preview</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.2.0.729530-pre2" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.809874-pre3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EnterpriseAddLogs\EnterpriseAddLogs.csproj">
