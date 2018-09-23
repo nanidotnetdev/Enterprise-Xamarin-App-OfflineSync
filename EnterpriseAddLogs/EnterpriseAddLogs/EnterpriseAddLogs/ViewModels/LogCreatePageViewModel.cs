@@ -1,9 +1,11 @@
 ﻿using EnterpriseAddLogs.Helpers;
+using EnterpriseAddLogs.Messaging;
 using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -169,7 +171,26 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        private string _newLogComment;
+
+        public string NewLogComment
+        {
+            get
+            {
+                return _newLogComment;
+            }
+            set
+            {
+                _newLogComment = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ICommand AddNewLogCommand { get; set; }
+
         public ICommand SaveLogCommand { get; set; }
+
+        public ICommand AddNewDetailCommand { get; set; }
 
         private ObservableCollection<CommentEntity> _logComments { get; set; }
 
@@ -186,9 +207,43 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        private ObservableCollection<LogDetailComment> _logDetailComments { get; set; }
+
+        public ObservableCollection<LogDetailComment> LogDetailComments
+        {
+            get
+            {
+                return _logDetailComments;
+            }
+            set
+            {
+                _logDetailComments = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private bool _addNewCommentToggle { get; set; }
+
+        public bool AddNewCommentToggle
+        {
+            get
+            {
+                return _addNewCommentToggle;
+            }
+            set
+            {
+                _addNewCommentToggle = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private IMessageBus _messageBus;
+
+        public ICommand AddNewCommentCommand { get; set; }
+
         public LogCreatePageViewModel(IUserService userService, IUnitService unitService,
             IProductGroupService productGroupService, ILogService logService,
-            ILogTypeService logTypeService, INavigator navigator): base(navigator)
+            ILogTypeService logTypeService, INavigator navigator, IMessageBus messageBus): base(navigator)
         {
 
             IsBusy = true;
@@ -198,17 +253,52 @@ namespace EnterpriseAddLogs.ViewModels
             _productGroupService = productGroupService;
             _logService = logService;
             _logTypeService = logTypeService;
+            _messageBus = messageBus;
 
             _productGroupEntities = new ObservableCollection<ProductGroupEntity>();
             _unitEntities = new ObservableCollection<UnitEntity>();
             _userEntities = new ObservableCollection<UserEntity>();
             _logTypeEntities = new ObservableCollection<LogTypeEntity>();
+            _logDetailComments = new ObservableCollection<LogDetailComment>();
 
             LogCreatedDate = DateTime.Now;
 
             ExecuteLoadStaticDropdownsAsync();
 
             SaveLogCommand = new Command(SaveLogAsync);
+            AddNewLogCommand = new Command(SaveLogComment);
+            AddNewDetailCommand = new Command(AddNewDetailCommentAsync);
+
+            messageBus.Subscribe<LogDetailComment>(async message =>
+            {
+                var m = message;
+                LogDetailComments.Add(message);
+            });
+        }
+
+        private async void AddNewDetailCommentAsync()
+        {
+            await Navigator.NavigateToViewModelAsync<LogDetailPageViewModel>();
+        }
+
+        private async void SaveLogComment()
+        {
+            IsBusy = true;
+
+            var newComment = new CommentEntity
+            {
+                Comment = NewLogComment,
+                CommentId = Guid.NewGuid(),
+                CreatedDate = DateTime.Now,
+                CreatedByName = "Narendra"
+            };
+
+            //TODO: update to use the Api.
+            LogComments.Add(newComment);
+            NewLogComment = string.Empty;
+            LogComments.OrderBy(c => c.CreatedDate);
+
+            IsBusy = false;
         }
 
         private async void SaveLogAsync()
@@ -227,6 +317,8 @@ namespace EnterpriseAddLogs.ViewModels
 
             await _logService.SaveLogAsync(logentity);
             IsBusy = false;
+
+            await Navigator.CloseAsync();
 
             await Navigator.NavigateToViewModelAsync<LogIndexPageViewModel>();
         }
@@ -251,16 +343,20 @@ namespace EnterpriseAddLogs.ViewModels
                 new CommentEntity
                 {
                     CommentId = Guid.NewGuid(),
+                    CreatedDate = DateTime.Now,
                     CreatedByName = "Narendra",
-                    Comment ="The break rod was broken. need to replace \n. Find the order and replace."
+                    Comment ="The break rod was broken. need to replace. Find the order and replace."
                 },
                 new CommentEntity
                 {
                     CommentId = Guid.NewGuid(),
+                    CreatedDate = DateTime.Now,
                     CreatedByName = "Kavan",
-                    Comment ="The break rod was broken.\n need to replace \n. Find the order and replace."
+                    Comment ="The break rod was broken. need to replace. Find the order and replace."
                 }
             };
+
+            LogComments.OrderBy(c => c.CreatedDate);
         }
 
         private async Task ExecuteLoadProductGroupEntities()

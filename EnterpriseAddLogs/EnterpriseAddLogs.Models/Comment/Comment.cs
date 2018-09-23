@@ -23,5 +23,13 @@ namespace EnterpriseAddLogs.Models
         public DateTime? UpdatedDate { get; set; }
 
         public string CreatedByName { get; set; }
+
+        public string CommentHeader
+        {
+            get
+            {
+                return this.CreatedByName + " " + this.CreatedDate;
+            }
+        }
     }
 }

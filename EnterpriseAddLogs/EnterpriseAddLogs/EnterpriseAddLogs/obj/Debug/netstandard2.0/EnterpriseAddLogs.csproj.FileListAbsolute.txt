@@ -40,3 +40,4 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\obj\Debug\netst
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\obj\Debug\netstandard2.0\EnterpriseAddLogs.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\obj\Debug\netstandard2.0\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs\obj\Debug\netstandard2.0\Views\LogDetailPage.xaml.g.cs

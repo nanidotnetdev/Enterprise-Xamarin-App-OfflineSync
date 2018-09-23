@@ -11,8 +11,9 @@ namespace EnterpriseAddLogs.Views
 		public LogCreatePage ()
 		{
 			InitializeComponent ();
-
+            
             //BindingContext = Ioc.Container.Resolve<LogCreatePageViewModel>();
         }
+        
     }
 }
