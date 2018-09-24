@@ -35,10 +35,22 @@ namespace EnterpriseAddLogs.Views {
         private global::Xamarin.Forms.Editor addNewLogComment;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView LogCommentsList;
+        private global::Xamarin.Forms.Button btnAddComment;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.ListView LogDetailCommentsList;
+        private global::Xamarin.Forms.Label cancelLabel;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::EnterpriseAddLogs.Helpers.RepeaterView LogCommentsList;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::EnterpriseAddLogs.Helpers.RepeaterView LogDetailCommentsList;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button takePhoto;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Image image;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
@@ -49,8 +61,12 @@ namespace EnterpriseAddLogs.Views {
             pcrAssignedDriver = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "pcrAssignedDriver");
             pcrEnteredBy = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Picker>(this, "pcrEnteredBy");
             addNewLogComment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Editor>(this, "addNewLogComment");
-            LogCommentsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "LogCommentsList");
-            LogDetailCommentsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "LogDetailCommentsList");
+            btnAddComment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnAddComment");
+            cancelLabel = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Label>(this, "cancelLabel");
+            LogCommentsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::EnterpriseAddLogs.Helpers.RepeaterView>(this, "LogCommentsList");
+            LogDetailCommentsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::EnterpriseAddLogs.Helpers.RepeaterView>(this, "LogDetailCommentsList");
+            takePhoto = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "takePhoto");
+            image = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Image>(this, "image");
         }
     }
 }

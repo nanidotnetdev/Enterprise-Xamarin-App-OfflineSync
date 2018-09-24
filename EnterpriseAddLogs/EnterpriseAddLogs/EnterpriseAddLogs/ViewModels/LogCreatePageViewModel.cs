@@ -192,6 +192,8 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ICommand AddNewDetailCommand { get; set; }
 
+        private IList<CommentEntity> logComments { get; set; }
+
         private ObservableCollection<CommentEntity> _logComments { get; set; }
 
         public ObservableCollection<CommentEntity> LogComments
@@ -206,6 +208,8 @@ namespace EnterpriseAddLogs.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+        private IList<LogDetailComment> logDetailComments { get; set; }
 
         private ObservableCollection<LogDetailComment> _logDetailComments { get; set; }
 
@@ -260,6 +264,8 @@ namespace EnterpriseAddLogs.ViewModels
             _userEntities = new ObservableCollection<UserEntity>();
             _logTypeEntities = new ObservableCollection<LogTypeEntity>();
             _logDetailComments = new ObservableCollection<LogDetailComment>();
+            logDetailComments = new List<LogDetailComment>();
+            logComments = new List<CommentEntity>();
 
             LogCreatedDate = DateTime.Now;
 
@@ -272,7 +278,8 @@ namespace EnterpriseAddLogs.ViewModels
             messageBus.Subscribe<LogDetailComment>(async message =>
             {
                 var m = message;
-                LogDetailComments.Add(message);
+                logDetailComments.Add(message);
+                LogDetailComments = new ObservableCollection<LogDetailComment>(logDetailComments);
             });
         }
 
@@ -294,9 +301,10 @@ namespace EnterpriseAddLogs.ViewModels
             };
 
             //TODO: update to use the Api.
-            LogComments.Add(newComment);
+            logComments.Add(newComment);
             NewLogComment = string.Empty;
-            LogComments.OrderBy(c => c.CreatedDate);
+
+            LogComments = new ObservableCollection<CommentEntity>(logComments);
 
             IsBusy = false;
         }
@@ -338,7 +346,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         private async Task ExecuteLoadCommentEntities()
         {
-            LogComments = new ObservableCollection<CommentEntity>
+            logComments = new List<CommentEntity>
             {
                 new CommentEntity
                 {
@@ -356,7 +364,7 @@ namespace EnterpriseAddLogs.ViewModels
                 }
             };
 
-            LogComments.OrderBy(c => c.CreatedDate);
+            LogComments = new ObservableCollection<CommentEntity>(logComments);
         }
 
         private async Task ExecuteLoadProductGroupEntities()

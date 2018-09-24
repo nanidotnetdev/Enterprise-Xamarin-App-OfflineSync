@@ -245,6 +245,18 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        }
+      },
       "runtime.win10-arm.Microsoft.Net.Native.Compiler/2.1.8": {
         "type": "package",
         "dependencies": {
@@ -358,6 +370,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -400,6 +425,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -682,6 +708,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.any.System.Runtime/4.1.0": {
@@ -1004,6 +1042,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -1046,6 +1097,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -1328,6 +1380,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.aot.System.Runtime/4.0.20": {
@@ -1651,6 +1715,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -1693,6 +1770,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -1975,6 +2053,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.any.System.Runtime/4.1.0": {
@@ -2298,6 +2388,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -2340,6 +2443,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -2622,6 +2726,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.any.System.Runtime/4.1.0": {
@@ -2944,6 +3060,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -2986,6 +3115,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -3268,6 +3398,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.aot.System.Runtime/4.0.20": {
@@ -3591,6 +3733,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -3633,6 +3788,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -3915,6 +4071,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.any.System.Runtime/4.1.0": {
@@ -4237,6 +4405,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -4279,6 +4460,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -4561,6 +4743,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Permissions.dll": {}
         }
       },
       "runtime.aot.System.Runtime/4.0.20": {
@@ -4884,6 +5078,19 @@
           "lib/win8/_._": {}
         }
       },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3",
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0.10240/Plugin.Media.dll": {}
+        }
+      },
       "Xamarin.Essentials/0.10.0-preview": {
         "type": "package",
         "dependencies": {
@@ -4926,6 +5133,7 @@
         "dependencies": {
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
+          "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3"
         },
@@ -5517,6 +5725,27 @@
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
+      ]
+    },
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "type": "package",
+      "path": "plugin.permissions/3.0.0.12",
+      "files": [
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
       ]
     },
     "runtime.any.System.Runtime/4.1.0": {
@@ -9289,6 +9518,29 @@
         "system.runtime.nuspec"
       ]
     },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
+      ]
+    },
     "Xamarin.Essentials/0.10.0-preview": {
       "sha512": "oA8oAHIHf4ymPPQoi7sLKF0704fFgwoqmQDy1G1kOxXrEZF0W5XpTXS2y2h4/RC/7bn0DzhTS6wiC90Om4YSHA==",
       "type": "package",
@@ -9485,6 +9737,7 @@
       "Autofac >= 4.9.0-beta1",
       "EnterpriseAddLogs >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.0-Preview1-26502-02",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Essentials >= 0.10.0-preview",
       "Xamarin.Forms >= 3.2.0.809874-pre3"
     ]
@@ -9537,6 +9790,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.2.0-Preview1-26502-02, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

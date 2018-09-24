@@ -250,7 +250,7 @@ namespace EnterpriseAddLogs.ViewModels
                 Cycles = 5,
                 CreatedByName = "Narendra",
                 CreatedDate = DateTime.Now,
-                Comment = "Detail Comment Example. "
+                Comment = "Detail Comment Example. This is a detail comment. sjdbh fb jbfsdj hbsjhbbsjhb jshjh jsdb jsd js s "
             });
 
             await Navigator.CloseAsync();

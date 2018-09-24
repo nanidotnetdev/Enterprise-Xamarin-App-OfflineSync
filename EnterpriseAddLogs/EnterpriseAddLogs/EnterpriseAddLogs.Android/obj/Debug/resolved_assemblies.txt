@@ -6,6 +6,9 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Mono.Android.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\mscorlib.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Plugin.CurrentActivity.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Plugin.Media.dll
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Plugin.Permissions.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Core.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.IO.Compression.dll

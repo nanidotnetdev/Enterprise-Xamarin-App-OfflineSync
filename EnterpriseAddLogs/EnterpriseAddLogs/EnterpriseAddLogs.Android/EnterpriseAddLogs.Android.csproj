@@ -57,6 +57,9 @@
     <PackageReference Include="Microsoft.Bcl.Build">
       <Version>1.0.21</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>0.10.0-preview</Version>
     </PackageReference>
@@ -109,6 +112,9 @@
       <Project>{7d4d28aa-08fd-4887-ae11-8b36f025d822}</Project>
       <Name>EnterpriseAddLogs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

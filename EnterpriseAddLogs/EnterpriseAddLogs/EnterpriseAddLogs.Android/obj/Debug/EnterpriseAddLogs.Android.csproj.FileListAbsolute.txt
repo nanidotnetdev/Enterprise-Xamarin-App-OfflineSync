@@ -1,4 +1,3 @@
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csprojAssemblyReference.cache
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Android.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Android.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\com.companyname.EnterpriseAddLogs.apk
@@ -9,6 +8,7 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Models.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Services.pdb
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csprojAssemblyReference.cache
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csproj.CoreCompileInputs.cache
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\XamlC.stamp
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\EnterpriseAddLogs.Android.csproj.CopyComplete
@@ -31,9 +31,11 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\res\mipmap-xxhdpi\launcher_foreground.png
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\res\mipmap-xxxhdpi\icon.png
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\res\mipmap-xxxhdpi\launcher_foreground.png
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\res\xml\file_paths.xml
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\R.cs.flag
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\R.txt
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\uploadflags.txt
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\Autofac.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\Mono.Android.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\mscorlib.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\System.Core.pdb
@@ -54,6 +56,7 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\System.ServiceModel.Internals.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\System.Web.Services.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\Mono.Security.pdb
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\Autofac.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\Mono.Android.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\mscorlib.pdb
@@ -86,6 +89,7 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.Android.dll.mdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Autofac.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.Models.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\EnterpriseAddLogs.Services.pdb
@@ -109,13 +113,7 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Deb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\System.Xml.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\Microsoft.CSharp.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\Microsoft.CSharp.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\android\assets\Microsoft.CSharp.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\Autofac.pdb
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\Autofac.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\bin\Debug\EnterpriseAddLogs.Android.dll
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\EnterpriseAddLogs.pdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\EnterpriseAddLogs.Android.dll.mdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb
