@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
+using Plugin.CurrentActivity;
+using Plugin.Permissions;
 
 namespace EnterpriseAddLogs.Droid
 {
@@ -16,20 +19,21 @@ namespace EnterpriseAddLogs.Droid
 
             base.OnCreate(bundle);
 
+            CrossCurrentActivity.Current.Init(this, bundle);
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Ioc.Container = new AndroidBootstrapper().Bootstrap();
 
             global::Xamarin.Essentials.Platform.Init(this, bundle);
 
-            //CrossCurrentActivity.Current.Init(this, bundle);
-
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

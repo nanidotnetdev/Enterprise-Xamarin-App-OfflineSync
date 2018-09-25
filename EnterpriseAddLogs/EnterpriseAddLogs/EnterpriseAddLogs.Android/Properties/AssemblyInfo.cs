@@ -33,7 +33,8 @@ using Android.App;
 [assembly: UsesPermission(Android.Manifest.Permission.Internet)]
 [assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
 [assembly: UsesPermission(Android.Manifest.Permission.ReadExternalStorage)]
+[assembly: UsesPermission(Android.Manifest.Permission.Camera)]
 
 //filter out the devices without the camera feature.
-//[assembly: UsesFeature("android.hardware.camera", Required = false)]
-//[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
+[assembly: UsesFeature("android.hardware.camera", Required = false)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]

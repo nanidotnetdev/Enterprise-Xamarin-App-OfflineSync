@@ -12,6 +12,7 @@
           "Autofac": "4.9.0-beta1",
           "EnterpriseAddLogs.Services": "1.0.0",
           "NETStandard.Library": "2.0.3",
+          "Plugin.Permissions": "3.0.0.12",
           "Xam.Plugin.Media": "4.0.1.5",
           "Xamarin.Essentials": "0.10.0-preview",
           "Xamarin.Forms": "3.2.0.809874-pre3",

@@ -50,6 +50,9 @@ namespace EnterpriseAddLogs.Views {
         private global::Xamarin.Forms.Button takePhoto;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Button uploadPhoto;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Image image;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -66,6 +69,7 @@ namespace EnterpriseAddLogs.Views {
             LogCommentsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::EnterpriseAddLogs.Helpers.RepeaterView>(this, "LogCommentsList");
             LogDetailCommentsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::EnterpriseAddLogs.Helpers.RepeaterView>(this, "LogDetailCommentsList");
             takePhoto = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "takePhoto");
+            uploadPhoto = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "uploadPhoto");
             image = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Image>(this, "image");
         }
     }

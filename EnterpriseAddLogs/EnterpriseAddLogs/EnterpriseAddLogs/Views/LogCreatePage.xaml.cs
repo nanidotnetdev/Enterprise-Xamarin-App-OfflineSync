@@ -4,6 +4,7 @@ using EnterpriseAddLogs.ViewModels;
 using Autofac;
 using System;
 using Plugin.Media;
+using Android.Widget;
 
 namespace EnterpriseAddLogs.Views
 {
@@ -14,6 +15,10 @@ namespace EnterpriseAddLogs.Views
 		{
 			InitializeComponent ();
             //BindingContext = Ioc.Container.Resolve<LogCreatePageViewModel>();
+
+
+            PopupMenu popup = new PopupMenu(this, LogCreatePage);
+
 
             takePhoto.Clicked += async (sender, args) =>
             {
@@ -34,7 +39,21 @@ namespace EnterpriseAddLogs.Views
                 if (file == null)
                     return;
 
-                await DisplayAlert("File Location", file.Path, "OK");
+                image.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    return stream;
+                });
+            };
+
+            uploadPhoto.Clicked += async (sender, args) =>
+            {
+                await CrossMedia.Current.Initialize();
+
+                var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions());
+
+                if (file == null)
+                    return;
 
                 image.Source = ImageSource.FromStream(() =>
                 {
@@ -53,6 +72,8 @@ namespace EnterpriseAddLogs.Views
             addNewLogComment.IsVisible = true;
             btnAddComment.IsVisible = true;
             cancelLabel.IsVisible = true;
+
+            
         }
 
         private void OnLabelClicked()
