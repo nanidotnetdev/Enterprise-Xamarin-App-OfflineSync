@@ -22,6 +22,7 @@
             builder.RegisterType<ViewResolver>().AsImplementedInterfaces();
             builder.RegisterType<Navigator>().SingleInstance().AsImplementedInterfaces();
             builder.RegisterType<MessageBus>().SingleInstance().AsImplementedInterfaces();
+            //builder.RegisterType<IAuthenticate>().SingleInstance().AsImplementedInterfaces();
 
         }
     }

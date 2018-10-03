@@ -7,15 +7,6 @@ namespace EnterpriseAddLogs.Views
 {
     public partial class MainPage : MasterDetailPage
     {
-        //public MainPage()
-        //{
-        //	InitializeComponent();
-
-        //          var navigationPage = new NavigationPage();
-
-        //          Ioc.Resolve<INavigator>().Navigation = navigationPage.Navigation;
-        //          Detail = navigationPage;
-
         public MainPage()
         {
             InitializeComponent();

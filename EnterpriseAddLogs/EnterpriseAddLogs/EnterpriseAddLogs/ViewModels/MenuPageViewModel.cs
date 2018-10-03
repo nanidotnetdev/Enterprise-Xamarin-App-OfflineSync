@@ -96,6 +96,17 @@ namespace EnterpriseAddLogs.ViewModels
                 }
             });
 
+            MenuItems.Add(new MenuItemViewModel
+            {
+                Title = "Location",
+                OnSelected = async() =>
+                {
+                    MessageBus.Publish(new ShowMenuMessage(false));
+
+                    await Navigator.NavigateToViewModelAsync<LocationPageViewModel>();
+                }
+            });
+
 
         }
 

@@ -25,8 +25,8 @@
 
         private void LogListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var log = e.Item as LogEntity;
-            var Id = log.Id;
+            var log = e.Item as Log;
+            //var Id = log.Id;
 
             var VM = (LogIndexPageViewModel)BindingContext;
             VM.LogSelected();

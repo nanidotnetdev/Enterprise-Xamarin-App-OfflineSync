@@ -2,8 +2,6 @@
 using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Messaging;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -11,6 +9,19 @@ namespace EnterpriseAddLogs.ViewModels
 {
     public class LoginPageViewModel: PageViewModel
     {
+        bool authenticated = false;
+
+        private string _messageLabel;
+
+        public string MessageLabel {
+            get {
+                return _messageLabel;
+            }
+            set {
+                _messageLabel = value;
+            }
+        }
+
         public LoginPageViewModel(INavigator navigator, IMessageBus messageBus):base(navigator)
         {
             MessageBus = messageBus;
@@ -22,7 +33,29 @@ namespace EnterpriseAddLogs.ViewModels
 
         private async Task LoginAsync()
         {
-            await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
+            try
+            {
+                if (App.Authenticator != null)
+                {
+                    authenticated = await App.Authenticator.AuthenticateAsync();
+                }
+
+                if (authenticated)
+                {
+                    await Navigator.NavigateToViewModelAsync<MainPageViewModel>();
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                if (ex.Message.Contains("Authentication was cancelled"))
+                {
+                    MessageLabel = "Authentication cancelled by the user";
+                }
+            }
+            catch (Exception)
+            {
+                MessageLabel = "Authentication failed";
+            }
 
         }
     }

@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace EnterpriseAddLogs.Droid
 {
@@ -12,6 +13,8 @@ namespace EnterpriseAddLogs.Droid
         LaunchMode = LaunchMode.SingleTask)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        internal static MainActivity Instance { get; private set; }
+
         protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -19,7 +22,12 @@ namespace EnterpriseAddLogs.Droid
 
             base.OnCreate(bundle);
 
+            Instance = this;
+
             CrossCurrentActivity.Current.Init(this, bundle);
+            Xamarin.Essentials.Platform.Init(this, bundle);
+
+            CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Ioc.Container = new AndroidBootstrapper().Bootstrap();
@@ -30,7 +38,7 @@ namespace EnterpriseAddLogs.Droid
             LoadApplication(new App());
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);

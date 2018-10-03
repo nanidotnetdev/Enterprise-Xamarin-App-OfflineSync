@@ -12,20 +12,20 @@
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<LogEntity> GetLogAsync(Guid id);
+        Task<Log> GetLogAsync(Guid id);
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        Task<ICollection<LogEntity>> GetAllLogsAsync();
+        Task<ICollection<Log>> GetAllLogsAsync();
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Log"></param>
         /// <returns></returns>
-        Task<LogEntity> SaveLogAsync(LogEntity log);
+        Task<Log> SaveLogAsync(Log log);
 
     }
 }

@@ -313,7 +313,7 @@ namespace EnterpriseAddLogs.ViewModels
         {
             IsBusy = true;
 
-            var logentity = new LogEntity
+            var logentity = new Log
             {
                 UnitID = SelectedUnitNumber.UnitID,
                 AssignedDriver = SelectedAssignedDriver.UserId,

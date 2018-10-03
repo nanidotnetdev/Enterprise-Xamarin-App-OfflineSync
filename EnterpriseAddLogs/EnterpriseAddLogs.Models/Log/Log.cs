@@ -1,12 +1,18 @@
 ﻿namespace EnterpriseAddLogs.Models
 {
-    using Newtonsoft.Json;
     using System;
+    using System.ComponentModel.DataAnnotations.Schema;
 
-    public class LogEntity
+    [Table("Log")]
+    public class Log
     {
-        [JsonProperty("LogID")]
-        public Guid Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("Id")]
+        public string Id { get; set; }
+
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
+
+        public Guid LogID { get; set; }
 
         public int LogNumber { get; set; }
 

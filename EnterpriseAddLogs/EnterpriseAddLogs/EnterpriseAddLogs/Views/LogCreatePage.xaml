@@ -162,6 +162,8 @@
 
                 <StackLayout Grid.Row="3">
                     <Label Text="Attachments" FontSize="Large" TextColor="#6495ED"/>
+                    
+                    
                     <Button x:Name="takePhoto" Text="Take Photo"/>
                     <Button x:Name="uploadPhoto" Text="upload Photo"/>
                     <Image x:Name="image"/>

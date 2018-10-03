@@ -13,9 +13,9 @@
 
     public class LogIndexPageViewModel : PageViewModel
     {
-        private ObservableCollection<LogEntity> _logs { get; set; }
+        private ObservableCollection<Log> _logs { get; set; }
 
-        public ObservableCollection<LogEntity> Logs
+        public ObservableCollection<Log> Logs
         {
             get
             {
@@ -28,9 +28,9 @@
             }
         }
 
-        private LogEntity _selectedLog;
+        private Log _selectedLog;
 
-        public LogEntity SelectedLog
+        public Log SelectedLog
         {
             get { return _selectedLog; }
             set
@@ -53,7 +53,7 @@
 
             Title = "Logs";
 
-            _logs = new ObservableCollection<LogEntity>();
+            _logs = new ObservableCollection<Log>();
 
             AddLogCommand = new Command(AddLogPageCommand);
 
@@ -82,7 +82,8 @@
 
         private async Task ExecuteLoadAllLogs()
         {
-            ICollection<LogEntity> logs = await _logService.GetAllLogsAsync();
+            
+            ICollection<Log> logs = await _logService.GetAllLogsAsync();
 
             Logs.Clear();
 

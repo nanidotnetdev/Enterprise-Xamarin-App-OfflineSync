@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EnterpriseAddLogs.Views.LocationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Test Location related Services." />
+            <Label Text="Longitude:"/>
+            <Label x:Name="LongitudeValue"/>
+            <Label Text="Latitude:"/>
+            <Label x:Name="LatitudeValue"/>
+            <Label Text="Speed:"/>
+            <Label x:Name="SpeedValue"/>
+            <Label x:Name="AddressValue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

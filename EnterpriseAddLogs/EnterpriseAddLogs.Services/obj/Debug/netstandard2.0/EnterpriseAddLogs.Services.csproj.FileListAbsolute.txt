@@ -22,3 +22,15 @@ C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csproj.CopyComplete
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll
 C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.pdb
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.deps.json
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Services.pdb
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Models.dll
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\bin\Debug\netstandard2.0\EnterpriseAddLogs.Models.pdb
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csprojAssemblyReference.cache
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csproj.CoreCompileInputs.cache
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.AssemblyInfoInputs.cache
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.AssemblyInfo.cs
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.csproj.CopyComplete
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.dll
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs.Services\obj\Debug\netstandard2.0\EnterpriseAddLogs.Services.pdb

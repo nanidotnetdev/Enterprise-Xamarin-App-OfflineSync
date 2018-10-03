@@ -10,10 +10,14 @@ namespace EnterpriseAddLogs
 {
 	public partial class App : Application
 	{
-		public App ()
+
+        public static IAuthenticate Authenticator { get; private set; }
+
+        public App ()
 		{
 			InitializeComponent();
 
+            //Authenticator = Ioc.Resolve<IAuthenticate>();
             MainPage = Ioc.Resolve<IViewResolver>().ResolveView<MainPageViewModel>();
             MainPage.BindingContext = Ioc.Resolve<MainPageViewModel>();
             Ioc.Resolve<INavigator>().Navigation = MainPage.Navigation;

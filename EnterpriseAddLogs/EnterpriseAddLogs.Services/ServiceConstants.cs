@@ -9,6 +9,10 @@
 
         public sealed class Urls
         {
+
+            public const string AzureBackendURL = "https://enterprisepocazurebackend.azurewebsites.net";
+            public static string URLScheme = "INSERT_URL_SCHEME_HERE";
+
             //User
             public const string GetUserEntity = "https://enterprizepoc.azure-api.net/api/UserApi/GetUserEntity?id={0}";
             public const string GetAllUserEntities = "https://enterprizepoc.azure-api.net/api/UserApi/GetUserEntities";

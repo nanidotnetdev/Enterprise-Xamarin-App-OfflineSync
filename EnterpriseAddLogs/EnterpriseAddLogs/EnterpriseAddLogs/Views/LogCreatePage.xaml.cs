@@ -17,8 +17,6 @@ namespace EnterpriseAddLogs.Views
             //BindingContext = Ioc.Container.Resolve<LogCreatePageViewModel>();
 
 
-            PopupMenu popup = new PopupMenu(this, LogCreatePage);
-
 
             takePhoto.Clicked += async (sender, args) =>
             {

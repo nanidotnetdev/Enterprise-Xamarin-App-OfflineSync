@@ -1,1 +1,1 @@
-C:\E-X-P\p\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\EnterpriseAddLogs.UWP.csproj;x86
+C:\E-X-P\Enterprise-Xamarin-App-OfflineSync\EnterpriseAddLogs\EnterpriseAddLogs\EnterpriseAddLogs.UWP\EnterpriseAddLogs.UWP.csproj;x86

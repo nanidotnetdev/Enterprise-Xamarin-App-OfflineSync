@@ -54,6 +54,12 @@
     <PackageReference Include="Autofac">
       <Version>4.9.0-beta1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client">
+      <Version>4.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore">
+      <Version>4.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Bcl.Build">
       <Version>1.0.21</Version>
     </PackageReference>
@@ -69,7 +75,7 @@
     <PackageReference Include="Xamarin.Essentials">
       <Version>0.10.0-preview</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.2.0.809874-pre3" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
@@ -79,6 +85,7 @@
   <ItemGroup>
     <Compile Include="AndroidBootstrapper.cs" />
     <Compile Include="AndroidModule.cs" />
+    <Compile Include="AuthenticationProvider.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +121,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EnterpriseAddLogs.Services\EnterpriseAddLogs.Services.csproj">
+      <Project>{334F3E71-A903-4FA7-AD91-D6EFC923C535}</Project>
+      <Name>EnterpriseAddLogs.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EnterpriseAddLogs\EnterpriseAddLogs.csproj">
       <Project>{7d4d28aa-08fd-4887-ae11-8b36f025d822}</Project>
       <Name>EnterpriseAddLogs</Name>
