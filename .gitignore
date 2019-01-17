@@ -5,6 +5,7 @@
 #Visual Studio files
 bin/
 obj/
+obj/*
 **/.vs/
 *.[Oo]bj
 *.user
@@ -32,6 +33,8 @@ obj/
 *.ide
 *.ide-shm
 *.ide-wal
+*.cache
+*.props
 ipch/
 **/obj/*
 [Bb]in
