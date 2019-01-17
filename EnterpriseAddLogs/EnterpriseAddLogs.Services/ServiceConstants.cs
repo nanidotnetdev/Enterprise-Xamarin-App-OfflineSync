@@ -11,7 +11,7 @@
         {
 
             public const string AzureBackendURL = "https://enterprisepocazurebackend.azurewebsites.net";
-            public static string URLScheme = "INSERT_URL_SCHEME_HERE";
+            public static string URLScheme = "nnb54";
 
             //User
             public const string GetUserEntity = "https://enterprizepoc.azure-api.net/api/UserApi/GetUserEntity?id={0}";

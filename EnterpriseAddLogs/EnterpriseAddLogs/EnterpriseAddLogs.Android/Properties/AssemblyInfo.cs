@@ -38,3 +38,6 @@ using Android.App;
 //filter out the devices without the camera feature.
 [assembly: UsesFeature("android.hardware.camera", Required = false)]
 [assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
+
+//connectivity plugin access
+[assembly: UsesPermission(Android.Manifest.Permission.AccessNetworkState)]
