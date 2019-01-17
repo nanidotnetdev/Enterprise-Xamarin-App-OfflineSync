@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "5da23937256d3647a5b58162a5c306df02c841f8"
+    "signature": "e14b3cafc9bfca23b480162e808945dfe2852af0"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,10 +9,10 @@
     ".NETStandard,Version=v2.0/": {
       "EnterpriseAddLogs.Models/1.0.0": {
         "dependencies": {
-          "Microsoft.Azure.Mobile.Client": "4.0.2",
-          "Microsoft.Azure.Mobile.Client.SQLiteStore": "4.0.2",
+          "Microsoft.Azure.Mobile.Client": "4.1.1",
+          "Microsoft.Azure.Mobile.Client.SQLiteStore": "4.1.1",
           "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.ComponentModel": "4.3.0",
           "System.ComponentModel.Annotations": "4.5.0"
         },
@@ -20,10 +20,10 @@
           "EnterpriseAddLogs.Models.dll": {}
         }
       },
-      "Microsoft.Azure.Mobile.Client/4.0.2": {
+      "Microsoft.Azure.Mobile.Client/4.1.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.IO.IsolatedStorage": "4.3.0",
           "System.Linq.Queryable": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -31,21 +31,21 @@
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.0.2.0"
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.1.0"
           }
         }
       },
-      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.1.1": {
         "dependencies": {
-          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "Microsoft.Azure.Mobile.Client": "4.1.1",
           "NETStandard.Library": "2.0.3",
           "SQLitePCLRaw.bundle_green": "1.1.2"
         },
         "runtime": {
           "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.0.2.0"
+            "assemblyVersion": "4.1.1.0",
+            "fileVersion": "4.1.1.0"
           }
         }
       },
@@ -56,11 +56,11 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.22727"
           }
         }
       },
@@ -507,19 +507,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Azure.Mobile.Client/4.0.2": {
+    "Microsoft.Azure.Mobile.Client/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-FFHBqESmv/wKOz6rJh1cCT+jByny56nQ3u1LA8TEc21L1DxYga/CR7b/yx7100+4EQXTdkzLc0E5ScLcYNKhTQ==",
-      "path": "microsoft.azure.mobile.client/4.0.2",
-      "hashPath": "microsoft.azure.mobile.client.4.0.2.nupkg.sha512"
+      "sha512": "sha512-9Lga8xdWymUXHC4gqZ85cqtl1o6KdRaE5LfeUJ5n10qto9fCurq/eX/A5LciYPP6S5Zbes6PpDcqTpzxp73U8Q==",
+      "path": "microsoft.azure.mobile.client/4.1.1",
+      "hashPath": "microsoft.azure.mobile.client.4.1.1.nupkg.sha512"
     },
-    "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+    "Microsoft.Azure.Mobile.Client.SQLiteStore/4.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Xm6Sy2U03+67QzSQqYbhK35dxfb3am0/81PLFjyTz7wYxdrjI/ZfTNrJCQ69QhitDnCnTg+/UngXVpkYQ6+Orw==",
-      "path": "microsoft.azure.mobile.client.sqlitestore/4.0.2",
-      "hashPath": "microsoft.azure.mobile.client.sqlitestore.4.0.2.nupkg.sha512"
+      "sha512": "sha512-fe/5S/INPZYy79loBbH5RPA2bHOjDa7trwqrvRrkl70i9wrHlmLypai1goGNb9UaeC3QM/wu35s9qxLk+qYb4Q==",
+      "path": "microsoft.azure.mobile.client.sqlitestore/4.1.1",
+      "hashPath": "microsoft.azure.mobile.client.sqlitestore.4.1.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -542,12 +542,12 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/12.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
+      "path": "newtonsoft.json/12.0.1",
+      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
