@@ -757,10 +757,11 @@
   },
   "libraries": {
     "Autofac/4.9.0-beta1": {
-      "sha512": "ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
+      "sha512": "04Nu6DQ+MELKS2esnagYHl2B5B/a9/6f+AJobzvnnoLSIzIIeH0/6HHXlJkmv0knjeJEAf+6+auzc8NGSwKICw==",
       "type": "package",
       "path": "autofac/4.9.0-beta1",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "autofac.4.9.0-beta1.nupkg.sha512",
         "autofac.nuspec",
@@ -1405,10 +1406,11 @@
       ]
     },
     "System.ComponentModel.Annotations/4.5.0": {
-      "sha512": "IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
+      "sha512": "UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
       "type": "package",
       "path": "system.componentmodel.annotations/4.5.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -3236,11 +3238,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
+      "projectUniqueName": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
       "projectName": "EnterpriseAddLogs.Services",
-      "projectPath": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
+      "projectPath": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\EnterpriseAddLogs.Services.csproj",
       "packagesPath": "C:\\Users\\nallu\\.nuget\\packages\\",
-      "outputPath": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\obj\\",
+      "outputPath": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3259,8 +3261,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj": {
-              "projectPath": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj"
+            "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj": {
+              "projectPath": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj"
             }
           }
         }

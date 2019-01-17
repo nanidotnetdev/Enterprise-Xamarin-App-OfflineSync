@@ -534,7 +534,7 @@
     "Autofac/4.9.0-beta1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ELArZEhLmHfl9zv1jht61Fd9qi8qJ3etbs2vRZUnutlG1dVofK+lKDlfyEh+Jfx8RNLxps0PbbgUTaHM6OA+og==",
+      "sha512": "sha512-04Nu6DQ+MELKS2esnagYHl2B5B/a9/6f+AJobzvnnoLSIzIIeH0/6HHXlJkmv0knjeJEAf+6+auzc8NGSwKICw==",
       "path": "autofac/4.9.0-beta1",
       "hashPath": "autofac.4.9.0-beta1.nupkg.sha512"
     },
@@ -709,7 +709,7 @@
     "System.ComponentModel.Annotations/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
+      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
       "path": "system.componentmodel.annotations/4.5.0",
       "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
     },

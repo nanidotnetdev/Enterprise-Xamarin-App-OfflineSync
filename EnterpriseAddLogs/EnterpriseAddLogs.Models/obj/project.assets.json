@@ -1359,10 +1359,11 @@
       ]
     },
     "System.ComponentModel.Annotations/4.5.0": {
-      "sha512": "IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
+      "sha512": "UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
       "type": "package",
       "path": "system.componentmodel.annotations/4.5.0",
       "files": [
+        ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
@@ -3185,11 +3186,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
+      "projectUniqueName": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
       "projectName": "EnterpriseAddLogs.Models",
-      "projectPath": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
+      "projectPath": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\EnterpriseAddLogs.Models.csproj",
       "packagesPath": "C:\\Users\\nallu\\.nuget\\packages\\",
-      "outputPath": "C:\\E-X-P\\Enterprise-Xamarin-App-OfflineSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\obj\\",
+      "outputPath": "C:\\E-X-P\\OfSync\\EnterpriseAddLogs\\EnterpriseAddLogs.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
