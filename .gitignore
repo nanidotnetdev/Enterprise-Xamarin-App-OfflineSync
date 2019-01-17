@@ -3,6 +3,8 @@
 *.DS_Store
 
 #Visual Studio files
+bin/
+obj/
 **/.vs/
 *.[Oo]bj
 *.user
@@ -27,6 +29,9 @@
 *.opensdf
 *.unsuccessfulbuild
 *.cache
+*.ide
+*.ide-shm
+*.ide-wal
 ipch/
 **/obj/*
 [Bb]in
