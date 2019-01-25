@@ -98,6 +98,17 @@ namespace EnterpriseAddLogs.ViewModels
 
             MenuItems.Add(new MenuItemViewModel
             {
+                Title = "DayLog",
+                OnSelected = async () =>
+                {
+                    MessageBus.Publish(new ShowMenuMessage(false));
+
+                    await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
+                }
+            });
+
+            MenuItems.Add(new MenuItemViewModel
+            {
                 Title = "Location",
                 OnSelected = async() =>
                 {
@@ -106,8 +117,6 @@ namespace EnterpriseAddLogs.ViewModels
                     await Navigator.NavigateToViewModelAsync<LocationPageViewModel>();
                 }
             });
-
-
         }
 
     }
