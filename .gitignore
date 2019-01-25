@@ -57,3 +57,7 @@ packages/
 EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs.Android/EnterpriseAddLogs.Android.csproj.user
 *.cache
 *.props
+*.cache
+*.pdb
+*.pdb
+*.dll
