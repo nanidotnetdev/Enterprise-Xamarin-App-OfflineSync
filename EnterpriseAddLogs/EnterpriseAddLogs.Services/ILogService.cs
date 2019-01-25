@@ -25,7 +25,7 @@
         /// </summary>
         /// <param name="Log"></param>
         /// <returns></returns>
-        Task<Log> SaveLogAsync(Log log);
+        Task SaveLogAsync(Log log);
 
     }
 }

@@ -1,10 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using EnterpriseAddLogs.ViewModels;
-using Autofac;
 using System;
 using Plugin.Media;
-using Android.Widget;
 
 namespace EnterpriseAddLogs.Views
 {

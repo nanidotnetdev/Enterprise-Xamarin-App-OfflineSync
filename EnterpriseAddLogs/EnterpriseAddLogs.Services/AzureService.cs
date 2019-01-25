@@ -41,7 +41,6 @@ namespace EnterpriseAddLogs.Services
 
         public AzureService()
         {
-
             _networkAccess = Connectivity.NetworkAccess;
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             InitializeAsync();
@@ -57,7 +56,7 @@ namespace EnterpriseAddLogs.Services
                 return;
 
             // Create a reference to the local sqlite store
-            var store = new MobileServiceSQLiteStore("OfflineSyncdb2.db");
+            var store = new MobileServiceSQLiteStore("OfflineSyncdb3.db");
 
             // Define the database schema
             store.DefineTable<Log>();
@@ -103,8 +102,6 @@ namespace EnterpriseAddLogs.Services
                 //when offline 
                 if (_networkAccess != NetworkAccess.Internet)
                     return;
-
-
 
                 await this.client.SyncContext.PushAsync();
 

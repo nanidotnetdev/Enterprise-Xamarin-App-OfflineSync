@@ -126,27 +126,21 @@
         /// <returns></returns>
         public async Task<ICollection<Log>> GetAllLogsAsync()
         {
-
             try
             {
-                await this.SyncAsync();
+                await SyncAsync();
 
+                IEnumerable<Log> logs = await logTable.ToEnumerableAsync();
+
+                return new ObservableCollection<Log>(logs);
             }
-            catch (Exception ex)
+            catch (MobileServiceInvalidOperationException msioe)
             {
-
+                Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
             }
-
-            try
+            catch (Exception e)
             {
-                //var table = logTable.PullAsync();
-                ICollection<Log> logs = await logTable.ToCollectionAsync();
-
-                return logs;
-            }
-            catch(Exception ex)
-            {
-
+                Debug.WriteLine(@"Sync error: {0}", e.Message);
             }
 
             return null;
@@ -159,29 +153,24 @@
         /// <returns></returns>
         public async Task<Log> GetLogAsync(Guid id)
         {
-            //using (var client = new HttpClient())
-            //{
-            //    using (var request = new HttpRequestMessage(HttpMethod.Get, string.Format(ServiceConstants.Urls.GetLogEntity, id)))
-            //    {
+            try
+            {
+                await SyncAsync();
 
-            //        AddRequestHeaders(request, ServiceConstants.SubscriptionKeys.PrimaryKey);
+                IEnumerable<Log> logs = await logTable.ToEnumerableAsync();
 
-            //        HttpResponseMessage response = null;
+                return await logTable.LookupAsync(id.ToString());
+            }
+            catch (MobileServiceInvalidOperationException msioe)
+            {
+                Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(@"Sync error: {0}", e.Message);
+            }
 
-            //        using (var cancellationSource = new CancellationTokenSource())
-            //        {
-            //            cancellationSource.CancelAfter(TimeSpan.FromSeconds(ServiceConstants.Defaults.ServiceTimeoutInSecs));
-
-            //            response = await client.SendAsync(request, cancellationSource.Token).ConfigureAwait(false);
-            //        }
-
-            //        response.EnsureSuccessStatusCode();
-
-            //        var jsonString = await response.Content.ReadAsStringAsync();
-
-            //        return JsonConvert.DeserializeObject<Log>(jsonString);
-            //    }
-            //}
+            return null;
         }
 
         /// <summary>
@@ -189,35 +178,27 @@
         /// </summary>
         /// <param name="log"></param>
         /// <returns></returns>
-        public async Task<Log> SaveLogAsync(Log log)
+        public async Task SaveLogAsync(Log log)
         {
-            //using (var client = new HttpClient())
-            //{
-            //    using (var request = new HttpRequestMessage(HttpMethod.Post, ServiceConstants.Urls.SaveLogEntity))
-            //    {
-            //        AddRequestHeaders(request, ServiceConstants.SubscriptionKeys.PrimaryKey);
+            if(log.LogID == Guid.Empty)
+            {
+                log.LogID = Guid.NewGuid();
 
-            //        HttpResponseMessage response = null;
+                log.CreatedBy = Guid.NewGuid();
+                log.CreatedDate = DateTime.Now;
 
-            //        //Instead of POST Async add content in the request.
-            //        request.Content = new StringContent(JsonConvert.SerializeObject(log), Encoding.UTF8, "application/json");
+                await logTable.InsertAsync(log);
+            }
+            else
+            {
+                log.UpdatedBy = Guid.NewGuid();
+                log.UpdatedDate = DateTime.Now;
 
-            //        using (var cancellationToken = new CancellationTokenSource())
-            //        {
-            //            cancellationToken.CancelAfter(TimeSpan.FromSeconds(ServiceConstants.Defaults.ServiceTimeoutInSecs));
+                await logTable.UpdateAsync(log);
 
-            //            response = await client.SendAsync(request, cancellationToken.Token)
-            //                .ConfigureAwait(false);
+            }
 
-            //        }
-
-            //        response.EnsureSuccessStatusCode();
-
-            //        var jsonString = await response.Content.ReadAsStringAsync();
-
-            //        return JsonConvert.DeserializeObject<Log>(jsonString);
-            //    }
-            //}
+            SyncAsync();
         }
     }
 }

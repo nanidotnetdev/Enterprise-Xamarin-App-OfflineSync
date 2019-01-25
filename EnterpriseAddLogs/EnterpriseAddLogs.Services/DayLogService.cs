@@ -13,20 +13,10 @@ namespace EnterpriseAddLogs.Services
 {
     public class DayLogService : AzureService, IDayLogService
     {
-        //private MobileServiceClient client;
-
-        //IMobileServiceSyncTable<DayLog> dayLogTable;
 
         public DayLogService()
         {
-            //client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
-            //var store = new MobileServiceSQLiteStore("OfflineSync.db");
-            //store.DefineTable<DayLog>();
-
-            //this.client.SyncContext.InitializeAsync(store);
-            //this.dayLogTable = client.GetSyncTable<DayLog>();
         }
-
 
         public async Task<ICollection<DayLog>> GetDayLogs()
         {
@@ -63,6 +53,8 @@ namespace EnterpriseAddLogs.Services
             {
                 await dayLogTable.UpdateAsync(dayLog);
             }
+
+            SyncAsync();
         }
     }
 }
