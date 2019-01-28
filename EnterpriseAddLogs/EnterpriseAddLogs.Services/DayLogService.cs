@@ -1,13 +1,10 @@
-﻿using System;
+﻿using EnterpriseAddLogs.Models;
+using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
-using EnterpriseAddLogs.Models;
-using Microsoft.WindowsAzure.MobileServices;
-using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
-using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace EnterpriseAddLogs.Services
 {
@@ -18,13 +15,22 @@ namespace EnterpriseAddLogs.Services
         {
         }
 
+        public async Task<DayLog> GetById(string id)
+        {
+            return await dayLogTable.LookupAsync(id);
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<ICollection<DayLog>> GetDayLogs()
         {
             try
             {
                 await SyncAsync();
 
-                IEnumerable<DayLog> dayLogs = await dayLogTable.ToEnumerableAsync();
+                IEnumerable<DayLog> dayLogs = await dayLogTable.OrderByDescending(l => l.CreatedAt).ToEnumerableAsync();
 
                 return new ObservableCollection<DayLog>(dayLogs);
             }
@@ -41,6 +47,11 @@ namespace EnterpriseAddLogs.Services
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dayLog"></param>
+        /// <returns></returns>
         public async Task SaveDayLog(DayLog dayLog)
         {
             if(dayLog.DayLogId == Guid.Empty)

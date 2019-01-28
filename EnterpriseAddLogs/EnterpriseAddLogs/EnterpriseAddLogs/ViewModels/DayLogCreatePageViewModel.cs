@@ -2,10 +2,8 @@
 using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -30,7 +28,7 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        private DateTime _dateLogged;
+        private DateTime _dateLogged { get; set; } = DateTime.Now;
 
         public DateTime DateLogged
         {
@@ -47,7 +45,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         private DayLogTime _dayTimeSelected { set; get; }
 
-        public DayLogTime DayLogTimeSelected
+    public DayLogTime DayLogTimeSelected
         {
             get
             {
@@ -56,7 +54,6 @@ namespace EnterpriseAddLogs.ViewModels
             set
             {
                 _dayTimeSelected = value;
-
                 NotifyPropertyChanged();
             }
         }
@@ -84,11 +81,26 @@ namespace EnterpriseAddLogs.ViewModels
         {
             get
             {
-                return new ObservableCollection<DayLogTime>(_dayLogTimes);
+                return _dayLogTimes;
             }
             set
             {
                 _dayLogTimes = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private int _selectedIndex { get; set; }
+
+        public int SelectedIndex
+        {
+            get
+            {
+                return _selectedIndex;
+            }
+            set
+            {
+                _selectedIndex = value;
                 NotifyPropertyChanged();
             }
         }
@@ -99,30 +111,71 @@ namespace EnterpriseAddLogs.ViewModels
         {
             _dayLogService = dayLogService;
             SaveCommand = new Command(SaveDayLogAsync);
+        }
 
-            //DayLogTimeSelected = _dayLogTimes[1];
+        private DayLog _dayLogEntity { get; set; }
+
+        public DayLog DayLogEntity
+        {
+            get
+            {
+                return _dayLogEntity;
+            }
+            set
+            {
+                _dayLogEntity = value;
+            }
         }
 
         public async void SaveDayLogAsync()
         {
             IsBusy = true;
 
-            var dayLog = new DayLog
+            if(DayLogEntity == null)
             {
-                Comment = _comment,
-                DateLogged = _dateLogged
-            };
-
-            var it = _dayTimeSelected;
-
-            await _dayLogService.SaveDayLog(dayLog);
+                DayLogEntity = new DayLog
+                {
+                    Comment = Comment,
+                    DateLogged = DateLogged,
+                    DayTimeId = DayLogTimeSelected?.DayTimeId
+                };
+            }
+            else
+            {
+                DayLogEntity.Comment = Comment;
+                DayLogEntity.DateLogged = DateLogged;
+                DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
+            }
+            
+            await _dayLogService.SaveDayLog(DayLogEntity);
 
             await Navigator.CloseAsync();
 
-            await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
+            //await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
+        }
 
+        public override Task OnNavigatedToAsync(object parameter = null)
+        {
+            if(parameter != null)
+            {
+                var selLog = parameter as DayLog;
+
+                if(selLog != null)
+                {
+                    //DayLogEntity = _dayLogService.GetById(selLog.id).Result;
+                    DayLogEntity = selLog;
+
+                    Comment = DayLogEntity.Comment;
+                    DateLogged = DayLogEntity.DateLogged;
+                    DayLogTimeSelected = DayLogTimes.FirstOrDefault(d => d.DayTimeId == DayLogEntity.DayTimeId);
+                }
+                
+            }
+
+            return base.OnNavigatedToAsync(parameter);
         }
     }
+
     public class DayLogTime
     {
         public Guid DayTimeId { get; set; }

@@ -1,10 +1,7 @@
 ﻿using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,9 +10,9 @@ namespace EnterpriseAddLogs.ViewModels
 {
     public class DayLogIndexPageViewModel: PageViewModel
     {
-        private ObservableCollection<DayLog> _dayLogs { get; set; }
+        private ObservableRangeCollection<DayLog> _dayLogs { get; set; }
 
-        public ObservableCollection<DayLog> DayLogs
+        public ObservableRangeCollection<DayLog> DayLogs
         {
             get
             {
@@ -28,13 +25,28 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
+        private DayLog _dayLogSelected { get; set; }
+
+        public DayLog DayLogSelected
+        {
+            get
+            {
+                return _dayLogSelected;
+            }
+            set
+            {
+                _dayLogSelected = value;
+                OnDayLogSelected();
+            }
+        }
+
         public ICommand AddLogCommand { get; set; }
 
         private IDayLogService _dayLogService;
 
         public DayLogIndexPageViewModel(IDayLogService dayLogService,INavigator navigator) : base(navigator)
         {
-            _dayLogs = new ObservableCollection<DayLog>();
+            _dayLogs = new ObservableRangeCollection<DayLog>();
             AddLogCommand = new Command(AddDayLogPageCommand);
 
             _dayLogService = dayLogService;
@@ -50,11 +62,12 @@ namespace EnterpriseAddLogs.ViewModels
         public async Task ExecuteLoadDayLogs()
         {
             ICollection<DayLog> logs = await _dayLogService.GetDayLogs();
+            DayLogs.ReplaceRange(logs);
+        }
 
-            foreach (var log in logs)
-            {
-                DayLogs.Add(log);
-            }
+        public async Task OnDayLogSelected()
+        {
+            await Navigator.NavigateToViewModelAsync<DayLogCreatePageViewModel>(DayLogSelected);
         }
     }
 }

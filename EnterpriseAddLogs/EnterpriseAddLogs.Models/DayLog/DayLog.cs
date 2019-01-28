@@ -14,7 +14,7 @@ namespace EnterpriseAddLogs.Models
 
         public DateTime DateLogged { get; set; }
 
-        public Guid? DayTime { get; set; }
+        public Guid? DayTimeId { get; set; }
 
         public string id { get; set; }
 

@@ -9,6 +9,8 @@ namespace EnterpriseAddLogs.Services
 {
     public interface IDayLogService
     {
+        Task<DayLog> GetById(string id);
+
         Task SaveDayLog(DayLog dayLog);
 
         Task<ICollection<DayLog>> GetDayLogs();

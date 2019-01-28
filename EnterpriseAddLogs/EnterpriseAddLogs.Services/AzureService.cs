@@ -3,9 +3,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Xamarin.Essentials;
@@ -41,32 +39,55 @@ namespace EnterpriseAddLogs.Services
 
         public AzureService()
         {
-            _networkAccess = Connectivity.NetworkAccess;
-            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            InitializeAsync();
-        }
-
-        #region Offline Sync Initialization
-        async Task InitializeAsync()
-        {
             client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
 
-            // Short circuit - local database is already initialized
-            if (client.SyncContext.IsInitialized)
-                return;
+            //InitializeAsync();
 
             // Create a reference to the local sqlite store
-            var store = new MobileServiceSQLiteStore("OfflineSyncdb3.db");
+            var store = new MobileServiceSQLiteStore("sqllitedb.db");
 
             // Define the database schema
             store.DefineTable<Log>();
             store.DefineTable<DayLog>();
 
+            // Actually create the store and update the schema
+            client.SyncContext.InitializeAsync(store);
+
             this.logTable = client.GetSyncTable<Log>();
             this.dayLogTable = client.GetSyncTable<DayLog>();
 
-            // Actually create the store and update the schema
-            await client.SyncContext.InitializeAsync(store);
+            _networkAccess = Connectivity.NetworkAccess;
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+        
+
+        #region Offline Sync Initialization
+        async Task InitializeAsync()
+        {
+            try
+            {
+                // Short circuit - local database is already initialized
+                if (client.SyncContext.IsInitialized)
+                    return;
+
+                //// Create a reference to the local sqlite store
+                //var store = new MobileServiceSQLiteStore("sqlitedbtest2.db");
+
+                //// Define the database schema
+                //store.DefineTable<Log>();
+                //store.DefineTable<DayLog>();
+
+                //// Actually create the store and update the schema
+                //await client.SyncContext.InitializeAsync(store);
+
+                //this.logTable = client.GetSyncTable<Log>();
+                //this.dayLogTable = client.GetSyncTable<DayLog>();
+            }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
         #endregion
 
@@ -90,8 +111,6 @@ namespace EnterpriseAddLogs.Services
 
             try
             {
-                await InitializeAsync();
-
                 //use xamarin crossconnectivity to make it work -- better to use individual plugin as it has more options available.
                 //if (!(await Connectivity.Current.IsRemoteReachable(client.MobileAppUri.Host, 443)))
                 //{

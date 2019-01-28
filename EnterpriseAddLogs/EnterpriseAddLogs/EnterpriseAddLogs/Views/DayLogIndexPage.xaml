@@ -21,8 +21,8 @@
                              AbsoluteLayout.LayoutBounds="0,0,1,1">
                     <ListView x:Name="DayLogListView"
                               IsPullToRefreshEnabled="False"
-                              IsRefreshing="{Binding IsBusy}"
-                ItemsSource="{Binding DayLogs}"
+                              IsRefreshing="{Binding IsBusy}" 
+                ItemsSource="{Binding DayLogs, Mode=TwoWay }" SelectedItem="{Binding DayLogSelected, Mode=TwoWay}"
                       VerticalOptions="FillAndExpand"
                       HasUnevenRows="True">
                         <ListView.ItemTemplate>

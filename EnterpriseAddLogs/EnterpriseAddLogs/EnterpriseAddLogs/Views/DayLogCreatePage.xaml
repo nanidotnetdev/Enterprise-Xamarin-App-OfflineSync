@@ -6,7 +6,7 @@
     xmlns:helpers="clr-namespace:EnterpriseAddLogs.Helpers">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Command="{Binding SaveDayLogAsync}" Text="Save">
+        <ToolbarItem Command="{Binding SaveCommand}" Text="Save">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="save.png" />
@@ -19,12 +19,6 @@
         <ScrollView Margin="10">
 
             <StackLayout>
-                <!--<Label Text="Miles" />
-                <Editor Keyboard="Numeric" Text="{Binding Miles}" Placeholder="Enter Miles"/>
-
-                <Label Text="Hours" />
-                <Editor Keyboard="Numeric" Text="{Binding Hours}" Placeholder="Enter Hours"/>-->
-
                 <Label Text="Comment" />
                 <Editor Placeholder="Enter Comment" Text="{Binding Comment}" />
 
@@ -32,14 +26,8 @@
                 <DatePicker Date="{Binding DateLogged}" />
 
                 <Label Text="Time" />
-                <Picker
-                    x:Name="pcrTime"
-                    Title="Select Time"
-                    ItemDisplayBinding="{Binding Text}"
-                    ItemsSource="{Binding DayLogTimes, Mode=TwoWay}"
-                    SelectedItem="{Binding DayLogTimeSelected}" />
-
-                <Button Command="{Binding SaveCommand}" Text="Save" />
+                <Picker ItemsSource="{Binding DayLogTimes}"
+                        ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding DayLogTimeSelected, Mode=TwoWay}"></Picker>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
