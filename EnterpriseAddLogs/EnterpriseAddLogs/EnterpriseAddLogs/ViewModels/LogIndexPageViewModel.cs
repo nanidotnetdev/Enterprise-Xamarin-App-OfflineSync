@@ -3,19 +3,17 @@
     using EnterpriseAddLogs.Helpers;
     using EnterpriseAddLogs.Models;
     using EnterpriseAddLogs.Services;
-    using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
+    using System.Collections.Specialized;
     using System.Threading.Tasks;
     using System.Windows.Input;
     using Xamarin.Forms;
 
     public class LogIndexPageViewModel : PageViewModel
     {
-        private ObservableCollection<Log> _logs { get; set; }
+        private ObservableRangeCollection<Log> _logs { get; set; }
 
-        public ObservableCollection<Log> Logs
+        public ObservableRangeCollection<Log> Logs
         {
             get
             {
@@ -53,7 +51,7 @@
 
             Title = "Logs";
 
-            _logs = new ObservableCollection<Log>();
+            _logs = new ObservableRangeCollection<Log>();
 
             AddLogCommand = new Command(AddLogPageCommand);
 
@@ -82,15 +80,9 @@
 
         private async Task ExecuteLoadAllLogs()
         {
-            
             ICollection<Log> logs = await _logService.GetAllLogsAsync();
 
-            Logs.Clear();
-
-            foreach (var log in logs)
-            {
-                Logs.Add(log);
-            }
+            Logs.AddRange(logs, NotifyCollectionChangedAction.Replace);
 
             IsBusy = false;
         }
