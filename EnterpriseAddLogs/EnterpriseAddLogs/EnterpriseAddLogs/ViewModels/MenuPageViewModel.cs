@@ -117,6 +117,19 @@ namespace EnterpriseAddLogs.ViewModels
                     await Navigator.NavigateToViewModelAsync<LocationPageViewModel>();
                 }
             });
+
+            MenuItems.Add(new MenuItemViewModel
+            {
+                Title = "LogOff",
+                OnSelected = async () =>
+                {
+                    MessageBus.Publish(new ShowMenuMessage(false));
+
+                    await App.Authenticator.LogoutAsync();
+
+                    await Navigator.NavigateToViewModelAsync<LoginPageViewModel>();
+                }
+            });
         }
 
     }

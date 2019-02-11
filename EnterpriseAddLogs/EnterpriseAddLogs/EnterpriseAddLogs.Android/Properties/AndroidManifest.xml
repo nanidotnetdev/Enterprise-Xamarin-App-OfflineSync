@@ -5,5 +5,15 @@
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
+  <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="nnb54"
+            android:host="easyauth.callback"/>
+    </intent-filter>
+</activity>
 	</application>
+
 </manifest>

@@ -42,7 +42,7 @@ namespace EnterpriseAddLogs.ViewModels
 
                 if (authenticated)
                 {
-                    await Navigator.NavigateToViewModelAsync<MainPageViewModel>();
+                    await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
                 }
             }
             catch (InvalidOperationException ex)

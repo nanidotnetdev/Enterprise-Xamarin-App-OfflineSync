@@ -9,6 +9,6 @@ namespace EnterpriseAddLogs
     {
         Task<bool> AuthenticateAsync();
 
-        Task<bool> LogoutAsync();
+        Task LogoutAsync();
     }
 }
