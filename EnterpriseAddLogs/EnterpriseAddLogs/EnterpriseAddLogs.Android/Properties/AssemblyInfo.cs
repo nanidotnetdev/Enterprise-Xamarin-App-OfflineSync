@@ -41,3 +41,10 @@ using Android.App;
 
 //connectivity plugin access
 [assembly: UsesPermission(Android.Manifest.Permission.AccessNetworkState)]
+
+//location
+[assembly: UsesPermission(Android.Manifest.Permission.AccessCoarseLocation)]
+[assembly: UsesPermission(Android.Manifest.Permission.AccessFineLocation)]
+[assembly: UsesFeature("android.hardware.location", Required = false)]
+[assembly: UsesFeature("android.hardware.location.gps", Required = false)]
+[assembly: UsesFeature("android.hardware.location.network", Required = false)]
