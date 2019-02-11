@@ -11,7 +11,6 @@ namespace EnterpriseAddLogs
 {
 	public partial class App : Application
 	{
-
         public static IAuthenticate Authenticator { get; private set; }
 
         public App ()
@@ -27,6 +26,8 @@ namespace EnterpriseAddLogs
 
 		protected override async void OnStart ()
 		{
+            await AzureOfflineService.Init();
+
             // Handle when your app starts
             await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<LoginPageViewModel>();
 

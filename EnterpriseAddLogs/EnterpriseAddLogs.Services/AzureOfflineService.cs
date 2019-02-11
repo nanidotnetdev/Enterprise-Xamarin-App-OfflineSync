@@ -3,45 +3,30 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace EnterpriseAddLogs.Services
 {
-    public class AzureService
+    public static class AzureOfflineService
     {
-        private static AzureService azureService = new AzureService();
+        public static MobileServiceClient Client  = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
+        public static MobileServiceUser User;
 
-        private NetworkAccess _networkAccess;
+        public static IMobileServiceSyncTable<Log> logTable;
+        public static IMobileServiceSyncTable<DayLog> dayLogTable;
 
-        protected MobileServiceClient client;
-        protected IMobileServiceSyncTable<Log> logTable;
-        protected IMobileServiceSyncTable<DayLog> dayLogTable;
+        private static NetworkAccess _networkAccess;
 
-        public static AzureService DefaultManager
+        public async static Task Init()
         {
-            get
-            {
-                return azureService;
-            }
-            private set
-            {
-                azureService = value;
-            }
-        }
-
-        public MobileServiceClient CurrentClient
-        {
-            get { return client; }
-        }
-
-        public AzureService()
-        {
-            client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
-
-            //InitializeAsync();
+            //already Initialized.
+            if (Client.SyncContext.IsInitialized)
+                return;
 
             // Create a reference to the local sqlite store
             var store = new MobileServiceSQLiteStore("sqllitedb.db");
@@ -51,61 +36,20 @@ namespace EnterpriseAddLogs.Services
             store.DefineTable<DayLog>();
 
             // Actually create the store and update the schema
-            client.SyncContext.InitializeAsync(store);
+            await Client.SyncContext.InitializeAsync(store);
 
-            this.logTable = client.GetSyncTable<Log>();
-            this.dayLogTable = client.GetSyncTable<DayLog>();
+            logTable = Client.GetSyncTable<Log>();
+            dayLogTable = Client.GetSyncTable<DayLog>();
 
             _networkAccess = Connectivity.NetworkAccess;
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
-        
-
-        #region Offline Sync Initialization
-        async Task InitializeAsync()
-        {
-            try
-            {
-                // Short circuit - local database is already initialized
-                if (client.SyncContext.IsInitialized)
-                    return;
-
-                //// Create a reference to the local sqlite store
-                //var store = new MobileServiceSQLiteStore("sqlitedbtest2.db");
-
-                //// Define the database schema
-                //store.DefineTable<Log>();
-                //store.DefineTable<DayLog>();
-
-                //// Actually create the store and update the schema
-                //await client.SyncContext.InitializeAsync(store);
-
-                //this.logTable = client.GetSyncTable<Log>();
-                //this.dayLogTable = client.GetSyncTable<DayLog>();
-            }
-            catch(Exception ex)
-            {
-
-            }
-            
-        }
-        #endregion
 
         /// <summary>
-        /// on network change trigger the sync async
+        /// Sync with Server.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
-        {
-            _networkAccess = e.NetworkAccess;
-
-            var profiles = e.ConnectionProfiles;
-
-            SyncAsync();
-        }
-
-        public async Task SyncAsync()
+        /// <returns></returns>
+        public static async Task SyncAsync()
         {
             ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
 
@@ -118,20 +62,22 @@ namespace EnterpriseAddLogs.Services
                 //    return;
                 //}
 
+                await Init();
+
                 //when offline 
                 if (_networkAccess != NetworkAccess.Internet)
                     return;
 
-                await this.client.SyncContext.PushAsync();
+                await Client.SyncContext.PushAsync();
 
                 //pass null as query string name to pull all the data
                 //pass name to pull only latest 50 records.
-                await this.dayLogTable.PullAsync(null, this.dayLogTable.CreateQuery());
-                await this.logTable.PullAsync(
+                await dayLogTable.PullAsync(null, dayLogTable.CreateQuery());
+                await logTable.PullAsync(
                     //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
                     //Use a different query name for each unique query in your program
                     null,
-                    this.logTable.CreateQuery());
+                    logTable.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
             {
@@ -161,6 +107,20 @@ namespace EnterpriseAddLogs.Services
                     Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
                 }
             }
+        }
+
+        /// <summary>
+        /// on network change trigger the sync async
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            _networkAccess = e.NetworkAccess;
+
+            var profiles = e.ConnectionProfiles;
+
+            SyncAsync();
         }
     }
 }

@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace EnterpriseAddLogs.Services
 {
-    public class DayLogService : AzureService, IDayLogService
+    public class DayLogService : IDayLogService
     {
-
+        
         public DayLogService()
         {
         }
 
         public async Task<DayLog> GetById(string id)
         {
-            return await dayLogTable.LookupAsync(id);
+            return await AzureOfflineService.dayLogTable.LookupAsync(id);
         }
         
         /// <summary>
@@ -28,9 +28,9 @@ namespace EnterpriseAddLogs.Services
         {
             try
             {
-                await SyncAsync();
+                await AzureOfflineService.SyncAsync();
 
-                IEnumerable<DayLog> dayLogs = await dayLogTable.OrderByDescending(l => l.CreatedAt).ToEnumerableAsync();
+                IEnumerable<DayLog> dayLogs = await AzureOfflineService.dayLogTable.OrderByDescending(l => l.CreatedAt).ToEnumerableAsync();
 
                 return new ObservableCollection<DayLog>(dayLogs);
             }
@@ -58,14 +58,14 @@ namespace EnterpriseAddLogs.Services
             {
                 dayLog.DayLogId = Guid.NewGuid();
 
-                await dayLogTable.InsertAsync(dayLog);
+                await AzureOfflineService.dayLogTable.InsertAsync(dayLog);
             }
             else
             {
-                await dayLogTable.UpdateAsync(dayLog);
+                await AzureOfflineService.dayLogTable.UpdateAsync(dayLog);
             }
 
-            SyncAsync();
+            AzureOfflineService.SyncAsync();
         }
     }
 }
