@@ -1,4 +1,5 @@
 ﻿using EnterpriseAddLogs.Models;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,16 @@ namespace EnterpriseAddLogs.Services
 
         public async Task<DayLog> GetById(string id)
         {
-            return await AzureOfflineService.dayLogTable.LookupAsync(id);
+            try
+            {
+                return await AzureOfflineService.dayLogTable.LookupAsync(id);
+            }
+            catch(Exception ex)
+            {
+                Crashes.TrackError(ex);
+            }
+
+            return null;
         }
         
         /// <summary>
@@ -36,15 +46,18 @@ namespace EnterpriseAddLogs.Services
             }
             catch (MobileServiceInvalidOperationException msioe)
             {
-                Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
+                Crashes.TrackError(msioe);
+
+                //Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
             }
             catch (Exception e)
             {
-                Debug.WriteLine(@"Sync error: {0}", e.Message);
+                Crashes.TrackError(e);
+
+                //Debug.WriteLine(@"Sync error: {0}", e.Message);
             }
 
             return null;
-
         }
 
         /// <summary>
@@ -54,18 +67,26 @@ namespace EnterpriseAddLogs.Services
         /// <returns></returns>
         public async Task SaveDayLog(DayLog dayLog)
         {
-            if(dayLog.DayLogId == Guid.Empty)
+            try
             {
-                dayLog.DayLogId = Guid.NewGuid();
+                if (dayLog.DayLogId == Guid.Empty)
+                {
+                    dayLog.DayLogId = Guid.NewGuid();
 
-                await AzureOfflineService.dayLogTable.InsertAsync(dayLog);
+                    await AzureOfflineService.dayLogTable.InsertAsync(dayLog);
+                }
+                else
+                {
+                    await AzureOfflineService.dayLogTable.UpdateAsync(dayLog);
+                }
+
+                AzureOfflineService.SyncAsync();
+
             }
-            else
+            catch (Exception ex)
             {
-                await AzureOfflineService.dayLogTable.UpdateAsync(dayLog);
+                Crashes.TrackError(ex);
             }
-
-            AzureOfflineService.SyncAsync();
         }
     }
 }

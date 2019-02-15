@@ -2,6 +2,9 @@ using Autofac;
 using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Services;
 using EnterpriseAddLogs.ViewModels;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,6 +34,8 @@ namespace EnterpriseAddLogs
             // Handle when your app starts
             await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<LoginPageViewModel>();
 
+            AppCenter.Start("android=70d18fca-e15e-47dd-aac6-c07748c9c3f2;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep ()

@@ -1,4 +1,6 @@
 ﻿using EnterpriseAddLogs.Models;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
@@ -81,6 +83,8 @@ namespace EnterpriseAddLogs.Services
             }
             catch (MobileServicePushFailedException exc)
             {
+                Crashes.TrackError(exc);
+
                 if (exc.PushResult != null)
                 {
                     syncErrors = exc.PushResult.Errors;
@@ -103,8 +107,6 @@ namespace EnterpriseAddLogs.Services
                         // Discard local change.
                         await error.CancelAndDiscardItemAsync();
                     }
-
-                    Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
                 }
             }
         }
