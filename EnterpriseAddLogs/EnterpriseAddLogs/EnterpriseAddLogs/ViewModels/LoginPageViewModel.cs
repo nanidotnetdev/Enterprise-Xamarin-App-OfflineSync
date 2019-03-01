@@ -1,6 +1,7 @@
 ﻿using EnterpriseAddLogs.Commands;
 using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Messaging;
+using EnterpriseAddLogs.Services;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -42,6 +43,8 @@ namespace EnterpriseAddLogs.ViewModels
 
                 if (authenticated)
                 {
+                    MessageBus.Publish(new LoginStateChangedMessage(true));
+                    await AzureOfflineService.Init();
                     await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
                 }
             }

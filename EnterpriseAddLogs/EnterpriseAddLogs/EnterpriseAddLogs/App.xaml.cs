@@ -25,17 +25,15 @@ namespace EnterpriseAddLogs
             MainPage = Ioc.Resolve<IViewResolver>().ResolveView<MainPageViewModel>();
             MainPage.BindingContext = Ioc.Resolve<MainPageViewModel>();
             Ioc.Resolve<INavigator>().Navigation = MainPage.Navigation;
+
+            AppCenter.Start("android=70d18fca-e15e-47dd-aac6-c07748c9c3f2;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
 		protected override async void OnStart ()
 		{
-            await AzureOfflineService.Init();
-
             // Handle when your app starts
             await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<LoginPageViewModel>();
-
-            AppCenter.Start("android=70d18fca-e15e-47dd-aac6-c07748c9c3f2;",
-                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep ()

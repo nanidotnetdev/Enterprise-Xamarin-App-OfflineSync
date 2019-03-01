@@ -16,7 +16,12 @@ namespace EnterpriseAddLogs.ViewModels
             MessageBus = messageBus;
             MenuItems = new ObservableCollection<MenuItemViewModel>();
 
-            SetMenuItems(true);
+            SetMenuItems(false);
+
+            MessageBus.Subscribe<LoginStateChangedMessage>(message =>
+            {
+                SetMenuItems(message.IsLoggedIn);
+            });
         }
 
         private ObservableCollection<MenuItemViewModel> _menuItems;
@@ -124,6 +129,8 @@ namespace EnterpriseAddLogs.ViewModels
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
+
+                    MessageBus.Publish(new LoginStateChangedMessage(false));
 
                     await App.Authenticator.LogoutAsync();
 
