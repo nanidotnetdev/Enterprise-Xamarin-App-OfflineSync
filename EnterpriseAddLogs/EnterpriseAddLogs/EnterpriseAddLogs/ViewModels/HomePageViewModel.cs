@@ -15,7 +15,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         public async Task OnBackButtonPressed()
         {
-            var shouldExitApp = await Navigator.DisplayAlertAsync("Exit?", "Leave the App?", "yes", "No");
+            var shouldExitApp = await Navigator.DisplayAlertAsync("Exit", "Leave the App?", "yes", "No");
 
             if (shouldExitApp)
             {

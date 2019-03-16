@@ -130,12 +130,10 @@ namespace EnterpriseAddLogs.ViewModels
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
 
-                    var confirm = await Navigator.DisplayAlertAsync("Log Off", "Log Off?", "Yes", "No");
+                    var confirm = await Navigator.DisplayAlertAsync("Log Off", "Log Off and Exit?", "Yes", "No");
 
                     if (confirm)
                     {
-                        MessageBus.Publish(new LoginStateChangedMessage(false));
-
                         await App.Authenticator.LogoutAsync();
 
                         MessageBus.Publish(new ExitAppMessage());
