@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.EnterpriseAddLogs" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.nnb.EnterpriseAddLogs" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="27" />
+	<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+	<uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
 	<application android:label="EnterpriseAddLogs.Android">
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
-  <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
-    <intent-filter>
-        <action android:name="android.intent.action.VIEW" />
-        <category android:name="android.intent.category.DEFAULT" />
-        <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="nnb54"
-            android:host="easyauth.callback"/>
-    </intent-filter>
-</activity>
+		<activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="nnb54" android:host="easyauth.callback" />
+			</intent-filter>
+		</activity>
 	</application>
-
 </manifest>

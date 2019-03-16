@@ -16,8 +16,16 @@ namespace EnterpriseAddLogs.Views
 		public HomePage ()
 		{
 			InitializeComponent ();
-
-            //BindingContext = Ioc.Resolve<HomePageViewModel>();
         }
-	}
+        protected override bool OnBackButtonPressed()
+        {
+            var viewModel = (HomePageViewModel)BindingContext;
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await viewModel.OnBackButtonPressed();
+            });
+
+            return true;
+        }
+    }
 }

@@ -26,6 +26,20 @@ namespace EnterpriseAddLogs.ViewModels
         public LoginPageViewModel(INavigator navigator, IMessageBus messageBus):base(navigator)
         {
             MessageBus = messageBus;
+
+            FingerprintLogin();
+        }
+
+        private async void FingerprintLogin()
+        {
+            var authenticated = await App.Authenticator.FingerPrintLogin();
+
+            if (authenticated)
+            {
+                MessageBus.Publish(new LoginStateChangedMessage(true));
+                await AzureOfflineService.Init();
+                await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
+            }
         }
 
         private IMessageBus MessageBus { get; set; }
@@ -45,7 +59,7 @@ namespace EnterpriseAddLogs.ViewModels
                 {
                     MessageBus.Publish(new LoginStateChangedMessage(true));
                     await AzureOfflineService.Init();
-                    await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
+                    await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
                 }
             }
             catch (InvalidOperationException ex)

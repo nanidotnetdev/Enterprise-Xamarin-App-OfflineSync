@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:views="clr-namespace:EnterpriseAddLogs.Views"
             x:Class="EnterpriseAddLogs.Views.HomePage">
-    <StackLayout>
-        <Label Text="In Home Page"/>
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Xamarin Forms POC!"/>
     </StackLayout>
 </ContentPage>

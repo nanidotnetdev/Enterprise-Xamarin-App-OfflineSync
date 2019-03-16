@@ -5,6 +5,10 @@ using Android.Runtime;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Microsoft.WindowsAzure.MobileServices;
+using Plugin.Fingerprint;
+using Plugin.SpeechRecognition;
+using EnterpriseAddLogs.Messaging;
+using Autofac;
 
 namespace EnterpriseAddLogs.Droid
 {
@@ -27,6 +31,9 @@ namespace EnterpriseAddLogs.Droid
             CrossCurrentActivity.Current.Init(this, bundle);
             Xamarin.Essentials.Platform.Init(this, bundle);
 
+            //finger print initialization.
+            CrossFingerprint.SetCurrentActivityResolver(() => CrossCurrentActivity.Current.Activity);
+
             CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
@@ -37,6 +44,11 @@ namespace EnterpriseAddLogs.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());
+
+            Ioc.Container.Resolve<IMessageBus>().Subscribe<ExitAppMessage>(message =>
+            {
+                Finish();
+            });
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

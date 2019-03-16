@@ -10,5 +10,7 @@ namespace EnterpriseAddLogs
         Task<bool> AuthenticateAsync();
 
         Task LogoutAsync();
+
+        Task<bool> FingerPrintLogin();
     }
 }

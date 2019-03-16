@@ -1,17 +1,26 @@
 ﻿using EnterpriseAddLogs.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using Xamarin.Forms;
+using EnterpriseAddLogs.Messaging;
+using System.Threading.Tasks;
 
 namespace EnterpriseAddLogs.ViewModels
 {
-    public class HomePageViewModel: PageViewModel
+    public class HomePageViewModel : PageViewModel
     {
-        public HomePageViewModel(INavigator navigator):base(navigator)
-        {
+        private IMessageBus MessageBus { get; set; }
 
+        public HomePageViewModel(INavigator navigator, IMessageBus messageBus) : base(navigator)
+        {
+            MessageBus = messageBus;
+        }
+
+        public async Task OnBackButtonPressed()
+        {
+            var shouldExitApp = await Navigator.DisplayAlertAsync("Exit?", "Leave the App?", "yes", "No");
+
+            if (shouldExitApp)
+            {
+                MessageBus.Publish(new ExitAppMessage());
+            }
         }
     }
 }

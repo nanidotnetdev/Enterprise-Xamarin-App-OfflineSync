@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.Webkit;
 using EnterpriseAddLogs.Droid;
+using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Services;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
+using Plugin.Fingerprint;
 using Xamarin.Auth;
 using Xamarin.Forms;
 
@@ -21,6 +23,44 @@ namespace EnterpriseAddLogs.Droid
         public AuthenticationProvider()
         {
             AccountStore = AccountStore.Create(MainActivity.Instance, "passcode");
+        }
+
+        public async Task<bool> FingerPrintLogin()
+        {
+            bool success = false;
+            var FingerprintAvailable = await CrossFingerprint.Current.IsAvailableAsync(true);
+            var test = CrossFingerprint.Current.GetAvailabilityAsync(true);
+
+            if (FingerprintAvailable)
+            {
+
+                var accounts = AccountStore.FindAccountsForService("enterprisepoc");
+                if (accounts != null)
+                {
+                    foreach (var acct in accounts)
+                    {
+                        string token;
+
+                        //get refresh token
+                        if (acct.Properties.TryGetValue("token", out token))
+                        {
+                            if (!IsTokenExpired(token))
+                            {
+                                var result = await CrossFingerprint.Current.AuthenticateAsync("Prove you have fingers!");
+
+                                if (result.Authenticated)
+                                {
+                                    AzureOfflineService.Client.CurrentUser = new MobileServiceUser(acct.Username);
+                                    AzureOfflineService.Client.CurrentUser.MobileServiceAuthenticationToken = token;
+                                    success = true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return success;
         }
 
         public async Task<bool> AuthenticateAsync()

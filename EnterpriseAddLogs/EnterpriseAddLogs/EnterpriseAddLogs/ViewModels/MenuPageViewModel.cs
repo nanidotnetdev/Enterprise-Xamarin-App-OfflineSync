@@ -103,7 +103,7 @@ namespace EnterpriseAddLogs.ViewModels
 
             MenuItems.Add(new MenuItemViewModel
             {
-                Title = "DayLog",
+                Title = "Day Log",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
@@ -125,19 +125,23 @@ namespace EnterpriseAddLogs.ViewModels
 
             MenuItems.Add(new MenuItemViewModel
             {
-                Title = "LogOff",
+                Title = "Log Off",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
 
-                    MessageBus.Publish(new LoginStateChangedMessage(false));
+                    var confirm = await Navigator.DisplayAlertAsync("Log Off", "Log Off?", "Yes", "No");
 
-                    await App.Authenticator.LogoutAsync();
+                    if (confirm)
+                    {
+                        MessageBus.Publish(new LoginStateChangedMessage(false));
 
-                    await Navigator.NavigateToViewModelAsync<LoginPageViewModel>();
+                        await App.Authenticator.LogoutAsync();
+
+                        MessageBus.Publish(new ExitAppMessage());
+                    }
                 }
             });
         }
-
     }
 }
