@@ -4,7 +4,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace EnterpriseAddLogs.Services
@@ -16,11 +16,17 @@ namespace EnterpriseAddLogs.Services
         {
         }
 
-        public async Task<DayLog> GetById(string id)
+        public async Task<DayLog> GetById(Guid Id)
         {
             try
             {
-                return await AzureOfflineService.dayLogTable.LookupAsync(id);
+                var Query = AzureOfflineService.Instance.dayLogTable.CreateQuery()
+                    .Where(l => l.DayLogId == Id);
+
+                IEnumerable<DayLog> res = await AzureOfflineService.Instance.dayLogTable.Where(l => l.DayLogId == Id)
+                    .ToEnumerableAsync();
+
+                return res.FirstOrDefault();
             }
             catch(Exception ex)
             {
@@ -38,9 +44,10 @@ namespace EnterpriseAddLogs.Services
         {
             try
             {
-                await AzureOfflineService.SyncAsync();
+                await AzureOfflineService.Instance.SyncAsync();
 
-                IEnumerable<DayLog> dayLogs = await AzureOfflineService.dayLogTable.OrderByDescending(l => l.CreatedAt).ToEnumerableAsync();
+                IEnumerable<DayLog> dayLogs = await AzureOfflineService.Instance.dayLogTable
+                    .OrderByDescending(l => l.DateLogged).ToEnumerableAsync();
 
                 return new ObservableCollection<DayLog>(dayLogs);
             }
@@ -73,14 +80,14 @@ namespace EnterpriseAddLogs.Services
                 {
                     dayLog.DayLogId = Guid.NewGuid();
 
-                    await AzureOfflineService.dayLogTable.InsertAsync(dayLog);
+                    await AzureOfflineService.Instance.dayLogTable.InsertAsync(dayLog);
                 }
                 else
                 {
-                    await AzureOfflineService.dayLogTable.UpdateAsync(dayLog);
+                    await AzureOfflineService.Instance.dayLogTable.UpdateAsync(dayLog);
                 }
 
-                AzureOfflineService.SyncAsync();
+                await AzureOfflineService.Instance.SyncAsync().ConfigureAwait(false);
 
             }
             catch (Exception ex)
