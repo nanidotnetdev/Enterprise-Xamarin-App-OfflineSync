@@ -50,8 +50,8 @@ namespace EnterpriseAddLogs.Droid
 
                                 if (result.Authenticated)
                                 {
-                                    AzureOfflineService.Client.CurrentUser = new MobileServiceUser(acct.Username);
-                                    AzureOfflineService.Client.CurrentUser.MobileServiceAuthenticationToken = token;
+                                    AzureOfflineService.Instance.Client.CurrentUser = new MobileServiceUser(acct.Username);
+                                    AzureOfflineService.Instance.Client.CurrentUser.MobileServiceAuthenticationToken = token;
                                     success = true;
                                 }
                             }
@@ -79,8 +79,8 @@ namespace EnterpriseAddLogs.Droid
                         {
                             if (!IsTokenExpired(token))
                             {
-                                AzureOfflineService.Client.CurrentUser = new MobileServiceUser(acct.Username);
-                                AzureOfflineService.Client.CurrentUser.MobileServiceAuthenticationToken = token;
+                                AzureOfflineService.Instance.Client.CurrentUser = new MobileServiceUser(acct.Username);
+                                AzureOfflineService.Instance.Client.CurrentUser.MobileServiceAuthenticationToken = token;
                                 return true;
                             }
                         }
@@ -89,16 +89,16 @@ namespace EnterpriseAddLogs.Droid
 
                 //client flow --recommended
                 //Server Flow 
-                await AzureOfflineService.Client.LoginAsync(MainActivity.Instance, MobileServiceAuthenticationProvider.Facebook, ServiceConstants.Urls.URLScheme);
+                await AzureOfflineService.Instance.Client.LoginAsync(MainActivity.Instance, MobileServiceAuthenticationProvider.Facebook, ServiceConstants.Urls.URLScheme);
 
-                if (AzureOfflineService.Client.CurrentUser != null)
+                if (AzureOfflineService.Instance.Client.CurrentUser != null)
                 {
                     // Store the new token within the store
-                    var account = new Account(AzureOfflineService.Client.CurrentUser.UserId);
-                    account.Properties.Add("token", AzureOfflineService.Client.CurrentUser.MobileServiceAuthenticationToken);
+                    var account = new Account(AzureOfflineService.Instance.Client.CurrentUser.UserId);
+                    account.Properties.Add("token", AzureOfflineService.Instance.Client.CurrentUser.MobileServiceAuthenticationToken);
                     AccountStore.Save(account, "enterprisepoc");
 
-                    CreateAndShowDialog(string.Format("You are now logged in - {0}", AzureOfflineService.Client.CurrentUser.UserId), "Logged in!");
+                    CreateAndShowDialog(string.Format("You are now logged in - {0}", AzureOfflineService.Instance.Client.CurrentUser.UserId), "Logged in!");
                 }
 
                 success = true;
@@ -145,7 +145,7 @@ namespace EnterpriseAddLogs.Droid
 
         public async Task LogoutAsync()
         {
-            MobileServiceClient client = AzureOfflineService.Client;
+            MobileServiceClient client = AzureOfflineService.Instance.Client;
 
             if (client.CurrentUser == null || client.CurrentUser.MobileServiceAuthenticationToken == null)
                 return;

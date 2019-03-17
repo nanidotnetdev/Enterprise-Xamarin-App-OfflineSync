@@ -37,7 +37,6 @@ namespace EnterpriseAddLogs.ViewModels
             if (authenticated)
             {
                 MessageBus.Publish(new LoginStateChangedMessage(true));
-                await AzureOfflineService.Init();
                 await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
             }
         }
@@ -58,7 +57,6 @@ namespace EnterpriseAddLogs.ViewModels
                 if (authenticated)
                 {
                     MessageBus.Publish(new LoginStateChangedMessage(true));
-                    await AzureOfflineService.Init();
                     await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
                 }
             }

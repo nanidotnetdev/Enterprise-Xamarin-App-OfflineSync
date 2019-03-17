@@ -14,17 +14,44 @@ using Xamarin.Essentials;
 
 namespace EnterpriseAddLogs.Services
 {
-    public static class AzureOfflineService
+    public class AzureOfflineService
     {
-        public static MobileServiceClient Client  = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
-        public static MobileServiceUser User;
+        public AzureOfflineService()
+        {
+            Init();
+        }
 
-        public static IMobileServiceSyncTable<Log> logTable;
-        public static IMobileServiceSyncTable<DayLog> dayLogTable;
+        private static AzureOfflineService _instance;
 
-        private static NetworkAccess _networkAccess;
+        public static AzureOfflineService Instance
+        {
+            get
+            {
+                return _instance ?? (_instance = new AzureOfflineService());
+            }
+        }
 
-        public async static Task Init()
+        MobileServiceClient _client;
+
+        public MobileServiceClient Client
+        {
+            get
+            {
+                if (_client == null)
+                {
+                    _client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
+                }
+                
+                return _client;
+            }
+        }
+
+        public IMobileServiceSyncTable<Log> logTable;
+        public IMobileServiceSyncTable<DayLog> dayLogTable;
+
+        private NetworkAccess _networkAccess;
+
+        public async Task Init()
         {
             //already Initialized.
             if (Client.SyncContext.IsInitialized)
@@ -51,7 +78,7 @@ namespace EnterpriseAddLogs.Services
         /// Sync with Server.
         /// </summary>
         /// <returns></returns>
-        public static async Task SyncAsync()
+        public async Task SyncAsync()
         {
             ReadOnlyCollection<MobileServiceTableOperationError> syncErrors = null;
 
@@ -73,12 +100,12 @@ namespace EnterpriseAddLogs.Services
                 await Client.SyncContext.PushAsync();
 
                 //pass null as query string name to pull all the data
-                //pass name to pull only latest 50 records.
-                await dayLogTable.PullAsync(null, dayLogTable.CreateQuery());
+                //pass name to pull only latest 50 records.- incremental sync
+                await dayLogTable.PullAsync("GetAllDayLog", dayLogTable.CreateQuery());
                 await logTable.PullAsync(
                     //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
                     //Use a different query name for each unique query in your program
-                    null,
+                    "GetLogs",
                     logTable.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
@@ -116,7 +143,7 @@ namespace EnterpriseAddLogs.Services
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private static void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
             _networkAccess = e.NetworkAccess;
 

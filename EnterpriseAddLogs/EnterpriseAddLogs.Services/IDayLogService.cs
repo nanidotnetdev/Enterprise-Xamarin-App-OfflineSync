@@ -9,7 +9,7 @@ namespace EnterpriseAddLogs.Services
 {
     public interface IDayLogService
     {
-        Task<DayLog> GetById(string id);
+        Task<DayLog> GetById(Guid Id);
 
         Task SaveDayLog(DayLog dayLog);
 
