@@ -2,67 +2,43 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EnterpriseAddLogs.Views.MenuPage"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
              Title="Menu">
     <Grid>
-        <ListView x:Name="MenuItemsListView"
-			SeparatorVisibility="None"
+            <ListView x:Name="MenuItemsListView"
 			HasUnevenRows="true"
+            SeparatorVisibility="None"
 			ItemsSource="{Binding MenuItems}"
 			SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}">
-            <!--<ListView.Header>
-                <Grid BackgroundColor="Black" Padding="0, 20, 0, 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
-                    </Grid.RowDefinitions>
-                        --><!--<Image 
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"/>-->
-                    <!--Source="Polaris_Logo_White_Blue"--><!--
-                    <Label
-						Grid.Column="1"
-						Grid.Row="2"
-						Text="nnallu"
-                        TextColor="White"
-						Style="{DynamicResource SubtitleStyle}"/>
-                    --><!--<Label
-						Grid.Column="1"
-						Grid.Row="3"
-						Text="Stage Build"
-						IsVisible="{Binding IsStageBuild}"
-						TextColor="Yellow" />--><!--
-                </Grid>
-            </ListView.Header>-->
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
+            <ListView.Header>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label Text="Enterprise APP"  TextColor="Red" FontSize="Large"/>
+                </StackLayout>
+            </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
                         <StackLayout Padding="15,10" 
                                      HorizontalOptions="FillAndExpand" 
                                      Orientation="Horizontal">
-                            <Image Source="{Binding ImageIcon}" 
-                                   VerticalOptions="Center" 
-                                   HeightRequest="30" 
-                                   WidthRequest="30"
-                                   Margin="0, 0, 30, 0"/>
-                            <Label VerticalOptions="FillAndExpand" 
+                            <iconize:IconImage 
+                                VerticalOptions="Center" 
+                                HeightRequest="25" 
+                                WidthRequest="25"
+                                Margin="0, 0, 25, 0"
+                                Icon="{Binding ImageIcon}" />
+                            <Label VerticalOptions="FillAndExpand"
 								   VerticalTextAlignment="Center" 
 								   Text="{Binding Title}" 
                                    TextColor="{Binding IsHome}"
 								   AutomationId="MenuLabel"
                                    FontSize="14"
                                    FontAttributes="Bold"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
 </ContentPage>

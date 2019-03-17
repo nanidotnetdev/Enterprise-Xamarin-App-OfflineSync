@@ -81,6 +81,7 @@ namespace EnterpriseAddLogs.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 Title = "Home",
+                ImageIcon="fas-home",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
@@ -93,6 +94,7 @@ namespace EnterpriseAddLogs.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 Title = "Log",
+                ImageIcon = "far-list-alt",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
@@ -104,6 +106,7 @@ namespace EnterpriseAddLogs.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 Title = "Day Log",
+                ImageIcon = "far-edit",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
@@ -115,6 +118,7 @@ namespace EnterpriseAddLogs.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 Title = "Location",
+                ImageIcon = "fas-map-marker",
                 OnSelected = async() =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
@@ -126,6 +130,7 @@ namespace EnterpriseAddLogs.ViewModels
             MenuItems.Add(new MenuItemViewModel
             {
                 Title = "Log Off",
+                ImageIcon = "fas-sign-out-alt",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));

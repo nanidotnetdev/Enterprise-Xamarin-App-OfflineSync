@@ -1,18 +1,16 @@
 using Autofac;
 using EnterpriseAddLogs.Helpers;
-using EnterpriseAddLogs.Services;
 using EnterpriseAddLogs.ViewModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace EnterpriseAddLogs
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
         public static IAuthenticate Authenticator { get; private set; }
 
@@ -28,6 +26,11 @@ namespace EnterpriseAddLogs
 
             AppCenter.Start("android=70d18fca-e15e-47dd-aac6-c07748c9c3f2;",
                   typeof(Analytics), typeof(Crashes));
+
+            Plugin.Iconize.Iconize
+               .With(new Plugin.Iconize.Fonts.FontAwesomeBrandsModule())
+               .With(new Plugin.Iconize.Fonts.FontAwesomeRegularModule())
+               .With(new Plugin.Iconize.Fonts.FontAwesomeSolidModule());
         }
 
 		protected override async void OnStart ()
