@@ -1,6 +1,7 @@
 ﻿using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
+using Plugin.SpeechRecognition;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -107,10 +108,34 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ICommand SaveCommand { get; set; }
 
+        public ICommand SpeechRecog { get; private set; }
+
         public DayLogCreatePageViewModel(IDayLogService dayLogService,INavigator navigator):base(navigator)
         {
             _dayLogService = dayLogService;
             SaveCommand = new Command(SaveDayLogAsync);
+            SpeechRecog = new Command(speechRecog);
+        }
+
+        private async void speechRecog()
+        {
+            var per = CrossSpeechRecognition.Current.RequestPermission();
+
+            var supported = CrossSpeechRecognition.Current.IsSupported;
+
+            if (supported)
+            {
+                var listener = CrossSpeechRecognition
+                                    .Current
+                                    .ContinuousDictation()
+                                    .Subscribe(phrase => {
+                                        Comment += phrase;
+                                        // will keep returning phrases as pause is observed
+                                    });
+
+            }
+
+            var tee = string.Empty;
         }
 
         private DayLog _dayLogEntity { get; set; }
