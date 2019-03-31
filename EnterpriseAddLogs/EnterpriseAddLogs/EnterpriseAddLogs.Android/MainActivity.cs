@@ -45,6 +45,8 @@ namespace EnterpriseAddLogs.Droid
 
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
 
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
             LoadApplication(new App());
 
             Ioc.Container.Resolve<IMessageBus>().Subscribe<ExitAppMessage>(message =>
