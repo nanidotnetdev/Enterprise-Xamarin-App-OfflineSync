@@ -11,9 +11,6 @@ namespace EnterpriseAddLogs.Views
 		public LogCreatePage ()
 		{
 			InitializeComponent ();
-            //BindingContext = Ioc.Container.Resolve<LogCreatePageViewModel>();
-
-
 
             takePhoto.Clicked += async (sender, args) =>
             {

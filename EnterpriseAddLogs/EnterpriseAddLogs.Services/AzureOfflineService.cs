@@ -1,16 +1,13 @@
 ﻿using EnterpriseAddLogs.Models;
-using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+
+
 
 namespace EnterpriseAddLogs.Services
 {
