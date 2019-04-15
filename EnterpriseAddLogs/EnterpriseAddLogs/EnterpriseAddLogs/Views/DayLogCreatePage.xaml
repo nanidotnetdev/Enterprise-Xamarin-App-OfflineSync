@@ -3,7 +3,7 @@
     x:Class="EnterpriseAddLogs.Views.DayLogCreatePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:helpers="clr-namespace:EnterpriseAddLogs.Helpers">
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveCommand}" Text="Save">
@@ -16,8 +16,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <ScrollView Margin="10">
-
+        <ScrollView>
             <StackLayout>
                 <Label Text="Comment" />
                 <Editor Placeholder="Enter Comment" Text="{Binding Comment}" />
@@ -27,7 +26,26 @@
 
                 <Label Text="Time" />
                 <Picker ItemsSource="{Binding DayLogTimes}"
-                        ItemDisplayBinding="{Binding Text}" SelectedItem="{Binding DayLogTimeSelected, Mode=TwoWay}"></Picker>
+                        ItemDisplayBinding="{Binding Text}" 
+                        SelectedItem="{Binding DayLogTimeSelected, Mode=TwoWay}">
+                </Picker>
+
+                <Button Command="{Binding PickFiles}" Text="Upload File"/>
+                <Button Command="{Binding TakePhoto}" Text="Take Photo"/>
+                <flv:FlowListView FlowItemsSource="{Binding FileList}"
+                                  FlowColumnCount="3"
+                                  HasUnevenRows="true" >
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Image Source="{Binding Image }" HeightRequest="100"/>
+                                <Label LineBreakMode="NoWrap" Text="{Binding Text }" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+
+                <!--<Button Command="{Binding SpeechRecog}"/>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

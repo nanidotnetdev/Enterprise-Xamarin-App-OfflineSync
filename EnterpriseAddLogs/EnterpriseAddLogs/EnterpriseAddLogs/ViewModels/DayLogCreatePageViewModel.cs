@@ -1,8 +1,11 @@
 ﻿using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Plugin.SpeechRecognition;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -111,11 +114,22 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ICommand SpeechRecog { get; private set; }
 
+        public ICommand PickFiles { get; set; }
+
+        public ICommand TakePhoto { get; set; }
+
+        private ObservableCollection<FileSource> fileList { get; set; }
+
+        public ObservableCollection<FileSource> FileList { get; set; }
+
         public DayLogCreatePageViewModel(IDayLogService dayLogService,INavigator navigator):base(navigator)
         {
             _dayLogService = dayLogService;
             SaveCommand = new Command(SaveDayLogAsync);
             SpeechRecog = new Command(speechRecog);
+            PickFiles = new Command(PickFilesCommand);
+            TakePhoto = new Command(TakePhotoCommand);
+            FileList = new ObservableCollection<FileSource>();
         }
 
         private async void speechRecog()
@@ -134,6 +148,11 @@ namespace EnterpriseAddLogs.ViewModels
                                         // will keep returning phrases as pause is observed
                                     });
 
+            }
+            else
+            {
+                var config = new ToastConfig("Speech Recog Not Supported!").SetBackgroundColor(Color.Red);
+                UserDialogs.Instance.Toast(config);
             }
 
             var tee = string.Empty;
@@ -210,11 +229,51 @@ namespace EnterpriseAddLogs.ViewModels
 
             return base.OnNavigatedToAsync(parameter);
         }
-    }
 
-    public class DayLogTime
-    {
-        public Guid DayTimeId { get; set; }
-        public string Text { get; set; }
+        private async void TakePhotoCommand()
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                var config = new ToastConfig("No Camera Available!").SetBackgroundColor(Color.Red);
+                UserDialogs.Instance.Toast(config);
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            {
+                Directory = "eod",
+                DefaultCamera = CameraDevice.Rear
+            });
+
+            if (file == null)
+                return;
+
+            string fileName = DateTime.Now.Ticks.ToString();
+
+            fileList.Add(new FileSource { FilePath = file.Path, Image = ImageSource.FromFile(file.Path), Text = fileName });
+        }
+
+        private async void PickFilesCommand()
+        {
+            await CrossMedia.Current.Initialize();
+
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                var config = new ToastConfig("No Camera Available!").SetBackgroundColor(Color.Red);
+                UserDialogs.Instance.Toast(config);
+                return;
+            }
+
+            MediaFile file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
+
+            if (file == null)
+                return;
+
+            string fileName = DateTime.Now.Ticks.ToString();
+
+            fileList.Add(new FileSource { FilePath = file.Path, Image = ImageSource.FromFile(file.Path), Text = fileName });
+        }
     }
 }
