@@ -20,7 +20,7 @@ namespace EnterpriseAddLogs.Services
         {
             try
             {
-                var Query = AzureOfflineService.Instance.dayLogTable.CreateQuery()
+                var query = AzureOfflineService.Instance.dayLogTable.CreateQuery()
                     .Where(l => l.DayLogId == Id);
 
                 IEnumerable<DayLog> res = await AzureOfflineService.Instance.dayLogTable.Where(l => l.DayLogId == Id)
@@ -54,14 +54,10 @@ namespace EnterpriseAddLogs.Services
             catch (MobileServiceInvalidOperationException msioe)
             {
                 Crashes.TrackError(msioe);
-
-                //Debug.WriteLine(@"Invalid sync operation: {0}", msioe.Message);
             }
             catch (Exception e)
             {
                 Crashes.TrackError(e);
-
-                //Debug.WriteLine(@"Sync error: {0}", e.Message);
             }
 
             return null;

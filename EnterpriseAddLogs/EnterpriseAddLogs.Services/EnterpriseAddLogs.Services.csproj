@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
     <PackageReference Include="Autofac" Version="4.9.0-beta1" />
     <PackageReference Include="Microsoft.AppCenter" Version="1.14.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.14.0" />

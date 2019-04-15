@@ -9,6 +9,7 @@ using Plugin.Fingerprint;
 using Plugin.SpeechRecognition;
 using EnterpriseAddLogs.Messaging;
 using Autofac;
+using Acr.UserDialogs;
 
 namespace EnterpriseAddLogs.Droid
 {
@@ -44,6 +45,8 @@ namespace EnterpriseAddLogs.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
+
+            UserDialogs.Init(() => this);
 
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
 

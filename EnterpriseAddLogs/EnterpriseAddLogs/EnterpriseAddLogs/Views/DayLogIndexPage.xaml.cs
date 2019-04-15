@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EnterpriseAddLogs.Views
@@ -15,6 +9,12 @@ namespace EnterpriseAddLogs.Views
         public DayLogIndexPage()
         {
             InitializeComponent();
+        }
+
+        private void DayLogListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if(sender is ListView c)
+                c.SelectedItem = null;
         }
     }
 }

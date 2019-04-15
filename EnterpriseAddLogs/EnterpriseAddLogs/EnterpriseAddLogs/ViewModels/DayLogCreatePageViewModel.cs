@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Acr.UserDialogs;
 
 namespace EnterpriseAddLogs.ViewModels
 {
@@ -154,7 +155,14 @@ namespace EnterpriseAddLogs.ViewModels
 
         public async void SaveDayLogAsync()
         {
-            IsBusy = true;
+            //required field validation
+            if (string.IsNullOrEmpty(Comment))
+            {
+                UserDialogs.Instance.Toast("Comment Required.");
+                return;
+            }
+
+            UserDialogs.Instance.ShowLoading("Saving..");
 
             if(DayLogEntity == null)
             {
@@ -176,13 +184,15 @@ namespace EnterpriseAddLogs.ViewModels
 
             await Navigator.CloseAsync();
 
-            //await Navigator.NavigateToViewModelAsync<DayLogIndexPageViewModel>();
+            UserDialogs.Instance.HideLoading();
         }
 
         public override Task OnNavigatedToAsync(object parameter = null)
         {
             if(parameter != null)
             {
+                UserDialogs.Instance.ShowLoading();
+
                 var selLog = parameter as DayLog;
 
                 if(selLog != null)
@@ -195,6 +205,7 @@ namespace EnterpriseAddLogs.ViewModels
                     DayLogTimeSelected = DayLogTimes.FirstOrDefault(d => d.DayTimeId == DayLogEntity.DayTimeId);
                 }
                 
+                UserDialogs.Instance.HideLoading();
             }
 
             return base.OnNavigatedToAsync(parameter);

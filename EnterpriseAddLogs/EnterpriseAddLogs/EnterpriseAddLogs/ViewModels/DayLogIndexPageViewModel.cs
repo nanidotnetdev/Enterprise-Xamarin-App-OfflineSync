@@ -4,6 +4,7 @@ using EnterpriseAddLogs.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Acr.UserDialogs;
 using Xamarin.Forms;
 
 namespace EnterpriseAddLogs.ViewModels
@@ -61,8 +62,12 @@ namespace EnterpriseAddLogs.ViewModels
 
         public async Task ExecuteLoadDayLogs()
         {
+            UserDialogs.Instance.ShowLoading();
+
             ICollection<DayLog> logs = await _dayLogService.GetDayLogs();
             DayLogs.ReplaceRange(logs);
+
+            UserDialogs.Instance.HideLoading();
         }
 
         public async Task OnDayLogSelected()
