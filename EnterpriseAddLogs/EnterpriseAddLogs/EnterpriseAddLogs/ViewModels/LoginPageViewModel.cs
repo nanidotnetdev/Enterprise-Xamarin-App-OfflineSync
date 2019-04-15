@@ -5,6 +5,7 @@ using EnterpriseAddLogs.Services;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Plugin.LocalNotifications;
 
 namespace EnterpriseAddLogs.ViewModels
 {
@@ -30,20 +31,18 @@ namespace EnterpriseAddLogs.ViewModels
             FingerprintLogin();
         }
 
-        private async void FingerprintLogin()
-        {
-            var authenticated = await App.Authenticator.FingerPrintLogin();
-
-            if (authenticated)
-            {
-                MessageBus.Publish(new LoginStateChangedMessage(true));
-                await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
-            }
-        }
-
         private IMessageBus MessageBus { get; set; }
 
         public ICommand LoginCommand => new AsyncActionCommand(LoginAsync);
+
+        private async Task FingerprintLogin()
+        {
+            if (App.Authenticator != null)
+            {
+                var authenticated = await App.Authenticator.FingerPrintLogin();
+                await UserAuthenticated(authenticated);
+            }
+        }
 
         private async Task LoginAsync()
         {
@@ -54,11 +53,7 @@ namespace EnterpriseAddLogs.ViewModels
                     authenticated = await App.Authenticator.AuthenticateAsync();
                 }
 
-                if (authenticated)
-                {
-                    MessageBus.Publish(new LoginStateChangedMessage(true));
-                    await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
-                }
+                await UserAuthenticated(authenticated);
             }
             catch (InvalidOperationException ex)
             {
@@ -72,6 +67,16 @@ namespace EnterpriseAddLogs.ViewModels
                 MessageLabel = "Authentication failed";
             }
 
+        }
+
+        private async Task UserAuthenticated(bool authenticated)
+        {
+            if (authenticated)
+            {
+                MessageBus.Publish(new LoginStateChangedMessage(true));
+                CrossLocalNotifications.Current.Show("Enterprise Add Logs", "Welcome to the App");
+                await Navigator.NavigateToDetailViewModelAsync<HomePageViewModel>();
+            }
         }
     }
 }
