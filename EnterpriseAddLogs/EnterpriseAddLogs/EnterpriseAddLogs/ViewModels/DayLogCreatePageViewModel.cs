@@ -120,7 +120,11 @@ namespace EnterpriseAddLogs.ViewModels
 
         private ObservableCollection<FileSource> fileList { get; set; }
 
-        public ObservableCollection<FileSource> FileList { get; set; }
+        public ObservableCollection<FileSource> FileList
+        {
+            get => fileList;
+            set => fileList = value;
+        }
 
         public DayLogCreatePageViewModel(IDayLogService dayLogService,INavigator navigator):base(navigator)
         {
@@ -177,7 +181,7 @@ namespace EnterpriseAddLogs.ViewModels
             //required field validation
             if (string.IsNullOrEmpty(Comment))
             {
-                UserDialogs.Instance.Toast("Comment Required.");
+                UserDialogs.Instance.Toast(NotificationConfig.ErrorToast("Comment Required"));
                 return;
             }
 
@@ -234,10 +238,15 @@ namespace EnterpriseAddLogs.ViewModels
         {
             await CrossMedia.Current.Initialize();
 
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            if (!CrossMedia.Current.IsCameraAvailable)
             {
-                var config = new ToastConfig("No Camera Available!").SetBackgroundColor(Color.Red);
-                UserDialogs.Instance.Toast(config);
+                UserDialogs.Instance.Toast(NotificationConfig.ErrorToast("No Camera Available!"));
+                return;
+            }
+
+            if (!CrossMedia.Current.IsTakePhotoSupported)
+            {
+                UserDialogs.Instance.Toast(NotificationConfig.ErrorToast("Can't take Photos!"));
                 return;
             }
 
