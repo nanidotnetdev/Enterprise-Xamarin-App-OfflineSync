@@ -1,30 +1,31 @@
-﻿using EnterpriseAddLogs.Models;
+﻿using System.Collections.Generic;
+using EnterpriseAddLogs.Models;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading.Tasks;
+using Plugin.Connectivity;
 using Xamarin.Essentials;
-
-
 
 namespace EnterpriseAddLogs.Services
 {
-    public class AzureOfflineService
+    public class AppService
     {
-        public AzureOfflineService()
+        public AppService()
         {
             Init();
         }
 
-        private static AzureOfflineService _instance;
+        private static AppService _instance;
 
-        public static AzureOfflineService Instance
+        public static AppService Instance
         {
             get
             {
-                return _instance ?? (_instance = new AzureOfflineService());
+                return _instance ?? (_instance = new AppService());
             }
         }
 
@@ -44,7 +45,12 @@ namespace EnterpriseAddLogs.Services
         }
 
         public IMobileServiceSyncTable<Log> logTable;
-        public IMobileServiceSyncTable<DayLog> dayLogTable;
+
+        public DayLogService DayLog
+        {
+            get;
+            private set;
+        }
 
         private NetworkAccess _networkAccess;
 
@@ -65,7 +71,7 @@ namespace EnterpriseAddLogs.Services
             await Client.SyncContext.InitializeAsync(store);
 
             logTable = Client.GetSyncTable<Log>();
-            dayLogTable = Client.GetSyncTable<DayLog>();
+            DayLog = new DayLogService();
 
             _networkAccess = Connectivity.NetworkAccess;
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
@@ -81,29 +87,27 @@ namespace EnterpriseAddLogs.Services
 
             try
             {
-                //use xamarin crossconnectivity to make it work -- better to use individual plugin as it has more options available.
-                //if (!(await Connectivity.Current.IsRemoteReachable(client.MobileAppUri.Host, 443)))
-                //{
-                //    Debug.WriteLine($"Cannot connect to {client.MobileAppUri} right now - offline");
-                //    return;
-                //}
+                if (!await CrossConnectivity.Current.IsRemoteReachable(_client.MobileAppUri.Host, 443))
+                {
+                    Debug.WriteLine($"Cannot connect to {_client.MobileAppUri} right now - offline");
+                    return;
+                }
 
                 await Init();
 
-                //when offline 
-                if (_networkAccess != NetworkAccess.Internet)
-                    return;
-
-                await Client.SyncContext.PushAsync();
+                //new base service approach
+                var list = new List<Task<bool>>();
+                list.Add(DayLog.SyncAsync());
+                await Task.WhenAll(list).ConfigureAwait(false);
 
                 //pass null as query string name to pull all the data
                 //pass name to pull only latest 50 records.- incremental sync
-                await dayLogTable.PullAsync("GetAllDayLog", dayLogTable.CreateQuery());
-                await logTable.PullAsync(
-                    //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
-                    //Use a different query name for each unique query in your program
-                    "GetLogs",
-                    logTable.CreateQuery());
+                //await dayLogTable.PullAsync("GetAllDayLog", dayLogTable.CreateQuery());
+                //await logTable.PullAsync(
+                //    //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
+                //    //Use a different query name for each unique query in your program
+                //    "GetLogs",
+                //    logTable.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
             {

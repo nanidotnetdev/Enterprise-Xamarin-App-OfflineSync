@@ -6,7 +6,7 @@ using Microsoft.WindowsAzure.MobileServices;
 
 namespace EnterpriseAddLogs.Models
 {
-    public class DayLog
+    public class DayLog:  BaseModel
     {
         public Guid DayLogId { get; set; }
 
@@ -15,19 +15,5 @@ namespace EnterpriseAddLogs.Models
         public DateTime DateLogged { get; set; }
 
         public Guid? DayTimeId { get; set; }
-
-        public string id { get; set; }
-
-        [Version]
-        public byte[] Version { get; set; }
-
-        [CreatedAt]
-        public DateTimeOffset CreatedAt { get; set; }
-
-        [UpdatedAt]
-        public DateTimeOffset? UpdatedAt { get; set; }
-
-        [Deleted]
-        public bool Deleted { get; set; }
     }
 }

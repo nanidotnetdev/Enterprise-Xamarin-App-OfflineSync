@@ -5,7 +5,6 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Plugin.SpeechRecognition;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,15 +16,11 @@ namespace EnterpriseAddLogs.ViewModels
 {
     public class DayLogCreatePageViewModel: PageViewModel
     {
-        private IDayLogService _dayLogService;
         private string _comment;
 
         public string Comment
         {
-            get
-            {
-                return _comment;
-            }
+            get => _comment;
             set
             {
                 _comment = value;
@@ -37,10 +32,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         public DateTime DateLogged
         {
-            get
-            {
-                return _dateLogged;
-            }
+            get => _dateLogged;
             set
             {
                 _dateLogged = value;
@@ -52,10 +44,7 @@ namespace EnterpriseAddLogs.ViewModels
 
     public DayLogTime DayLogTimeSelected
         {
-            get
-            {
-                return _dayTimeSelected;
-            }
+            get => _dayTimeSelected;
             set
             {
                 _dayTimeSelected = value;
@@ -84,10 +73,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ObservableCollection<DayLogTime> DayLogTimes
         {
-            get
-            {
-                return _dayLogTimes;
-            }
+            get => _dayLogTimes;
             set
             {
                 _dayLogTimes = value;
@@ -99,10 +85,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         public int SelectedIndex
         {
-            get
-            {
-                return _selectedIndex;
-            }
+            get => _selectedIndex;
             set
             {
                 _selectedIndex = value;
@@ -126,9 +109,8 @@ namespace EnterpriseAddLogs.ViewModels
             set => fileList = value;
         }
 
-        public DayLogCreatePageViewModel(IDayLogService dayLogService,INavigator navigator):base(navigator)
+        public DayLogCreatePageViewModel(INavigator navigator):base(navigator)
         {
-            _dayLogService = dayLogService;
             SaveCommand = new Command(SaveDayLogAsync);
             SpeechRecog = new Command(speechRecog);
             PickFiles = new Command(PickFilesCommand);
@@ -166,14 +148,8 @@ namespace EnterpriseAddLogs.ViewModels
 
         public DayLog DayLogEntity
         {
-            get
-            {
-                return _dayLogEntity;
-            }
-            set
-            {
-                _dayLogEntity = value;
-            }
+            get => _dayLogEntity;
+            set => _dayLogEntity = value;
         }
 
         public async void SaveDayLogAsync()
@@ -202,8 +178,8 @@ namespace EnterpriseAddLogs.ViewModels
                 DayLogEntity.DateLogged = DateLogged;
                 DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
             }
-            
-            await _dayLogService.SaveDayLog(DayLogEntity);
+
+            await AppService.Instance.DayLog.UpsertAsync(DayLogEntity);
 
             await Navigator.CloseAsync();
 
@@ -216,9 +192,7 @@ namespace EnterpriseAddLogs.ViewModels
             {
                 UserDialogs.Instance.ShowLoading();
 
-                var selLog = parameter as DayLog;
-
-                if(selLog != null)
+                if(parameter is DayLog selLog)
                 {
                     //DayLogEntity = _dayLogService.GetById(selLog.id).Result;
                     DayLogEntity = selLog;

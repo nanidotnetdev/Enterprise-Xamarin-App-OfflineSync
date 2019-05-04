@@ -22,7 +22,7 @@
         {
             try
             {
-                IEnumerable<Log> logs = await AzureOfflineService.Instance.logTable.ToEnumerableAsync();
+                IEnumerable<Log> logs = await AppService.Instance.logTable.ToEnumerableAsync();
 
                 return new ObservableCollection<Log>(logs);
             }
@@ -47,7 +47,7 @@
         {
             try
             {
-                return await AzureOfflineService.Instance.logTable.LookupAsync(id.ToString());
+                return await AppService.Instance.logTable.LookupAsync(id.ToString());
             }
             catch (MobileServiceInvalidOperationException msioe)
             {
@@ -75,17 +75,17 @@
                 log.CreatedBy = Guid.NewGuid();
                 log.CreatedDate = DateTime.Now;
 
-                await AzureOfflineService.Instance.logTable.InsertAsync(log);
+                await AppService.Instance.logTable.InsertAsync(log);
             }
             else
             {
                 log.UpdatedBy = Guid.NewGuid();
                 log.UpdatedDate = DateTime.Now;
 
-                await AzureOfflineService.Instance.logTable.UpdateAsync(log);
+                await AppService.Instance.logTable.UpdateAsync(log);
             }
 
-            await AzureOfflineService.Instance.SyncAsync().ConfigureAwait(false);
+            await AppService.Instance.SyncAsync().ConfigureAwait(false);
         }
     }
 }
