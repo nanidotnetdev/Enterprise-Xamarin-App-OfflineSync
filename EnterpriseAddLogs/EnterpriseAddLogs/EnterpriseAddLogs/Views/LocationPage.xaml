@@ -6,11 +6,11 @@
         <StackLayout>
             <Label Text="Test Location related Services." />
             <Label Text="Longitude:"/>
-            <Label x:Name="LongitudeValue"/>
+            <Label x:Name="LongitudeValue" Text="{Binding Longitude, Mode=TwoWay }"/>
             <Label Text="Latitude:"/>
-            <Label x:Name="LatitudeValue"/>
+            <Label x:Name="LatitudeValue" Text="{Binding Latitude, Mode=TwoWay }"/>
             <Label Text="Speed:"/>
-            <Label x:Name="SpeedValue"/>
+            <Label x:Name="SpeedValue" Text="{Binding Speed, Mode=TwoWay }"/>
             <Label x:Name="AddressValue"/>
         </StackLayout>
     </ContentPage.Content>

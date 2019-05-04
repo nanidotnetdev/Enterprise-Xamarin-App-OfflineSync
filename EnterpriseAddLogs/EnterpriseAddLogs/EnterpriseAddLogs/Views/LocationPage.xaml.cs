@@ -20,11 +20,11 @@ namespace EnterpriseAddLogs.Views
 
         public async void AddLocation()
         {
-            var position = await Xamarin.Essentials.Geolocation.GetLocationAsync();
+            //var position = await Xamarin.Essentials.Geolocation.GetLocationAsync();
 
-            LongitudeValue.Text = position.Longitude.ToString();
-            LatitudeValue.Text = position.Latitude.ToString();
-            SpeedValue.Text = position.Speed.ToString();
+            //LongitudeValue.Text = position.Longitude.ToString();
+            //LatitudeValue.Text = position.Latitude.ToString();
+            //SpeedValue.Text = position.Speed.ToString();
 
             //try
             //{
