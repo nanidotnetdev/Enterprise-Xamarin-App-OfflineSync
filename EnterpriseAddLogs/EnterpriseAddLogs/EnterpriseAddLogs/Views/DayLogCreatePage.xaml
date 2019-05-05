@@ -3,7 +3,8 @@
     x:Class="EnterpriseAddLogs.Views.DayLogCreatePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView">
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding SaveCommand}" Text="Save">
@@ -16,8 +17,8 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <ScrollView Padding="5">
-            <StackLayout>
+        <ScrollView>
+            <StackLayout Padding="7">
                 <Label Text="Comment" />
                 <Editor Placeholder="Enter Comment" Text="{Binding Comment}" />
 
@@ -32,13 +33,18 @@
 
                 <Button Command="{Binding PickFiles}" Text="Upload File"/>
                 <Button Command="{Binding TakePhoto}" Text="Take Photo"/>
+
                 <flv:FlowListView FlowItemsSource="{Binding FileList}"
                                   FlowColumnCount="3"
-                                  HasUnevenRows="true" >
+                                  HasUnevenRows="true" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Image Source="{Binding Image }" HeightRequest="100"/>
+                                <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+                                                            WidthRequest="100" HeightRequest="100"
+                                                            DownsampleToViewSize="true"
+                                                            Source = "{Binding Image }">
+                                </ffimageloading:CachedImage>
                                 <Label LineBreakMode="NoWrap" Text="{Binding Text }" />
                             </StackLayout>
                         </DataTemplate>

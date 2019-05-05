@@ -50,6 +50,8 @@ namespace EnterpriseAddLogs.Droid
 
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
 
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+
             LoadApplication(new App());
 
             Ioc.Container.Resolve<IMessageBus>().Subscribe<ExitAppMessage>(message =>
