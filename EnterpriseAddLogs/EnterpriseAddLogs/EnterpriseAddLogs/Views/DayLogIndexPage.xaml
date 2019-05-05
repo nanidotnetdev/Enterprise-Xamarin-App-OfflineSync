@@ -12,33 +12,29 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    
     <ContentPage.Content>
-        <ScrollView>
-            <AbsoluteLayout HorizontalOptions="FillAndExpand" 
-                        VerticalOptions="FillAndExpand">
-                <StackLayout AbsoluteLayout.LayoutFlags="All" 
-                             AbsoluteLayout.LayoutBounds="0,0,1,1">
-                    <ListView x:Name="DayLogListView"
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView x:Name="DayLogListView"
                 ItemsSource="{Binding DayLogs, Mode=TwoWay }" 
                 SelectedItem="{Binding DayLogSelected, Mode=TwoWay}"
                 ItemSelected="DayLogListView_OnItemSelected"
                       VerticalOptions="FillAndExpand"
-                      HasUnevenRows="True">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <StackLayout Padding="10">
-                                        <Label Text="{Binding Comment}" 
+                      HasUnevenRows="True" 
+                RefreshCommand="{Binding RefreshListCommand}" 
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsBusy}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Comment}" 
                                        LineBreakMode="NoWrap" 
                                        FontSize="16" />
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </AbsoluteLayout>
-        </ScrollView>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -16,7 +16,7 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView Padding="5">
             <StackLayout>
                 <Label Text="Comment" />
                 <Editor Placeholder="Enter Comment" Text="{Binding Comment}" />

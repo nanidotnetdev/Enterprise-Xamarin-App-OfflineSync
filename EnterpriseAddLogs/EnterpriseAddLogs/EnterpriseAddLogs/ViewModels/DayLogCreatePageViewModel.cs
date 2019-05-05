@@ -23,8 +23,7 @@ namespace EnterpriseAddLogs.ViewModels
             get => _comment;
             set
             {
-                _comment = value;
-                NotifyPropertyChanged();
+                SetProperty(ref _comment, value);
             }
         }
 
@@ -40,17 +39,13 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        private DayLogTime _dayTimeSelected { set; get; }
+        private DayLogTime _dayTimeSelected;
 
     public DayLogTime DayLogTimeSelected
         {
             get => _dayTimeSelected;
-            set
-            {
-                _dayTimeSelected = value;
-                NotifyPropertyChanged();
-            }
-        }
+            set => SetProperty(ref _dayTimeSelected, value);
+    }
 
         private ObservableCollection<DayLogTime> _dayLogTimes { get; set; } = new ObservableCollection<DayLogTime>
         {
@@ -81,16 +76,12 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        private int _selectedIndex { get; set; }
+        private int _selectedIndex;
 
         public int SelectedIndex
         {
             get => _selectedIndex;
-            set
-            {
-                _selectedIndex = value;
-                NotifyPropertyChanged();
-            }
+            set => SetProperty(ref _selectedIndex, value);
         }
 
         public ICommand SaveCommand { get; set; }
