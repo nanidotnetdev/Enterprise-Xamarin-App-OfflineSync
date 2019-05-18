@@ -148,11 +148,12 @@ namespace EnterpriseAddLogs.ViewModels
             //required field validation
             if (string.IsNullOrEmpty(Comment))
             {
-                UserDialogs.Instance.Toast(NotificationConfig.ErrorToast("Comment Required"));
+                Notifications.ErrorToast("Comment Required.");
                 return;
             }
 
-            UserDialogs.Instance.ShowLoading("Saving..");
+            Notifications.BusyIndicator(title:"Saving..");
+            //UserDialogs.Instance.ShowLoading("Saving..");
 
             if(DayLogEntity == null)
             {
@@ -174,7 +175,10 @@ namespace EnterpriseAddLogs.ViewModels
 
             await Navigator.CloseAsync();
 
-            UserDialogs.Instance.HideLoading();
+            //await Navigator.CloseAsync();
+
+            Notifications.BusyIndicator(false);
+            Notifications.SuccessToast("Saved");
         }
 
         public override Task OnNavigatedToAsync(object parameter = null)
@@ -205,13 +209,13 @@ namespace EnterpriseAddLogs.ViewModels
 
             if (!CrossMedia.Current.IsCameraAvailable)
             {
-                UserDialogs.Instance.Toast(NotificationConfig.ErrorToast("No Camera Available!"));
+                Notifications.ErrorToast("No Camera Available!");
                 return;
             }
 
             if (!CrossMedia.Current.IsTakePhotoSupported)
             {
-                UserDialogs.Instance.Toast(NotificationConfig.ErrorToast("Can't take Photos!"));
+                Notifications.ErrorToast("Can't take Photos!");
                 return;
             }
 
