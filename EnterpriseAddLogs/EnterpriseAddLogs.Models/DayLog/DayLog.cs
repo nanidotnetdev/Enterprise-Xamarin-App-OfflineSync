@@ -1,8 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.WindowsAzure.MobileServices;
+﻿using System;
+using Newtonsoft.Json;
 
 namespace EnterpriseAddLogs.Models
 {
@@ -15,5 +12,9 @@ namespace EnterpriseAddLogs.Models
         public DateTime DateLogged { get; set; }
 
         public Guid? DayTimeId { get; set; }
+
+        //don't persist to remote.
+        [JsonIgnore]
+        public bool IsNew { get; set; }
     }
 }

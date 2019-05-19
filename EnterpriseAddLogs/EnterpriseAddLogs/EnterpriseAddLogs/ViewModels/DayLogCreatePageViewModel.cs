@@ -107,6 +107,13 @@ namespace EnterpriseAddLogs.ViewModels
             PickFiles = new Command(PickFilesCommand);
             TakePhoto = new Command(TakePhotoCommand);
             FileList = new ObservableCollection<FileSource>();
+
+            if (DayLogEntity == null)
+                DayLogEntity = new DayLog
+                {
+                    DayLogId = Guid.NewGuid(),
+                    IsNew = true
+                };
         }
 
         private async void speechRecog()
@@ -155,27 +162,12 @@ namespace EnterpriseAddLogs.ViewModels
             Notifications.BusyIndicator(title:"Saving..");
             //UserDialogs.Instance.ShowLoading("Saving..");
 
-            if(DayLogEntity == null)
-            {
-                DayLogEntity = new DayLog
-                {
-                    Comment = Comment,
-                    DateLogged = DateLogged,
-                    DayTimeId = DayLogTimeSelected?.DayTimeId
-                };
-            }
-            else
-            {
-                DayLogEntity.Comment = Comment;
-                DayLogEntity.DateLogged = DateLogged;
-                DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
-            }
+            DayLogEntity.Comment = Comment;
+            DayLogEntity.DateLogged = DateLogged;
+            DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
 
+            //save daylog
             await AppService.Instance.DayLog.UpsertAsync(DayLogEntity);
-
-            await Navigator.CloseAsync();
-
-            //await Navigator.CloseAsync();
 
             Notifications.BusyIndicator(false);
             Notifications.SuccessToast("Saved");
