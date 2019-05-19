@@ -42,7 +42,7 @@
                             <StackLayout>
                                 <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
                                                             WidthRequest="100" HeightRequest="100"
-                                                            DownsampleToViewSize="true"
+                                                            DownsampleToViewSize="true" CacheDuration="1"
                                                             Source = "{Binding Image }">
                                 </ffimageloading:CachedImage>
                                 <Label LineBreakMode="NoWrap" Text="{Binding Text }" />

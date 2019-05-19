@@ -195,12 +195,17 @@ namespace EnterpriseAddLogs.ViewModels
                     Comment = DayLogEntity.Comment;
                     DateLogged = DayLogEntity.DateLogged;
                     DayLogTimeSelected = DayLogTimes.FirstOrDefault(d => d.DayTimeId == DayLogEntity.DayTimeId);
-                }
-                
-                UserDialogs.Instance.HideLoading();
-            }
 
-            return base.OnNavigatedToAsync(parameter);
+                    var fl = await StorageService.GetBlobs<CloudBlockBlob>(DayLogEntity.DayLogId, "offlinesyncapp");
+
+                    foreach (var fileSource in fl)
+                    {
+                        fileList.Add(fileSource);
+                    }
+                }
+                UserDialogs.Instance.HideLoading();
+
+            }
         }
 
         private async void TakePhotoCommand()
@@ -225,12 +230,7 @@ namespace EnterpriseAddLogs.ViewModels
                 DefaultCamera = CameraDevice.Rear
             });
 
-            if (file == null)
-                return;
-
-            string fileName = DateTime.Now.Ticks.ToString();
-
-            fileList.Add(new FileSource { FilePath = file.Path, Image = ImageSource.FromFile(file.Path), Text = fileName });
+            SaveFile(file);
         }
 
         private async void PickFilesCommand()
@@ -246,12 +246,21 @@ namespace EnterpriseAddLogs.ViewModels
 
             MediaFile file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
 
+            await SaveFile(file);
+        }
+
+        private async Task SaveFile(MediaFile file)
+        {
             if (file == null)
                 return;
 
             string fileName = DateTime.Now.Ticks.ToString();
 
-            fileList.Add(new FileSource { FilePath = file.Path, Image = ImageSource.FromFile(file.Path), Text = fileName });
+            var fil = new FileSource {FilePath = file.Path, Image = ImageSource.FromFile(file.Path), Text = fileName};
+
+            fileList.Add(fil);
+
+            await StorageService.UploadFile(fil, DayLogEntity.DayLogId);
         }
     }
 }
