@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Acr.UserDialogs;
+using Microsoft.WindowsAzure.Storage.Blob;
 
 namespace EnterpriseAddLogs.ViewModels
 {
@@ -135,8 +135,7 @@ namespace EnterpriseAddLogs.ViewModels
             }
             else
             {
-                var config = new ToastConfig("Speech Recog Not Supported!").SetBackgroundColor(Color.Red);
-                UserDialogs.Instance.Toast(config);
+                Notifications.ErrorToast("Speech Recog Not Supported!");
             }
 
             var tee = string.Empty;
@@ -160,7 +159,6 @@ namespace EnterpriseAddLogs.ViewModels
             }
 
             Notifications.BusyIndicator(title:"Saving..");
-            //UserDialogs.Instance.ShowLoading("Saving..");
 
             DayLogEntity.Comment = Comment;
             DayLogEntity.DateLogged = DateLogged;
@@ -173,13 +171,13 @@ namespace EnterpriseAddLogs.ViewModels
             Notifications.SuccessToast("Saved");
         }
 
-        public override Task OnNavigatedToAsync(object parameter = null)
+        public override async Task OnNavigatedToAsync(object parameter = null)
         {
             if(parameter != null)
             {
-                UserDialogs.Instance.ShowLoading();
+                Notifications.BusyIndicator();
 
-                if(parameter is DayLog selLog)
+                if (parameter is DayLog selLog)
                 {
                     //DayLogEntity = _dayLogService.GetById(selLog.id).Result;
                     DayLogEntity = selLog;
@@ -195,8 +193,8 @@ namespace EnterpriseAddLogs.ViewModels
                         fileList.Add(fileSource);
                     }
                 }
-                UserDialogs.Instance.HideLoading();
 
+                Notifications.BusyIndicator(false);
             }
         }
 
@@ -231,8 +229,7 @@ namespace EnterpriseAddLogs.ViewModels
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                var config = new ToastConfig("No Camera Available!").SetBackgroundColor(Color.Red);
-                UserDialogs.Instance.Toast(config);
+                Notifications.ErrorToast("No Camera Available");
                 return;
             }
 
