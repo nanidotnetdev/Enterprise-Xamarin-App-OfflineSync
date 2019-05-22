@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Acr.UserDialogs;
 using Xamarin.Forms;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -84,6 +85,8 @@ namespace EnterpriseAddLogs.ViewModels
             set => SetProperty(ref _selectedIndex, value);
         }
 
+        public FileSource LastSelectedImage { get; set; }
+
         public ICommand SaveCommand { get; set; }
 
         public ICommand SpeechRecog { get; private set; }
@@ -91,6 +94,8 @@ namespace EnterpriseAddLogs.ViewModels
         public ICommand PickFiles { get; set; }
 
         public ICommand TakePhoto { get; set; }
+
+        public ICommand ImageTapped { get; set; }
 
         private ObservableCollection<FileSource> fileList { get; set; }
 
@@ -107,6 +112,7 @@ namespace EnterpriseAddLogs.ViewModels
             PickFiles = new Command(PickFilesCommand);
             TakePhoto = new Command(TakePhotoCommand);
             FileList = new ObservableCollection<FileSource>();
+            ImageTapped = new Command(ShowImageOptions);
 
             if (DayLogEntity == null)
                 DayLogEntity = new DayLog
@@ -114,6 +120,26 @@ namespace EnterpriseAddLogs.ViewModels
                     DayLogId = Guid.NewGuid(),
                     IsNew = true
                 };
+        }
+
+        private void ShowImageOptions()
+        {
+            UserDialogs.Instance
+                .ActionSheet(new ActionSheetConfig()
+                    .SetCancel()
+                    .SetDestructive("Delete", async () => await DeleteImage())
+                    .Add("View", OpenFullScreenImageView));
+        }
+
+        private async Task DeleteImage()
+        {
+            await StorageService.DeleteFile(LastSelectedImage.Text);
+            fileList.Remove(LastSelectedImage);
+        }
+
+        private void OpenFullScreenImageView()
+        {
+            FullScreenImageView.Show(FileList, fileList.IndexOf(LastSelectedImage));
         }
 
         private async void speechRecog()
@@ -186,7 +212,7 @@ namespace EnterpriseAddLogs.ViewModels
                     DateLogged = DayLogEntity.DateLogged;
                     DayLogTimeSelected = DayLogTimes.FirstOrDefault(d => d.DayTimeId == DayLogEntity.DayTimeId);
 
-                    var fl = await StorageService.GetBlobs<CloudBlockBlob>(DayLogEntity.DayLogId, "offlinesyncapp");
+                    var fl = await StorageService.GetBlobs<CloudBlockBlob>(DayLogEntity.DayLogId);
 
                     foreach (var fileSource in fl)
                     {
@@ -243,13 +269,19 @@ namespace EnterpriseAddLogs.ViewModels
             if (file == null)
                 return;
 
+            Notifications.BusyIndicator(title:"uploading..");
+
             string fileName = DateTime.Now.Ticks.ToString();
 
-            var fil = new FileSource {FilePath = file.Path, Image = ImageSource.FromFile(file.Path), Text = fileName};
+            var saved = await StorageService.UploadFile(new FileSource { FilePath = file.Path, Text = fileName }, DayLogEntity.DayLogId);
 
-            fileList.Add(fil);
+            fileList.Add(new FileSource
+            {
+                Image = ImageSource.FromUri(saved.Uri),
+                Text = saved.Name
+            });
 
-            await StorageService.UploadFile(fil, DayLogEntity.DayLogId);
+            Notifications.BusyIndicator(false);
         }
     }
 }

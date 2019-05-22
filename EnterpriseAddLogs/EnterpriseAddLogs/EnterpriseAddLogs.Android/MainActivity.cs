@@ -52,6 +52,8 @@ namespace EnterpriseAddLogs.Droid
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
+            Stormlion.PhotoBrowser.Droid.Platform.Init(this);
+
             LoadApplication(new App());
 
             Ioc.Container.Resolve<IMessageBus>().Subscribe<ExitAppMessage>(message =>

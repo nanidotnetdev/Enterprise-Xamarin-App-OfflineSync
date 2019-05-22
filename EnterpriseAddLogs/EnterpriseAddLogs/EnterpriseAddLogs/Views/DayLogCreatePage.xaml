@@ -36,7 +36,11 @@
 
                 <flv:FlowListView FlowItemsSource="{Binding FileList}"
                                   FlowColumnCount="3"
-                                  HasUnevenRows="true" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                                  HasUnevenRows="true" 
+                                  HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="EndAndExpand" 
+                                  FlowItemTappedCommand ="{Binding ImageTapped}"
+                                  FlowLastTappedItem="{Binding LastSelectedImage}">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
                             <StackLayout>

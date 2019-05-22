@@ -20,12 +20,11 @@ namespace EnterpriseAddLogs.Helpers
 
         private static readonly CloudFileShare share = fileClient.GetShareReference("offlinesyncapp");
         readonly static CloudBlobClient _blobClient = cloudStorageAccount.CreateCloudBlobClient();
+        private static CloudBlobContainer blobContainer = _blobClient.GetContainerReference("offlinesyncapp");
 
-        public static async Task<ObservableRangeCollection<FileSource>> GetBlobs<T>(Guid entityItemId, string containerName, string prefix = "", 
+        public static async Task<ObservableRangeCollection<FileSource>> GetBlobs<T>(Guid entityItemId, string prefix = "", 
             int? maxresultsPerQuery = null, BlobListingDetails blobListingDetails = BlobListingDetails.None) where T : ICloudBlob
         {
-            var blobContainer = _blobClient.GetContainerReference(containerName);
-
             var blobList = new ObservableRangeCollection<FileSource>();
             BlobContinuationToken continuationToken = null;
             
@@ -66,11 +65,11 @@ namespace EnterpriseAddLogs.Helpers
             }
         }
 
-        public static async Task UploadFile(FileSource item, Guid entityItemId)
+        public static async Task<CloudBlockBlob> UploadFile(FileSource item, Guid entityItemId)
         {
             //to blob
             //await SaveBlockBlob(entityItemId, "offlinesyncapp", MemoryStream(item.FilePath), $"{item.Text}{fileExtension}");
-            await SaveBlockBlob(entityItemId, "offlinesyncapp", item);
+            return await SaveBlockBlob(entityItemId, item);
 
             //to file storage
             //CloudFileDirectory rootDir = share.GetRootDirectoryReference();
@@ -79,15 +78,12 @@ namespace EnterpriseAddLogs.Helpers
             //await dir.CreateIfNotExistsAsync();
             //CloudFile file = dir.GetFileReference($"{item.Text}{fileExtension}");
             //await file.UploadFromFileAsync(item.FilePath);
-
-            File.Delete(item.FilePath);
         }
 
-        public static async Task<CloudBlockBlob> SaveBlockBlob(Guid entityItemId, string containerName, FileSource file)
+        public static async Task<CloudBlockBlob> SaveBlockBlob(Guid entityItemId, FileSource file)
         {
             if (!string.IsNullOrWhiteSpace(file.FilePath ?? ""))
             {
-                var blobContainer = _blobClient.GetContainerReference(containerName);
                 await blobContainer.CreateIfNotExistsAsync();
 
                 string fileExtension = Path.GetExtension(file.FilePath);
@@ -157,17 +153,18 @@ namespace EnterpriseAddLogs.Helpers
             return fileList;
         }
 
-        public static async Task<bool> DeleteFile(string fileName, Guid entityItemId)
+        public static async Task<bool> DeleteFile(string fileName)
         {
+            var blob = blobContainer.GetBlobReference(fileName);
+            return await blob.DeleteIfExistsAsync();
 
-            CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+            //CloudFileDirectory rootDir = share.GetRootDirectoryReference();
 
+            //var dir = rootDir.GetDirectoryReference(fileName);
+            //await dir.CreateIfNotExistsAsync();
 
-            var dir = rootDir.GetDirectoryReference(fileName);
-            await dir.CreateIfNotExistsAsync();
-
-            CloudFile file = dir.GetFileReference(fileName);
-            return await file.DeleteIfExistsAsync();
+            //CloudFile file = dir.GetFileReference(fileName);
+            //return await file.DeleteIfExistsAsync();
         }
     }
 }
