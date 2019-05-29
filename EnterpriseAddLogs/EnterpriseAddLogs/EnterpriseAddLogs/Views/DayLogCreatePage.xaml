@@ -31,8 +31,8 @@
                         SelectedItem="{Binding DayLogTimeSelected, Mode=TwoWay}">
                 </Picker>
 
-                <Button Command="{Binding PickFiles}" Text="Upload File"/>
-                <Button Command="{Binding TakePhoto}" Text="Take Photo"/>
+                <Button Command="{Binding FileUploadOptions}" Text="Add Attachments"/>
+                <!--<Button Command="{Binding TakePhoto}" Text="Take Photo"/>-->
 
                 <flv:FlowListView FlowItemsSource="{Binding FileList}"
                                   FlowColumnCount="3"

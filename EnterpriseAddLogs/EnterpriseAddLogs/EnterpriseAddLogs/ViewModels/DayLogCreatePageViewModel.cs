@@ -91,11 +91,13 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ICommand SpeechRecog { get; private set; }
 
-        public ICommand PickFiles { get; set; }
+        //public ICommand PickFiles { get; set; }
 
-        public ICommand TakePhoto { get; set; }
+        //public ICommand TakePhoto { get; set; }
 
         public ICommand ImageTapped { get; set; }
+
+        public ICommand FileUploadOptions { get; set; }
 
         private ObservableCollection<FileSource> fileList { get; set; }
 
@@ -109,10 +111,11 @@ namespace EnterpriseAddLogs.ViewModels
         {
             SaveCommand = new Command(SaveDayLogAsync);
             SpeechRecog = new Command(speechRecog);
-            PickFiles = new Command(PickFilesCommand);
-            TakePhoto = new Command(TakePhotoCommand);
+            //PickFiles = new Command(PickPhotoCommand);
+            //TakePhoto = new Command(TakePhotoCommand);
             FileList = new ObservableCollection<FileSource>();
             ImageTapped = new Command(ShowImageOptions);
+            FileUploadOptions = new Command(ShowFileOptions);
 
             if (DayLogEntity == null)
                 DayLogEntity = new DayLog
@@ -127,8 +130,8 @@ namespace EnterpriseAddLogs.ViewModels
             UserDialogs.Instance
                 .ActionSheet(new ActionSheetConfig()
                     .SetCancel()
-                    .SetDestructive("Delete", async () => await DeleteImage())
-                    .Add("View", OpenFullScreenImageView));
+                    .Add("View", OpenFullScreenImageView)
+                    .Add("Delete", async () => await DeleteImage()));
         }
 
         private async Task DeleteImage()
@@ -224,7 +227,17 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        private async void TakePhotoCommand()
+        private void ShowFileOptions()
+        {
+            UserDialogs.Instance.ActionSheet(new ActionSheetConfig()
+                .SetCancel()
+                .Add("Take Photo", TakePhoto)
+                .Add("Upload Photo", PickPhoto)
+                .Add("Take Video", TakeVideo)
+                .Add("Pick Video", PickVideo));
+        }
+
+        private async void TakePhoto()
         {
             await CrossMedia.Current.Initialize();
 
@@ -249,17 +262,46 @@ namespace EnterpriseAddLogs.ViewModels
             SaveFile(file);
         }
 
-        private async void PickFilesCommand()
+        private async void TakeVideo()
         {
             await CrossMedia.Current.Initialize();
 
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            if (!CrossMedia.Current.IsCameraAvailable)
             {
-                Notifications.ErrorToast("No Camera Available");
+                Notifications.ErrorToast("No Camera Available!");
                 return;
             }
 
+            if (!CrossMedia.Current.IsTakeVideoSupported)
+            {
+                Notifications.ErrorToast("Can't take Videos!");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakeVideoAsync(new StoreVideoOptions
+            {
+                Directory = "eod",
+                DefaultCamera = CameraDevice.Rear,
+                AllowCropping = true
+            });
+
+            SaveFile(file);
+        }
+
+        private async void PickPhoto()
+        {
+            await CrossMedia.Current.Initialize();
+
             MediaFile file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
+
+            await SaveFile(file);
+        }
+
+        private async void PickVideo()
+        {
+            await CrossMedia.Current.Initialize();
+
+            MediaFile file = await CrossMedia.Current.PickVideoAsync();
 
             await SaveFile(file);
         }
