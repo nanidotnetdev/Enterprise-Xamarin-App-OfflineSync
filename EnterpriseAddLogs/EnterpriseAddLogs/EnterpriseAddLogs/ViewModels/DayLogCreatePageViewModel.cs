@@ -259,7 +259,7 @@ namespace EnterpriseAddLogs.ViewModels
                 DefaultCamera = CameraDevice.Rear
             });
 
-            SaveFile(file);
+            await SaveFile(file);
         }
 
         private async void TakeVideo()
@@ -285,7 +285,7 @@ namespace EnterpriseAddLogs.ViewModels
                 AllowCropping = true
             });
 
-            SaveFile(file);
+            await SaveFile(file);
         }
 
         private async void PickPhoto()
@@ -293,6 +293,12 @@ namespace EnterpriseAddLogs.ViewModels
             await CrossMedia.Current.Initialize();
 
             MediaFile file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
+
+            fileList.Add(new FileSource
+            {
+                Image = ImageSource.FromFile(file.Path),
+                Text  = DateTime.Now.Ticks.ToString()
+            });
 
             await SaveFile(file);
         }
@@ -306,6 +312,11 @@ namespace EnterpriseAddLogs.ViewModels
             await SaveFile(file);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         private async Task SaveFile(MediaFile file)
         {
             if (file == null)
@@ -317,11 +328,7 @@ namespace EnterpriseAddLogs.ViewModels
 
             var saved = await StorageService.UploadFile(new FileSource { FilePath = file.Path, Text = fileName }, DayLogEntity.DayLogId);
 
-            fileList.Add(new FileSource
-            {
-                Image = ImageSource.FromUri(saved.Uri),
-                Text = saved.Name
-            });
+            fileList.Add(saved);
 
             Notifications.BusyIndicator(false);
         }

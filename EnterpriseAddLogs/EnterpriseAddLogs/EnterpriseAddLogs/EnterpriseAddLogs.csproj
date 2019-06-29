@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\VideoIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\VideoIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
     <PackageReference Include="Autofac" Version="4.9.2" />
     <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />

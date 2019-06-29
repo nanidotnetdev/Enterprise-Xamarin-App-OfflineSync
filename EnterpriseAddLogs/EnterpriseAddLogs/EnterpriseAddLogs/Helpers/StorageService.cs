@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using EnterpriseAddLogs.Models;
 using Microsoft.WindowsAzure.Storage;
@@ -15,15 +16,42 @@ namespace EnterpriseAddLogs.Helpers
     {
         static readonly CloudStorageAccount cloudStorageAccount =
             CloudStorageAccount.Parse("Connection strong");
+        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
 
         private static readonly CloudFileClient fileClient = cloudStorageAccount.CreateCloudFileClient();
 
         private static readonly CloudFileShare share = fileClient.GetShareReference("offlinesyncapp");
-        readonly static CloudBlobClient _blobClient = cloudStorageAccount.CreateCloudBlobClient();
+        private static readonly CloudBlobClient _blobClient = cloudStorageAccount.CreateCloudBlobClient();
         private static CloudBlobContainer blobContainer = _blobClient.GetContainerReference("offlinesyncapp");
 
+        public static FileSource ReturnFileSource<T>(T blob) where T: ICloudBlob
+        {
+            if (ImageExtensions
+                .Contains(Path.GetExtension(blob.Uri.ToString()).ToUpperInvariant()))
+            {
+                var file = new FileSource
+                {
+                    Text = blob.Name,
+                    Image = ImageSource.FromUri(blob.Uri)
+                };
+
+                return file;
+            }
+            else
+            {
+                var file = new FileSource
+                {
+                    Text = blob.Name,
+                    Image = ImageSource.FromResource("EnterpriseAddLogs.Images.VideoIcon.png")
+                };
+
+                return file;
+            }
+        }
+
         public static async Task<ObservableRangeCollection<FileSource>> GetBlobs<T>(Guid entityItemId, string prefix = "", 
-            int? maxresultsPerQuery = null, BlobListingDetails blobListingDetails = BlobListingDetails.None) where T : ICloudBlob
+            int? maxresultsPerQuery = null, BlobListingDetails blobListingDetails = BlobListingDetails.None) 
+            where T : ICloudBlob
         {
             var blobList = new ObservableRangeCollection<FileSource>();
             BlobContinuationToken continuationToken = null;
@@ -38,13 +66,7 @@ namespace EnterpriseAddLogs.Helpers
 
                     foreach (var blob in response?.Results?.OfType<T>())
                     {
-                        var file = new FileSource
-                        {
-                            Text = blob.Name,
-                            Image = ImageSource.FromUri(blob.Uri)
-                        };
-                        
-                        blobList.Add(file);
+                        blobList.Add(ReturnFileSource(blob));
                     }
 
                 } while (continuationToken != null);
@@ -65,7 +87,13 @@ namespace EnterpriseAddLogs.Helpers
             }
         }
 
-        public static async Task<CloudBlockBlob> UploadFile(FileSource item, Guid entityItemId)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="entityItemId"></param>
+        /// <returns></returns>
+        public static async Task<FileSource> UploadFile(FileSource item, Guid entityItemId)
         {
             //to blob
             //await SaveBlockBlob(entityItemId, "offlinesyncapp", MemoryStream(item.FilePath), $"{item.Text}{fileExtension}");
@@ -80,7 +108,7 @@ namespace EnterpriseAddLogs.Helpers
             //await file.UploadFromFileAsync(item.FilePath);
         }
 
-        public static async Task<CloudBlockBlob> SaveBlockBlob(Guid entityItemId, FileSource file)
+        public static async Task<FileSource> SaveBlockBlob(Guid entityItemId, FileSource file)
         {
             if (!string.IsNullOrWhiteSpace(file.FilePath ?? ""))
             {
@@ -96,7 +124,7 @@ namespace EnterpriseAddLogs.Helpers
 
                 File.Delete(file.FilePath);
 
-                return blockBlob;
+                return ReturnFileSource(blockBlob);
             }
 
             return null;
