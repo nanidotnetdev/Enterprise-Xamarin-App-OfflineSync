@@ -1,16 +1,35 @@
 ﻿using EnterpriseAddLogs.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Xamarin.Essentials;
 
 namespace EnterpriseAddLogs.ViewModels
 {
     public class LocationPageViewModel: PageViewModel
     {
 
-        public double Longitude { get; set; }
-        public double Latitude { get; set; }
-        public double? Speed { get; set; }
+        private double _longitude;
+
+        private double _latitude;
+
+        private double? _speed;
+
+
+        public double Longitude
+        {
+            get => _longitude;
+            set => SetProperty(ref _longitude, value);
+        }
+
+        public double Latitude
+        {
+            get => _latitude;
+            set => SetProperty(ref _latitude, value);
+        }
+
+        public double? Speed
+        {
+            get => _speed;
+            set => SetProperty(ref _speed, value);
+        }
 
         public LocationPageViewModel(INavigator navigator)
             :base(navigator)
@@ -20,7 +39,7 @@ namespace EnterpriseAddLogs.ViewModels
 
         public async void SetLocation()
         {
-            var position = await Xamarin.Essentials.Geolocation.GetLocationAsync();
+            var position = await Geolocation.GetLocationAsync();
             Longitude = position.Longitude;
             Latitude = position.Latitude;
             Speed = position.Speed;
