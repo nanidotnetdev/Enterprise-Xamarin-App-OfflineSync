@@ -146,13 +146,13 @@ namespace EnterpriseAddLogs.ViewModels
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
 
-                    var confirm = await Navigator.DisplayAlertAsync("Log Off", "Log Off and Exit?", "Yes", "No");
+                    var confirm = await Navigator.DisplayAlertAsync("Log Off", "Log Off?", "Yes", "No");
 
                     if (confirm)
                     {
                         await App.Authenticator.LogoutAsync();
-
-                        MessageBus.Publish(new ExitAppMessage());
+                        MessageBus.Publish(new LoginStateChangedMessage(false));
+                        await Navigator.NavigateToDetailViewModelAsync<LoginPageViewModel>();
                     }
                 }
             });
