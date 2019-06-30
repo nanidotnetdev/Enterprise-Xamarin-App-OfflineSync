@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\bg.png" />
+    <None Remove="Images\user.png" />
     <None Remove="Images\VideoIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\bg.png" />
+    <EmbeddedResource Include="Images\user.png" />
     <EmbeddedResource Include="Images\VideoIcon.png" />
   </ItemGroup>
 

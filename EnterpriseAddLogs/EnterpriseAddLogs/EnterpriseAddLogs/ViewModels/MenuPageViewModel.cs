@@ -1,9 +1,7 @@
 ﻿using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Messaging;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
+using EnterpriseAddLogs.Services;
 
 namespace EnterpriseAddLogs.ViewModels
 {
@@ -16,11 +14,10 @@ namespace EnterpriseAddLogs.ViewModels
             MessageBus = messageBus;
             MenuItems = new ObservableCollection<MenuItemViewModel>();
 
-            SetMenuItems(false);
-
             MessageBus.Subscribe<LoginStateChangedMessage>(message =>
             {
                 SetMenuItems(message.IsLoggedIn);
+                SetUserProfile(message.IsLoggedIn);
             });
         }
 
@@ -55,17 +52,31 @@ namespace EnterpriseAddLogs.ViewModels
             }
         }
 
-        private string _userName;
-        public string UserName
+        private string _fullName;
+        public string FullName
         {
-            get
+            get => _fullName;
+            set => SetProperty(ref _fullName, value);
+        }
+
+        private string _email;
+        public string Email
+        {
+            get => _email;
+            set => SetProperty(ref _email, value);
+        }
+
+        private void SetUserProfile(bool set)
+        {
+            if (set)
             {
-                return _userName;
+                FullName = AppService.Instance.UserIdentity.FullName;
+                Email = AppService.Instance.UserIdentity.Email;
             }
-            private set
+            else
             {
-                _userName = value;
-                NotifyPropertyChanged();
+                FullName = string.Empty;
+                Email = string.Empty;
             }
         }
 
