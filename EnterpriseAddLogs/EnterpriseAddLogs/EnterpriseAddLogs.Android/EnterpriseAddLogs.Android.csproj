@@ -187,6 +187,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EnterpriseAddLogs.Models\EnterpriseAddLogs.Models.csproj">
+      <Project>{AE97652A-1F78-4837-8BF3-AAD75BA24674}</Project>
+      <Name>EnterpriseAddLogs.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\EnterpriseAddLogs.Services\EnterpriseAddLogs.Services.csproj">
       <Project>{334F3E71-A903-4FA7-AD91-D6EFC923C535}</Project>
       <Name>EnterpriseAddLogs.Services</Name>

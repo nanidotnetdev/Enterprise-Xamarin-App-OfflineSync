@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,8 +8,10 @@ using Android.App;
 using Android.Webkit;
 using EnterpriseAddLogs.Droid;
 using EnterpriseAddLogs.Helpers;
+using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
 using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Plugin.Fingerprint;
 using Xamarin.Auth;
@@ -28,12 +32,10 @@ namespace EnterpriseAddLogs.Droid
         public async Task<bool> FingerPrintLogin()
         {
             bool success = false;
-            var FingerprintAvailable = await CrossFingerprint.Current.IsAvailableAsync(true);
-            var test = CrossFingerprint.Current.GetAvailabilityAsync(true);
+            var fingerprintAvailable = await CrossFingerprint.Current.IsAvailableAsync(true);
 
-            if (FingerprintAvailable)
+            if (fingerprintAvailable)
             {
-
                 var accounts = AccountStore.FindAccountsForService("enterprisepoc");
                 if (accounts != null)
                 {
@@ -50,8 +52,13 @@ namespace EnterpriseAddLogs.Droid
 
                                 if (result.Authenticated)
                                 {
-                                    AppService.Instance.Client.CurrentUser = new MobileServiceUser(acct.Username);
-                                    AppService.Instance.Client.CurrentUser.MobileServiceAuthenticationToken = token;
+                                    AppService.Instance.Client.CurrentUser = new MobileServiceUser(acct.Username)
+                                    {
+                                        MobileServiceAuthenticationToken = token
+                                    };
+
+                                    await LoadUserIdentity();
+
                                     success = true;
                                 }
                             }
@@ -63,6 +70,10 @@ namespace EnterpriseAddLogs.Droid
             return success;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<bool> AuthenticateAsync()
         {
             bool success = false;
@@ -79,8 +90,13 @@ namespace EnterpriseAddLogs.Droid
                         {
                             if (!IsTokenExpired(token))
                             {
-                                AppService.Instance.Client.CurrentUser = new MobileServiceUser(acct.Username);
-                                AppService.Instance.Client.CurrentUser.MobileServiceAuthenticationToken = token;
+                                AppService.Instance.Client.CurrentUser = new MobileServiceUser(acct.Username)
+                                {
+                                    MobileServiceAuthenticationToken = token
+                                };
+
+                                await LoadUserIdentity();
+
                                 return true;
                             }
                         }
@@ -98,7 +114,9 @@ namespace EnterpriseAddLogs.Droid
                     account.Properties.Add("token", AppService.Instance.Client.CurrentUser.MobileServiceAuthenticationToken);
                     AccountStore.Save(account, "enterprisepoc");
 
-                    CreateAndShowDialog(string.Format("You are now logged in - {0}", AppService.Instance.Client.CurrentUser.UserId), "Logged in!");
+                    await LoadUserIdentity();
+
+                    CreateAndShowDialog($"You are now logged in as {AppService.Instance.UserIdentity.FullName}", "Logged in!");
                 }
 
                 success = true;
@@ -109,6 +127,53 @@ namespace EnterpriseAddLogs.Droid
             }
 
             return success;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task LoadUserIdentity()
+        {
+            var identity = await GetIdentityAsync();
+
+            if (identity != null)
+            {
+                AppService.Instance.UserIdentity = new UserIdentity
+                {
+                    FullName = identity.UserClaims
+                        .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))
+                        ?.Value,
+                    FirstName = identity.UserClaims
+                        .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"))
+                        ?.Value,
+                    LastName = identity.UserClaims
+                        .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"))
+                        ?.Value,
+                    Email = identity.UserClaims
+                        .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"))
+                        ?.Value,
+                };
+            }
+        }
+
+        /// <summary>
+        /// Get User Details.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<AppServiceIdentity> GetIdentityAsync()
+        {
+            if (AppService.Instance.Client.CurrentUser == null || AppService.Instance.Client.CurrentUser?.MobileServiceAuthenticationToken == null)
+            {
+                throw new InvalidOperationException("Not Authenticated");
+            }
+
+            var identities = await AppService.Instance.Client.InvokeApiAsync<List<AppServiceIdentity>>("/.auth/me");
+
+            if (identities.Count > 0)
+                return identities[0];
+
+            return null;
         }
 
         bool IsTokenExpired(string token)

@@ -44,6 +44,8 @@ namespace EnterpriseAddLogs.Services
             }
         }
 
+        public UserIdentity UserIdentity { get; set; }
+
         public IMobileServiceSyncTable<Log> logTable;
 
         public DayLogService DayLog
