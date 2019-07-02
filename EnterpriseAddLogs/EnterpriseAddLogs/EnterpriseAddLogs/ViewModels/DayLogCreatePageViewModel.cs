@@ -294,12 +294,6 @@ namespace EnterpriseAddLogs.ViewModels
 
             MediaFile file = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
 
-            fileList.Add(new FileSource
-            {
-                Image = ImageSource.FromFile(file.Path),
-                Text  = DateTime.Now.Ticks.ToString()
-            });
-
             await SaveFile(file);
         }
 
