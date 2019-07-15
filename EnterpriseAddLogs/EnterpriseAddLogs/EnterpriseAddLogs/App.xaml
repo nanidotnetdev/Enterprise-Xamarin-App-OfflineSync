@@ -7,6 +7,25 @@
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="#ffffff"/>
             </Style>
+
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BorderRadius" Value="4" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="BackgroundColor" Value="DarkGray" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="40" Android="50" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="btnPrimary" TargetType="Button" BasedOn="{StaticResource buttonStyle}">
+                <Setter Property="BackgroundColor" Value="#3FFF" />
+                <Setter Property="BorderColor" Value="#AFFF" />
+                <Setter Property="TextColor" Value="#CFFF" />
+                <Setter Property="BorderWidth" Value=".5" />
+            </Style>
         </ResourceDictionary>
 
     </Application.Resources>
