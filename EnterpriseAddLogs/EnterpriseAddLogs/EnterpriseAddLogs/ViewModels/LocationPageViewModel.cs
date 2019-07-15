@@ -1,4 +1,6 @@
-﻿using EnterpriseAddLogs.Helpers;
+﻿using System;
+using Acr.UserDialogs;
+using EnterpriseAddLogs.Helpers;
 using Xamarin.Essentials;
 
 namespace EnterpriseAddLogs.ViewModels
@@ -39,10 +41,34 @@ namespace EnterpriseAddLogs.ViewModels
 
         public async void SetLocation()
         {
-            var position = await Geolocation.GetLocationAsync();
-            Longitude = position.Longitude;
-            Latitude = position.Latitude;
-            Speed = position.Speed;
+            try
+            {
+                var position = await Geolocation.GetLocationAsync();
+                Longitude = position.Longitude;
+                Latitude = position.Latitude;
+                Speed = position.Speed;
+                Console.WriteLine($"Latitude: {position.Latitude}, Longitude: {position.Longitude}, Altitude: {position.Altitude}");
+            }
+            catch (FeatureNotSupportedException fnsEx)
+            {
+                Notifications.Alert("Location Feature Not supported!");
+                // Handle not supported on device exception
+            }
+            catch (FeatureNotEnabledException fneEx)
+            {
+                // Handle not enabled on device exception
+                Notifications.Alert("Location Services Not enabled!");
+            }
+            catch (PermissionException pEx)
+            {
+                // Handle permission exception
+                Notifications.Alert("Need Location Permissions!");
+            }
+            catch (Exception ex)
+            {
+                // Unable to get location
+                Notifications.Alert(ex.Message);
+            }
         }
     }
 }

@@ -43,5 +43,15 @@ namespace EnterpriseAddLogs.Helpers
             else
                 UserDialogs.Instance.HideLoading();
         }
+
+        public static void Alert(string message, string title)
+        {
+            UserDialogs.Instance.Alert(message, title);
+        }
+
+        public static void Alert(string message)
+        {
+            Alert(message, null);
+        }
     }
 }
