@@ -1,5 +1,4 @@
 ﻿using System;
-using Acr.UserDialogs;
 using EnterpriseAddLogs.Helpers;
 using Xamarin.Essentials;
 

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace EnterpriseAddLogs.Services
 {
-    public class DayLogService :BaseService<DayLog>
+    public class DayLogService :BaseService<DayLog>, IDayLogService
     {
 		public override string Identifier => "DayLog";
 

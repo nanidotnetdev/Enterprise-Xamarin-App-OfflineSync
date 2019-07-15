@@ -107,8 +107,11 @@ namespace EnterpriseAddLogs.ViewModels
             set => fileList = value;
         }
 
-        public DayLogCreatePageViewModel(INavigator navigator):base(navigator)
+        private IDayLogService _dayLogService;
+
+        public DayLogCreatePageViewModel(INavigator navigator, IDayLogService dayLogService):base(navigator)
         {
+            _dayLogService = dayLogService;
             SaveCommand = new Command(SaveDayLogAsync);
             SpeechRecog = new Command(speechRecog);
             //PickFiles = new Command(PickPhotoCommand);
@@ -194,7 +197,7 @@ namespace EnterpriseAddLogs.ViewModels
             DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
 
             //save daylog
-            await AppService.Instance.DayLog.UpsertAsync(DayLogEntity);
+            await _dayLogService.UpsertAsync(DayLogEntity);
 
             Notifications.BusyIndicator(false);
             Notifications.SuccessToast("Saved");

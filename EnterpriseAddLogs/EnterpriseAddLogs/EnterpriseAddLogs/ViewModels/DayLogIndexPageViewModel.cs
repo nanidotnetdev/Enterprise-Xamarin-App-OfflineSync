@@ -36,8 +36,11 @@ namespace EnterpriseAddLogs.ViewModels
 
         public Command RefreshListCommand { get; set; }
 
-        public DayLogIndexPageViewModel(INavigator navigator) : base(navigator)
+        private IDayLogService _dayLogService;
+
+        public DayLogIndexPageViewModel(INavigator navigator, IDayLogService dayLogService) : base(navigator)
         {
+            _dayLogService = dayLogService;
             _dayLogs = new ObservableRangeCollection<DayLog>();
             AddLogCommand = new Command(AddDayLogPageCommand);
             RefreshListCommand = new Command(RefreshDayLogs);
@@ -60,7 +63,7 @@ namespace EnterpriseAddLogs.ViewModels
         {
             UserDialogs.Instance.ShowLoading();
 
-            ICollection<DayLog> logs = await AppService.Instance.DayLog.GetItemsAsync(true);
+            ICollection<DayLog> logs = await _dayLogService.GetItemsAsync(true);
             DayLogs.ReplaceRange(logs.OrderByDescending(l => l.CreatedAt));
 
             UserDialogs.Instance.HideLoading();

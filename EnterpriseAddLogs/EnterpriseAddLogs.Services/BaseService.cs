@@ -12,20 +12,14 @@ using Microsoft.AppCenter.Crashes;
 
 namespace EnterpriseAddLogs.Services
 {
-	public class BaseService<T> where T : BaseModel
+	public class BaseService<T> : IBaseService<T> where T: BaseModel
 	{
 		public virtual string Identifier => "Items";
 
 		IMobileServiceSyncTable<T> table;
-		public IMobileServiceSyncTable<T> Table
-		{
-			get
-			{
-				return table ?? (table = AppService.Instance.Client.GetSyncTable<T>());
-			}
-		}
+		public IMobileServiceSyncTable<T> Table => table ?? (table = AppService.Instance.Client.GetSyncTable<T>());
 
-		public void DropTable()
+        public void DropTable()
 		{
 			table = null;
 		}

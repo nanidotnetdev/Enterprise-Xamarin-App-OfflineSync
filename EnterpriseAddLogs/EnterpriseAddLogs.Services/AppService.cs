@@ -21,13 +21,7 @@ namespace EnterpriseAddLogs.Services
 
         private static AppService _instance;
 
-        public static AppService Instance
-        {
-            get
-            {
-                return _instance ?? (_instance = new AppService());
-            }
-        }
+        public static AppService Instance => _instance ?? (_instance = new AppService());
 
         MobileServiceClient _client;
 
@@ -48,12 +42,6 @@ namespace EnterpriseAddLogs.Services
 
         public IMobileServiceSyncTable<Log> logTable;
 
-        public DayLogService DayLog
-        {
-            get;
-            private set;
-        }
-
         private NetworkAccess _networkAccess;
 
         public async Task Init()
@@ -73,7 +61,6 @@ namespace EnterpriseAddLogs.Services
             await Client.SyncContext.InitializeAsync(store);
 
             logTable = Client.GetSyncTable<Log>();
-            DayLog = new DayLogService();
 
             _networkAccess = Connectivity.NetworkAccess;
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
@@ -99,7 +86,7 @@ namespace EnterpriseAddLogs.Services
 
                 //new base service approach
                 var list = new List<Task<bool>>();
-                list.Add(DayLog.SyncAsync());
+                //TODO:add daylog sync method
                 await Task.WhenAll(list).ConfigureAwait(false);
 
                 //pass null as query string name to pull all the data
