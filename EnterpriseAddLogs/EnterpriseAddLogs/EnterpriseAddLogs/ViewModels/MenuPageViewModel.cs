@@ -102,21 +102,9 @@ namespace EnterpriseAddLogs.ViewModels
                 IsHome = true
             });
 
-            //MenuItems.Add(new MenuItemViewModel
-            //{
-            //    Title = "Log",
-            //    ImageIcon = "far-list-alt",
-            //    OnSelected = async () =>
-            //    {
-            //        MessageBus.Publish(new ShowMenuMessage(false));
-
-            //        await Navigator.NavigateToViewModelAsync<LogIndexPageViewModel>();
-            //    }
-            //});
-
             MenuItems.Add(new MenuItemViewModel
             {
-                Title = "Day Log",
+                Title = "Azure Mobile Apps",
                 ImageIcon = "far-edit",
                 OnSelected = async () =>
                 {

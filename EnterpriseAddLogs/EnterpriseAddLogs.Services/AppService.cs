@@ -25,22 +25,9 @@ namespace EnterpriseAddLogs.Services
 
         MobileServiceClient _client;
 
-        public MobileServiceClient Client
-        {
-            get
-            {
-                if (_client == null)
-                {
-                    _client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL);
-                }
-                
-                return _client;
-            }
-        }
+        public MobileServiceClient Client => _client ?? (_client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL));
 
         public UserIdentity UserIdentity { get; set; }
-
-        public IMobileServiceSyncTable<Log> logTable;
 
         private NetworkAccess _networkAccess;
 
@@ -54,13 +41,10 @@ namespace EnterpriseAddLogs.Services
             var store = new MobileServiceSQLiteStore("sqllitedb.db");
 
             // Define the database schema
-            store.DefineTable<Log>();
             store.DefineTable<DayLog>();
 
             // Actually create the store and update the schema
             await Client.SyncContext.InitializeAsync(store);
-
-            logTable = Client.GetSyncTable<Log>();
 
             _networkAccess = Connectivity.NetworkAccess;
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
@@ -88,15 +72,6 @@ namespace EnterpriseAddLogs.Services
                 var list = new List<Task<bool>>();
                 //TODO:add daylog sync method
                 await Task.WhenAll(list).ConfigureAwait(false);
-
-                //pass null as query string name to pull all the data
-                //pass name to pull only latest 50 records.- incremental sync
-                //await dayLogTable.PullAsync("GetAllDayLog", dayLogTable.CreateQuery());
-                //await logTable.PullAsync(
-                //    //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
-                //    //Use a different query name for each unique query in your program
-                //    "GetLogs",
-                //    logTable.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
             {

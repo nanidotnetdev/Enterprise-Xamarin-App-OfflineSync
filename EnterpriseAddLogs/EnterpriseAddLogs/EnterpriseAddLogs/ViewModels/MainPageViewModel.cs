@@ -1,8 +1,5 @@
 ﻿using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EnterpriseAddLogs.ViewModels
 {
