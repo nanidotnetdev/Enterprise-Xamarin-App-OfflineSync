@@ -6,7 +6,6 @@ using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Fingerprint;
-using Plugin.SpeechRecognition;
 using EnterpriseAddLogs.Messaging;
 using Autofac;
 using Acr.UserDialogs;

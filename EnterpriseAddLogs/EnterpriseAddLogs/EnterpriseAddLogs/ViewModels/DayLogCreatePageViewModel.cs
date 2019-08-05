@@ -3,7 +3,6 @@ using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-using Plugin.SpeechRecognition;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -89,8 +88,6 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ICommand SaveCommand { get; set; }
 
-        public ICommand SpeechRecog { get; private set; }
-
         //public ICommand PickFiles { get; set; }
 
         //public ICommand TakePhoto { get; set; }
@@ -113,7 +110,6 @@ namespace EnterpriseAddLogs.ViewModels
         {
             _dayLogService = dayLogService;
             SaveCommand = new Command(SaveDayLogAsync);
-            SpeechRecog = new Command(speechRecog);
             //PickFiles = new Command(PickPhotoCommand);
             //TakePhoto = new Command(TakePhotoCommand);
             FileList = new ObservableCollection<FileSource>();
@@ -148,30 +144,6 @@ namespace EnterpriseAddLogs.ViewModels
             FullScreenImageView.Show(FileList, fileList.IndexOf(LastSelectedImage));
         }
 
-        private async void speechRecog()
-        {
-            var per = CrossSpeechRecognition.Current.RequestPermission();
-
-            var supported = CrossSpeechRecognition.Current.IsSupported;
-
-            if (supported)
-            {
-                var listener = CrossSpeechRecognition
-                                    .Current
-                                    .ContinuousDictation()
-                                    .Subscribe(phrase => {
-                                        Comment += phrase;
-                                        // will keep returning phrases as pause is observed
-                                    });
-
-            }
-            else
-            {
-                Notifications.ErrorToast("Speech Recog Not Supported!");
-            }
-
-            var tee = string.Empty;
-        }
 
         private DayLog _dayLogEntity { get; set; }
 
