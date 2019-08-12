@@ -61,3 +61,4 @@ EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs.Android/EnterpriseAddLogs.
 *.pdb
 *.pdb
 *.dll
+EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs.Android/Resources/Resource.designer.cs

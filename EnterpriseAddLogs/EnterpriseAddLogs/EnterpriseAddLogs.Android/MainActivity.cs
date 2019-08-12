@@ -9,6 +9,11 @@ using Plugin.Fingerprint;
 using EnterpriseAddLogs.Messaging;
 using Autofac;
 using Acr.UserDialogs;
+using Android.Content;
+using Android.Views.Accessibility;
+using EnterpriseAddLogs.BackgroundJobs;
+using EnterpriseAddLogs.Services;
+using Plugin.Jobs;
 
 namespace EnterpriseAddLogs.Droid
 {
@@ -41,8 +46,6 @@ namespace EnterpriseAddLogs.Droid
 
             global::Xamarin.Essentials.Platform.Init(this, bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
 
             UserDialogs.Init(() => this);
@@ -52,6 +55,8 @@ namespace EnterpriseAddLogs.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
 
             Stormlion.PhotoBrowser.Droid.Platform.Init(this);
+
+            CrossJobs.ResolveJob = JobBuilder.ResolveJob;
 
             LoadApplication(new App());
 

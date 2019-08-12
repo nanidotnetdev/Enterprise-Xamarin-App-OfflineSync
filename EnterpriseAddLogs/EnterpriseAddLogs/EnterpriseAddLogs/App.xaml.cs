@@ -1,9 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Autofac;
+using EnterpriseAddLogs.BackgroundJobs;
 using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.ViewModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Plugin.Jobs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,9 +36,13 @@ namespace EnterpriseAddLogs
                .With(new Plugin.Iconize.Fonts.FontAwesomeBrandsModule())
                .With(new Plugin.Iconize.Fonts.FontAwesomeRegularModule())
                .With(new Plugin.Iconize.Fonts.FontAwesomeSolidModule());
+
+            //initialise background jobs.
+            JobBuilder.ScheduleJobs();
+
         }
 
-		protected override async void OnStart ()
+        protected override async void OnStart ()
 		{
             // Handle when your app starts
             await Ioc.Container.Resolve<INavigator>().NavigateToDetailViewModelAsync<LoginPageViewModel>();
@@ -48,5 +57,5 @@ namespace EnterpriseAddLogs
 		{
 			// Handle when your app resumes
 		}
-	}
+    }
 }
