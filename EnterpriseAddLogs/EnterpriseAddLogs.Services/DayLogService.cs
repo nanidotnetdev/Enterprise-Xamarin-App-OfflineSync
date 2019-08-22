@@ -26,5 +26,15 @@ namespace EnterpriseAddLogs.Services
 
             return await base.PullLatestAsync(query);
         }
+
+        public override async Task<bool> UpsertAsync(DayLog item)
+        {
+            if (item.IsNew)
+            {
+                return await InsertAsync(item);
+            }
+
+            return await UpdateAsync(item);
+        }
     }
 }

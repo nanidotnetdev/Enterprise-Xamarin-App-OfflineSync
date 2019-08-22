@@ -54,7 +54,7 @@ namespace EnterpriseAddLogs.Services
 
 		public virtual async Task<bool> InsertAsync(T item)
         {
-            item.Id = Guid.NewGuid().ToString();
+            item.Id = item.Id ?? Guid.NewGuid().ToString();
 			await Table.InsertAsync(item);
 			var success = await SyncAsync().ConfigureAwait(false);
 
