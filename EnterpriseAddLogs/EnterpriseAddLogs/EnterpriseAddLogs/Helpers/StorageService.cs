@@ -16,6 +16,9 @@ namespace EnterpriseAddLogs.Helpers
     {
         private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
 
+        static readonly CloudStorageAccount cloudStorageAccount = 
+            CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=enterprizefilestorage;AccountKey=JjwpzWtLd/idAhKtVnYhwNDrkkdfWMxxm9ttr8tIB2MsLIhdO/GKcKIjJpVxj8Nj5Qk8dIK+JdZJw7k4pwe38A==;EndpointSuffix=core.windows.net");
+
         private static readonly CloudFileClient fileClient = cloudStorageAccount.CreateCloudFileClient();
 
         private static readonly CloudFileShare share = fileClient.GetShareReference("offlinesyncapp");
