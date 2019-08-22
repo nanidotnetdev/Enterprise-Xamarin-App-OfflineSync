@@ -1,10 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using EnterpriseAddLogs.Models;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.WindowsAzure.MobileServices;
-using Plugin.Connectivity;
 
 namespace EnterpriseAddLogs.Services
 {

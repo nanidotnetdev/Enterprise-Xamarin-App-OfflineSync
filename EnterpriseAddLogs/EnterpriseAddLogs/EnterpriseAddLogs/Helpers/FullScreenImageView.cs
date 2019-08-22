@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Acr.UserDialogs;
-using EnterpriseAddLogs.Models;
 using Stormlion.PhotoBrowser;
 using Xamarin.Forms;
 
