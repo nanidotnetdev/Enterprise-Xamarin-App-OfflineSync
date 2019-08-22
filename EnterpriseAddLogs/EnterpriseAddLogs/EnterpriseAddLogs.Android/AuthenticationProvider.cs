@@ -5,24 +5,28 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Android.App;
-using EnterpriseAddLogs.Droid;
+using Android.Webkit;
 using EnterpriseAddLogs.Models;
 using EnterpriseAddLogs.Services;
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
 using Plugin.Fingerprint;
 using Xamarin.Auth;
-using Xamarin.Forms;
+using Xamarin.Essentials;
 
-[assembly: Dependency(typeof(AuthenticationProvider))]
 namespace EnterpriseAddLogs.Droid
 {
     public class AuthenticationProvider : IAuthenticate
     {
         public AccountStore AccountStore { get; private set; }
 
-        public AuthenticationProvider()
+        private readonly ISecurityService _securityService;
+        private readonly IUserService _userService;
+
+        public AuthenticationProvider(ISecurityService securityService, IUserService userService)
         {
+            _securityService = securityService;
+            _userService = userService;
             AccountStore = AccountStore.Create(MainActivity.Instance, "passcode");
         }
 
@@ -113,7 +117,7 @@ namespace EnterpriseAddLogs.Droid
 
                     await LoadUserIdentity();
 
-                    CreateAndShowDialog($"You are now logged in as {AppService.Instance.UserIdentity.FullName}", "Logged in!");
+                    CreateAndShowDialog($"You are now logged in as { _securityService.CurrentUser.FullName}", "Logged in!");
                 }
 
                 success = true;
@@ -130,14 +134,17 @@ namespace EnterpriseAddLogs.Droid
         /// 
         /// </summary>
         /// <returns></returns>
-        public async Task LoadUserIdentity()
+        private async Task LoadUserIdentity()
         {
             var identity = await GetIdentityAsync();
 
             if (identity != null)
             {
-                AppService.Instance.UserIdentity = new UserIdentity
+                var fbUser = new UserIdentity
                 {
+                    UserId = identity.UserClaims
+                        .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"))
+                        ?.Value,
                     FullName = identity.UserClaims
                         .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"))
                         ?.Value,
@@ -149,16 +156,70 @@ namespace EnterpriseAddLogs.Droid
                         ?.Value,
                     Email = identity.UserClaims
                         .FirstOrDefault(c => c.Type.Equals("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"))
-                        ?.Value,
+                        ?.Value
                 };
+
+                await SyncUserData(fbUser);
             }
+        }
+
+        /// <summary>
+        /// check if the user has account already
+        /// if not create new account.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private async Task SyncUserData(UserIdentity user)
+        {
+            var users = await _userService.GetItemsAsync(true);
+            var existingUser = users.FirstOrDefault(u => u.AuthId == user.UserId);
+
+            var userId = string.Empty;
+
+            if (existingUser != null)
+            {
+                //sync the data if the auth provider details changed.
+                if (existingUser.FirstName.ToLower() != user.FirstName.ToLower()
+                    || existingUser.LastName.ToLower() != user.LastName.ToLower()
+                    || existingUser.Email.ToLower() != user.Email.ToLower())
+                {
+                    existingUser.FirstName = user.FirstName;
+                    existingUser.LastName = user.LastName;
+                    existingUser.Email = user.Email;
+
+                    await _userService.UpdateAsync(existingUser);
+                }
+
+                userId = existingUser.Id;
+            }
+            else
+            {
+                //new user
+                //create new Account
+                User newUser = new User();
+
+                newUser.FirstName = user.FirstName;
+                newUser.LastName = user.LastName;
+                newUser.AuthId = user.UserId;
+                newUser.Email = user.Email;
+                newUser.Id = Guid.NewGuid().ToString();
+
+                await _userService.InsertAsync(newUser);
+
+                userId = newUser.Id;
+            }
+
+            var loggedInUser = await _userService.GetItemAsync(userId);
+
+            if (loggedInUser != null)
+                _securityService.CurrentUser = loggedInUser;
         }
 
         /// <summary>
         /// Get User Details.
         /// </summary>
         /// <returns></returns>
-        public async Task<AppServiceIdentity> GetIdentityAsync()
+        private async Task<AppServiceIdentity> GetIdentityAsync()
         {
             if (AppService.Instance.Client.CurrentUser == null || AppService.Instance.Client.CurrentUser?.MobileServiceAuthenticationToken == null)
             {
@@ -212,6 +273,8 @@ namespace EnterpriseAddLogs.Droid
             if (client.CurrentUser == null || client.CurrentUser.MobileServiceAuthenticationToken == null)
                 return;
 
+            CookieManager.Instance.RemoveAllCookie();
+
             // Log out of the identity provider (if required)
 
             // Invalidate the token on the mobile backend
@@ -228,7 +291,7 @@ namespace EnterpriseAddLogs.Droid
             await client.LogoutAsync();
         }
 
-        public void RemoveTokenFromSecureStore()
+        private void RemoveTokenFromSecureStore()
         {
             var accounts = AccountStore.FindAccountsForService("enterprisepoc");
             if (accounts != null)
@@ -239,27 +302,6 @@ namespace EnterpriseAddLogs.Droid
                 }
             }
         }
-        //public async Task<bool> LogoutAsync()
-        //{
-        //    bool success = false;
-        //    try
-        //    {
-        //        if (user != null)
-        //        {
-        //            CookieManager.Instance.RemoveAllCookie();
-        //            //await LogService.DefaultManager.CurrentClient.LogoutAsync();
-        //            CreateAndShowDialog(string.Format("You are now logged out - {0}", user.UserId), "Logged out!");
-        //        }
-        //        user = null;
-        //        success = true;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        CreateAndShowDialog(ex.Message, "Logout failed");
-        //    }
-
-        //    return success;
-        //}
 
         void CreateAndShowDialog(string message, string title)
         {

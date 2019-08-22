@@ -8,7 +8,6 @@ using EnterpriseAddLogs.ViewModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
-using Plugin.Jobs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,8 +22,9 @@ namespace EnterpriseAddLogs
 		{
 			InitializeComponent();
 
-            //Authenticator = Ioc.Resolve<IAuthenticate>();
-            Authenticator = DependencyService.Get<IAuthenticate>();
+            Authenticator = Ioc.Resolve<IAuthenticate>();
+            //Authenticator = DependencyService.Get<IAuthenticate>();
+
             MainPage = Ioc.Resolve<IViewResolver>().ResolveView<MainPageViewModel>();
             MainPage.BindingContext = Ioc.Resolve<MainPageViewModel>();
             Ioc.Resolve<INavigator>().Navigation = MainPage.Navigation;
@@ -39,7 +39,6 @@ namespace EnterpriseAddLogs
 
             //initialise background jobs.
             JobBuilder.ScheduleJobs();
-
         }
 
         protected override async void OnStart ()

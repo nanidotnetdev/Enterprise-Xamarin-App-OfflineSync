@@ -9,10 +9,13 @@ namespace EnterpriseAddLogs.ViewModels
     {
         private IMessageBus MessageBus { get; set; }
 
-        public MenuPageViewModel(INavigator navigator, IMessageBus messageBus):base(navigator)
+        private readonly ISecurityService _securityService;
+
+        public MenuPageViewModel(INavigator navigator, IMessageBus messageBus, ISecurityService securityService):base(navigator)
         {
             MessageBus = messageBus;
             MenuItems = new ObservableCollection<MenuItemViewModel>();
+            _securityService = securityService;
 
             MessageBus.Subscribe<LoginStateChangedMessage>(message =>
             {
@@ -70,8 +73,8 @@ namespace EnterpriseAddLogs.ViewModels
         {
             if (set)
             {
-                FullName = AppService.Instance.UserIdentity.FullName;
-                Email = AppService.Instance.UserIdentity.Email;
+                FullName = _securityService.CurrentUser.FullName;
+                Email = _securityService.CurrentUser.Email;
             }
             else
             {
@@ -123,6 +126,18 @@ namespace EnterpriseAddLogs.ViewModels
                     MessageBus.Publish(new ShowMenuMessage(false));
 
                     await Navigator.NavigateToViewModelAsync<LocationPageViewModel>();
+                }
+            });
+
+            MenuItems.Add(new MenuItemViewModel
+            {
+                Title = "Speech Recog",
+                ImageIcon = "fas-map-marker",
+                OnSelected = async () =>
+                {
+                    MessageBus.Publish(new ShowMenuMessage(false));
+
+                    await Navigator.NavigateToViewModelAsync<SpeechRecogPageViewModel>();
                 }
             });
 

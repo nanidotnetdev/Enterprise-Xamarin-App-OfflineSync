@@ -106,9 +106,13 @@ namespace EnterpriseAddLogs.ViewModels
 
         private IDayLogService _dayLogService;
 
-        public DayLogCreatePageViewModel(INavigator navigator, IDayLogService dayLogService):base(navigator)
+        private readonly ISecurityService _securityService;
+
+        public DayLogCreatePageViewModel(INavigator navigator, IDayLogService dayLogService, ISecurityService securityService):base(navigator)
         {
             _dayLogService = dayLogService;
+            _securityService = securityService;
+
             SaveCommand = new Command(SaveDayLogAsync);
             //PickFiles = new Command(PickPhotoCommand);
             //TakePhoto = new Command(TakePhotoCommand);
@@ -166,6 +170,7 @@ namespace EnterpriseAddLogs.ViewModels
             DayLogEntity.Comment = Comment;
             DayLogEntity.DateLogged = DateLogged;
             DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
+            DayLogEntity.CreatedBy = _securityService.CurrentUserId;
 
             //save daylog
             var result = await _dayLogService.UpsertAsync(DayLogEntity);

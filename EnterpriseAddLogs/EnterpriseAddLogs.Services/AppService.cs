@@ -42,6 +42,7 @@ namespace EnterpriseAddLogs.Services
 
             // Define the database schema
             store.DefineTable<DayLog>();
+            store.DefineTable<User>();
 
             // Actually create the store and update the schema
             await Client.SyncContext.InitializeAsync(store);

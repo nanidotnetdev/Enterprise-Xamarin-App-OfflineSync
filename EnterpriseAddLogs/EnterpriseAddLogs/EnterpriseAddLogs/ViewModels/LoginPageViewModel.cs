@@ -1,11 +1,12 @@
 ﻿using EnterpriseAddLogs.Commands;
 using EnterpriseAddLogs.Helpers;
 using EnterpriseAddLogs.Messaging;
-using EnterpriseAddLogs.Services;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Plugin.LocalNotifications;
+using Xamarin.Forms;
 
 namespace EnterpriseAddLogs.ViewModels
 {
@@ -16,12 +17,8 @@ namespace EnterpriseAddLogs.ViewModels
         private string _messageLabel;
 
         public string MessageLabel {
-            get {
-                return _messageLabel;
-            }
-            set {
-                _messageLabel = value;
-            }
+            get => _messageLabel;
+            set => _messageLabel = value;
         }
 
         public LoginPageViewModel(INavigator navigator, IMessageBus messageBus):base(navigator)
@@ -66,7 +63,6 @@ namespace EnterpriseAddLogs.ViewModels
             {
                 MessageLabel = "Authentication failed";
             }
-
         }
 
         private async Task UserAuthenticated(bool authenticated)
