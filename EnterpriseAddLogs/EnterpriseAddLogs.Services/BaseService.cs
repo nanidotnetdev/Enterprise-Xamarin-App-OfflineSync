@@ -43,19 +43,18 @@ namespace EnterpriseAddLogs.Services
 		}
 
 		public virtual async Task<bool> UpsertAsync(T item)
-		{
-			if(item.Id == null)
+        {
+            if(item.Id == null)
 			{
 				return await InsertAsync(item);
 			}
-			else
-			{
-				return await UpdateAsync(item);
-			}
-		}
+
+            return await UpdateAsync(item);
+        }
 
 		public virtual async Task<bool> InsertAsync(T item)
-		{
+        {
+            item.Id = Guid.NewGuid().ToString();
 			await Table.InsertAsync(item);
 			var success = await SyncAsync().ConfigureAwait(false);
 

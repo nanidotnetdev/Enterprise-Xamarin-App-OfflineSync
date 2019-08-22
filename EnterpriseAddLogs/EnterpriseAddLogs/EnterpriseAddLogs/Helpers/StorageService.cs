@@ -14,8 +14,6 @@ namespace EnterpriseAddLogs.Helpers
 {
     public static class StorageService
     {
-        static readonly CloudStorageAccount cloudStorageAccount =
-            CloudStorageAccount.Parse("Connection strong");
         private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
 
         private static readonly CloudFileClient fileClient = cloudStorageAccount.CreateCloudFileClient();
@@ -49,7 +47,7 @@ namespace EnterpriseAddLogs.Helpers
             }
         }
 
-        public static async Task<ObservableRangeCollection<FileSource>> GetBlobs<T>(Guid entityItemId, string prefix = "", 
+        public static async Task<ObservableRangeCollection<FileSource>> GetBlobs<T>(string entityItemId, string prefix = "", 
             int? maxresultsPerQuery = null, BlobListingDetails blobListingDetails = BlobListingDetails.None) 
             where T : ICloudBlob
         {
@@ -60,7 +58,7 @@ namespace EnterpriseAddLogs.Helpers
             {
                 do
                 {
-                    var response = await blobContainer.ListBlobsSegmentedAsync(entityItemId.ToString(), true, blobListingDetails, maxresultsPerQuery, continuationToken, null, null);
+                    var response = await blobContainer.ListBlobsSegmentedAsync(entityItemId, true, blobListingDetails, maxresultsPerQuery, continuationToken, null, null);
 
                     continuationToken = response?.ContinuationToken;
 
@@ -79,7 +77,7 @@ namespace EnterpriseAddLogs.Helpers
             return blobList;
         }
 
-        public static async Task UploadFiles(IEnumerable<FileSource> files, Guid entityItemId)
+        public static async Task UploadFiles(IEnumerable<FileSource> files, string entityItemId)
         {
             foreach (var fileSource in files)
             {
@@ -93,7 +91,7 @@ namespace EnterpriseAddLogs.Helpers
         /// <param name="item"></param>
         /// <param name="entityItemId"></param>
         /// <returns></returns>
-        public static async Task<FileSource> UploadFile(FileSource item, Guid entityItemId)
+        public static async Task<FileSource> UploadFile(FileSource item, string entityItemId)
         {
             //to blob
             //await SaveBlockBlob(entityItemId, "offlinesyncapp", MemoryStream(item.FilePath), $"{item.Text}{fileExtension}");
@@ -108,7 +106,7 @@ namespace EnterpriseAddLogs.Helpers
             //await file.UploadFromFileAsync(item.FilePath);
         }
 
-        public static async Task<FileSource> SaveBlockBlob(Guid entityItemId, FileSource file)
+        public static async Task<FileSource> SaveBlockBlob(string entityItemId, FileSource file)
         {
             if (!string.IsNullOrWhiteSpace(file.FilePath ?? ""))
             {

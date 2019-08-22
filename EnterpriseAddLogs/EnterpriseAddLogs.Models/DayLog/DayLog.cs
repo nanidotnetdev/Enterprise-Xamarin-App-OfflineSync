@@ -5,13 +5,16 @@ namespace EnterpriseAddLogs.Models
 {
     public class DayLog:  BaseModel
     {
-        public Guid DayLogId { get; set; }
+        //[JsonProperty("id")]
+        //public Guid DayLogId { get; set; }
 
         public string Comment { get; set; }
 
         public DateTime DateLogged { get; set; }
 
         public Guid? DayTimeId { get; set; }
+
+        public string CreatedBy { get; set; }
 
         //don't persist to remote.
         [JsonIgnore]

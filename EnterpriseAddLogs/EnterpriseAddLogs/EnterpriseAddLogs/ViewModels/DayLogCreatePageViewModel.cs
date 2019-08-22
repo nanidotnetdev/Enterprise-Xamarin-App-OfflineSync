@@ -119,7 +119,6 @@ namespace EnterpriseAddLogs.ViewModels
             if (DayLogEntity == null)
                 DayLogEntity = new DayLog
                 {
-                    DayLogId = Guid.NewGuid(),
                     IsNew = true
                 };
         }
@@ -169,10 +168,18 @@ namespace EnterpriseAddLogs.ViewModels
             DayLogEntity.DayTimeId = DayLogTimeSelected?.DayTimeId;
 
             //save daylog
-            await _dayLogService.UpsertAsync(DayLogEntity);
+            var result = await _dayLogService.UpsertAsync(DayLogEntity);
 
             Notifications.BusyIndicator(false);
-            Notifications.SuccessToast("Saved");
+
+            if (result)
+            {
+                Notifications.SuccessToast("Saved");
+            }
+            else
+            {
+                Notifications.ErrorToast("Failed to Save");
+            }
         }
 
         public override async Task OnNavigatedToAsync(object parameter = null)
@@ -190,7 +197,7 @@ namespace EnterpriseAddLogs.ViewModels
                     DateLogged = DayLogEntity.DateLogged;
                     DayLogTimeSelected = DayLogTimes.FirstOrDefault(d => d.DayTimeId == DayLogEntity.DayTimeId);
 
-                    var fl = await StorageService.GetBlobs<CloudBlockBlob>(DayLogEntity.DayLogId);
+                    var fl = await StorageService.GetBlobs<CloudBlockBlob>(DayLogEntity.Id);
 
                     foreach (var fileSource in fl)
                     {
@@ -295,7 +302,7 @@ namespace EnterpriseAddLogs.ViewModels
 
             string fileName = DateTime.Now.Ticks.ToString();
 
-            var saved = await StorageService.UploadFile(new FileSource { FilePath = file.Path, Text = fileName }, DayLogEntity.DayLogId);
+            var saved = await StorageService.UploadFile(new FileSource { FilePath = file.Path, Text = fileName }, DayLogEntity.Id);
 
             fileList.Add(saved);
 
