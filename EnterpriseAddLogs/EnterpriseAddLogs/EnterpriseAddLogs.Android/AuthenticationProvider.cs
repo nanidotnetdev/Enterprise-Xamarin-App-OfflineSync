@@ -287,6 +287,9 @@ namespace EnterpriseAddLogs.Droid
 
             RemoveTokenFromSecureStore();
 
+            //clear user information
+            Preferences.Clear();
+
             // Remove the token from the MobileServiceClient
             await client.LogoutAsync();
         }
