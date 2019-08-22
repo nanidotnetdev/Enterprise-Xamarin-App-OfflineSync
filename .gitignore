@@ -63,3 +63,4 @@ EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs.Android/EnterpriseAddLogs.
 *.dll
 EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs.Android/Resources/Resource.designer.cs
 EnterpriseAddLogs/EnterpriseAddLogs.Backend/Properties/PublishProfiles/EnterprisePOCAzureBackend - Web Deploy.pubxml
+EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs.Android/EnterpriseAddLogs.Android.csproj.user
