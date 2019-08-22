@@ -118,7 +118,6 @@ namespace EnterpriseAddLogs.Services
 			return true;
 		}
 
-
 		public async Task<bool> SyncAsync()
 		{
 			if(!CrossConnectivity.Current.IsConnected)

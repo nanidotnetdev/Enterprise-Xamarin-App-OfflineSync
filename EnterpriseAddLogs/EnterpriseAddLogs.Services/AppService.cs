@@ -38,7 +38,7 @@ namespace EnterpriseAddLogs.Services
                 return;
 
             // Create a reference to the local sqlite store
-            var store = new MobileServiceSQLiteStore("localdb123.db");
+            var store = new MobileServiceSQLiteStore("localdb14235.db");
 
             // Define the database schema
             store.DefineTable<DayLog>();
