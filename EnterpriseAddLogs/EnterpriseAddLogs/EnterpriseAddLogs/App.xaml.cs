@@ -8,6 +8,7 @@ using EnterpriseAddLogs.ViewModels;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,7 +31,7 @@ namespace EnterpriseAddLogs
             Ioc.Resolve<INavigator>().Navigation = MainPage.Navigation;
 
             AppCenter.Start("android=70d18fca-e15e-47dd-aac6-c07748c9c3f2;",
-                  typeof(Analytics), typeof(Crashes));
+                  typeof(Analytics), typeof(Crashes), typeof(Distribute));
 
             Plugin.Iconize.Iconize
                .With(new Plugin.Iconize.Fonts.FontAwesomeBrandsModule())
