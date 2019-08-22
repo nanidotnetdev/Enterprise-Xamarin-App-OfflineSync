@@ -123,6 +123,7 @@ namespace EnterpriseAddLogs.ViewModels
             if (DayLogEntity == null)
                 DayLogEntity = new DayLog
                 {
+                    Id = Guid.NewGuid().ToString(),
                     IsNew = true
                 };
         }
