@@ -38,7 +38,7 @@ namespace EnterpriseAddLogs.Services
                 return;
 
             // Create a reference to the local sqlite store
-            var store = new MobileServiceSQLiteStore("sqllitedb.db");
+            var store = new MobileServiceSQLiteStore("localdb123.db");
 
             // Define the database schema
             store.DefineTable<DayLog>();
@@ -70,9 +70,9 @@ namespace EnterpriseAddLogs.Services
                 await Init();
 
                 //new base service approach
-                var list = new List<Task<bool>>();
-                //TODO:add daylog sync method
-                await Task.WhenAll(list).ConfigureAwait(false);
+                //var list = new List<Task<bool>>();
+                ////TODO:add all sync methods
+                //await Task.WhenAll(list).ConfigureAwait(false);
             }
             catch (MobileServicePushFailedException exc)
             {

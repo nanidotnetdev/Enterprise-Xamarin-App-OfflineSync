@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EnterpriseAddLogs.Models;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace EnterpriseAddLogs.Services
 {
@@ -20,7 +21,7 @@ namespace EnterpriseAddLogs.Services
 
         Task<bool> RemoveAsync(T item);
 
-        Task<bool> PullLatestAsync();
+        Task<bool> PullLatestAsync(IMobileServiceTableQuery<T> query = null);
 
         Task<bool> SyncAsync();
     }

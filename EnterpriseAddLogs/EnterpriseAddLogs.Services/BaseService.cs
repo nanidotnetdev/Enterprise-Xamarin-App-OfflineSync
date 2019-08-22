@@ -95,7 +95,7 @@ namespace EnterpriseAddLogs.Services
 			return success;
 		}
 
-		public async Task<bool> PullLatestAsync()
+		public virtual async Task<bool> PullLatestAsync(IMobileServiceTableQuery<T> query = null)
 		{
 			if(!CrossConnectivity.Current.IsConnected)
 			{
@@ -103,9 +103,11 @@ namespace EnterpriseAddLogs.Services
 				return false;
 			}
 			try
-			{
+            {
+                query = query ?? Table.CreateQuery();
+
 				//Pull down any content from the server that doesn't exist locally and add it to the local database
-				await Table.PullAsync($"all{Identifier}", Table.CreateQuery()).ConfigureAwait(false);
+				await Table.PullAsync($"all{Identifier}", query).ConfigureAwait(false);
 			}
 			catch(Exception ex)
 			{
