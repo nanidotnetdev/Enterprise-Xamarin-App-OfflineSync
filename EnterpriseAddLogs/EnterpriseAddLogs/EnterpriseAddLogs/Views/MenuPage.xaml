@@ -26,7 +26,8 @@
                   HasUnevenRows="true"
                   SeparatorVisibility="None"
                   ItemsSource="{Binding MenuItems}"
-                  SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}">
+                  SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
+                  ItemSelected="MenuItemsListView_OnItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

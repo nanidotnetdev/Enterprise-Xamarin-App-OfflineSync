@@ -19,5 +19,11 @@ namespace EnterpriseAddLogs.Views
 
             BindingContext = Ioc.Resolve<MenuPageViewModel>();
 		}
-	}
+
+        private void MenuItemsListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (sender is ListView c)
+                c.SelectedItem = null;
+        }
+    }
 }
