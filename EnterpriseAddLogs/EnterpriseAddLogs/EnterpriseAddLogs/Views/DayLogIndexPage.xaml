@@ -22,15 +22,36 @@
                       HasUnevenRows="True" 
                 RefreshCommand="{Binding RefreshListCommand}" 
                 IsPullToRefreshEnabled="True"
+                SeparatorVisibility="None"
                 IsRefreshing="{Binding IsBusy}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Comment}" 
-                                       LineBreakMode="NoWrap" 
-                                       FontSize="16" />
+                            <StackLayout Padding="8">
+                                <Frame HasShadow="True">
+                                    <StackLayout>
+                                        <Label
+                                            FontSize="16"
+                                            Text="{Binding Comment}" 
+                                            MaxLines="1" 
+                                            LineBreakMode="TailTruncation"/>
+                                        
+                                        <Label
+                                            FontSize="12"
+                                            Text="{Binding DateLogged, StringFormat='{0:MMMM dd, yyyy}'}"
+                                            TextColor="Gray" />
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
+                            <!--<Frame Padding="5">
+                                <StackLayout>
+                                    <Label Text="{Binding Comment}" 
+                                           LineBreakMode="NoWrap" 
+                                           FontSize="16" />
+                                    <Label Text="Added on:" HorizontalTextAlignment="Start" />
+                                    <Label Text="{Binding DateLogged, StringFormat='{0:MMMM dd, yyyy}'}" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </Frame>-->
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
