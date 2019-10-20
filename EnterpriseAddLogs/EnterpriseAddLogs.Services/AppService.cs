@@ -25,7 +25,9 @@ namespace EnterpriseAddLogs.Services
 
         MobileServiceClient _client;
 
-        public MobileServiceClient Client => _client ?? (_client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL));
+        public MobileServiceClient Client => _client ??
+                                             (_client = new MobileServiceClient(ServiceConstants.Urls.AzureBackendURL, 
+                                                 new Xamarin.Android.Net.AndroidClientHandler()));
 
         public UserIdentity UserIdentity { get; set; }
 
