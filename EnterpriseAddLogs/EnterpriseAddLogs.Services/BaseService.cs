@@ -24,6 +24,19 @@ namespace EnterpriseAddLogs.Services
 			table = null;
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public async Task PurgeTable(IMobileServiceTableQuery<T> query = null)
+        {
+            if (query == null)
+                await Table.PurgeAsync();
+
+            await Table.PurgeAsync(Table.CreateQuery());
+        }
+
 		public virtual async Task<IList<T>> GetItemsAsync(bool forceRefresh = false)
 		{
 			if(forceRefresh)

@@ -9,6 +9,10 @@ namespace EnterpriseAddLogs.Services
 {
     public interface IBaseService<T> where T:BaseModel
     {
+        void DropTable();
+
+        Task PurgeTable(IMobileServiceTableQuery<T> query = null);
+
         Task<IList<T>> GetItemsAsync(bool forceRefresh = false);
 
         Task<T> GetItemAsync(string id, bool forceRefresh = false);
