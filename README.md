@@ -29,3 +29,9 @@
   <img width="200" height="400" alt="Create Page" src= "https://github.com/nanidotnetdev/Enterprise-Xamarin-App-OfflineSync/blob/master/EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs/Screenshots/Daylog.jpg"/>
    
 </p>
+
+### Settings ###
+<p>
+  <img width="200" height="400" alt="Settings Page" src= "https://github.com/nanidotnetdev/Enterprise-Xamarin-App-OfflineSync/blob/master/EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs/Screenshots/Settings.jpg"/>
+   
+</p>
