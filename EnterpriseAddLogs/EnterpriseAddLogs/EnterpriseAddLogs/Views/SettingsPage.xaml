@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
+             x:Class="EnterpriseAddLogs.Views.SettingsPage" Title="Settings">
+
+    <xfGloss:ContentPageGloss.BackgroundGradient>
+        <xfGloss:Gradient Rotation="150">
+            <xfGloss:GradientStep StepColor="#002e4d" StepPercentage="0" />
+            <xfGloss:GradientStep StepColor="#002e4d" StepPercentage="1" />
+        </xfGloss:Gradient>
+    </xfGloss:ContentPageGloss.BackgroundGradient>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Padding="10">
+            <ListView x:Name="SettingsListView" RowHeight="70"
+                ItemsSource="{Binding Settings, Mode=TwoWay }" 
+                      SeparatorColor="#D6D36F" SelectionMode="None"
+                      VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate> 
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<xfGloss:CellGloss.BackgroundGradient>
+                                <xfGloss:Gradient Rotation="150">
+                                    <xfGloss:GradientStep StepColor="#03A9F4" StepPercentage="0.5" />
+                                    <xfGloss:GradientStep StepColor="#303F9F" StepPercentage="1" />
+                                </xfGloss:Gradient>
+                            </xfGloss:CellGloss.BackgroundGradient>-->
+                            <StackLayout Orientation="Horizontal" Padding="5">
+                                <StackLayout HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                                    <Label HorizontalOptions="StartAndExpand" 
+                                           TextColor="white" FontSize="18" 
+                                           VerticalTextAlignment="Center"
+                                           Text="{Binding Option}"/>
+                                    <Label Text="{Binding HelpText}" 
+                                           TextColor="white"
+                                           FontSize="12"/>
+                                </StackLayout>
+                                <Switch HorizontalOptions="End"
+                                        IsToggled="{Binding IsEnabled}" 
+                                        OnColor="#D6D36F"
+                                        ThumbColor="#D6D36F" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

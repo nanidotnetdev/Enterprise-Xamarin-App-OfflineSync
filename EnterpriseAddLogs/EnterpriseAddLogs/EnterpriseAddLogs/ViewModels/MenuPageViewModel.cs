@@ -129,15 +129,27 @@ namespace EnterpriseAddLogs.ViewModels
                 }
             });
 
+            //MenuItems.Add(new MenuItemViewModel
+            //{
+            //    Title = "Speech Recog",
+            //    ImageIcon = "fas-cog",
+            //    OnSelected = async () =>
+            //    {
+            //        MessageBus.Publish(new ShowMenuMessage(false));
+
+            //        await Navigator.NavigateToViewModelAsync<SpeechRecogPageViewModel>();
+            //    }
+            //});
+
             MenuItems.Add(new MenuItemViewModel
             {
-                Title = "Speech Recog",
-                ImageIcon = "fas-map-marker",
+                Title = "Settings",
+                ImageIcon = "fas-cog",
                 OnSelected = async () =>
                 {
                     MessageBus.Publish(new ShowMenuMessage(false));
 
-                    await Navigator.NavigateToViewModelAsync<SpeechRecogPageViewModel>();
+                    await Navigator.NavigateToViewModelAsync<SettingsPageViewModel>();
                 }
             });
 
