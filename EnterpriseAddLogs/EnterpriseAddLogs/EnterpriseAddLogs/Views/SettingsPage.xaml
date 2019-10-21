@@ -35,7 +35,7 @@
                                            TextColor="white"
                                            FontSize="12"/>
                                 </StackLayout>
-                                <Switch HorizontalOptions="End"
+                                <Switch HorizontalOptions="End" Toggled="Switch_OnToggled"
                                         IsToggled="{Binding IsEnabled}" 
                                         OnColor="#D6D36F"
                                         ThumbColor="#D6D36F" />
