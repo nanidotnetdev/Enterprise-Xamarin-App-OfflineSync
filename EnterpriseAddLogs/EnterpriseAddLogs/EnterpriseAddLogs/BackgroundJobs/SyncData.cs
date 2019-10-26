@@ -11,7 +11,8 @@ namespace EnterpriseAddLogs.BackgroundJobs
     {
         public async Task Run(JobInfo jobInfo, CancellationToken cancelToken)
         {
-            CrossLocalNotifications.Current.Show("Enterprise Add Logs", "BackGround Job Ran!!");
+            //working Job!!
+            //CrossLocalNotifications.Current.Show("Enterprise Add Logs", "BackGround Job Ran!!");
 
             //TODO: Update to sync the data periodically.
             //await AppService.Instance.SyncAsync();
