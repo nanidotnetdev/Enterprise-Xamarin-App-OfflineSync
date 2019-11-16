@@ -13,9 +13,11 @@
 
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Padding="15">
-            <Button Text="SIGN IN" Command="{Binding LoginCommand}" 
+            <Button IsEnabled="{Binding SignInEnabled}" Text="SIGN IN" 
+                    Command="{Binding LoginCommand}" 
                     Style="{StaticResource btnPrimary}"/>
-            <Label x:Name="MessageLabel" Text="{Binding MessageLabel}" />
+            <Label HorizontalTextAlignment="Center" x:Name="MessageLabel" 
+                   Text="{Binding MessageLabel, Mode=TwoWay}" />
         </StackLayout>
         <!--<StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"

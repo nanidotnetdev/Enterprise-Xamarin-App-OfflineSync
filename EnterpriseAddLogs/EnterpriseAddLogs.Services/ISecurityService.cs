@@ -1,4 +1,5 @@
 ﻿using EnterpriseAddLogs.Models;
+using System.Threading.Tasks;
 
 namespace EnterpriseAddLogs.Services
 {
@@ -7,5 +8,7 @@ namespace EnterpriseAddLogs.Services
         User CurrentUser { get; set; }
 
         string CurrentUserId { get; }
+
+        Task LoadUserIdentity();
     }
 }

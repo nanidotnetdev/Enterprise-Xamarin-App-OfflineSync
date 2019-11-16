@@ -14,14 +14,15 @@ namespace EnterpriseAddLogs.ViewModels
     {
         bool authenticated = false;
 
-        private string _messageLabel;
+        private string _messageLabel = "Please Login!";
 
         public string MessageLabel {
             get => _messageLabel;
-            set => _messageLabel = value;
+            set => SetProperty(ref _messageLabel, value);
         }
 
-        public LoginPageViewModel(INavigator navigator, IMessageBus messageBus):base(navigator)
+        public LoginPageViewModel(INavigator navigator, IMessageBus messageBus)
+            :base(navigator)
         {
             MessageBus = messageBus;
 
@@ -32,15 +33,23 @@ namespace EnterpriseAddLogs.ViewModels
 
         public ICommand LoginCommand => new AsyncActionCommand(LoginAsync);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private async Task FingerprintLogin()
         {
             if (App.Authenticator != null)
             {
-                var authenticated = await App.Authenticator.FingerPrintLogin();
+                authenticated = await App.Authenticator.FingerPrintLogin();
                 await UserAuthenticated(authenticated);
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private async Task LoginAsync()
         {
             try
@@ -48,9 +57,9 @@ namespace EnterpriseAddLogs.ViewModels
                 if (App.Authenticator != null)
                 {
                     authenticated = await App.Authenticator.AuthenticateAsync();
-                }
 
-                await UserAuthenticated(authenticated);
+                    await UserAuthenticated(authenticated);
+                }
             }
             catch (InvalidOperationException ex)
             {
@@ -59,7 +68,7 @@ namespace EnterpriseAddLogs.ViewModels
                     MessageLabel = "Authentication cancelled by the user";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageLabel = "Authentication failed";
             }
