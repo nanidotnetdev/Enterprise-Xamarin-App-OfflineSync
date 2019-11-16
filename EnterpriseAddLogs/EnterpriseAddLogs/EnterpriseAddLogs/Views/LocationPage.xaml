@@ -1,17 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="EnterpriseAddLogs.Views.LocationPage">
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Label Text="Test Location related Services." />
-            <Label Text="Longitude:"/>
-            <Label x:Name="LongitudeValue" Text="{Binding Longitude, Mode=TwoWay }"/>
-            <Label Text="Latitude:"/>
-            <Label x:Name="LatitudeValue" Text="{Binding Latitude, Mode=TwoWay }"/>
-            <Label Text="Speed:"/>
-            <Label x:Name="SpeedValue" Text="{Binding Speed, Mode=TwoWay }"/>
-            <Label x:Name="AddressValue"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Longitude:"/>
+                <Label x:Name="LongitudeValue" FontAttributes="Bold" Text="{Binding Longitude }"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Latitude:"/>
+                <Label x:Name="LatitudeValue" FontAttributes="Bold" Text="{Binding Latitude}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Speed:"/>
+                <Label x:Name="SpeedValue" FontAttributes="Bold" Text="{Binding Speed}"/>
+            </StackLayout>
+            <maps:Map x:Name="map" IsShowingUser="True" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

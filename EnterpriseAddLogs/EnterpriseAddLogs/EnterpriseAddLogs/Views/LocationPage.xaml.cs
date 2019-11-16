@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Diagnostics;
 using Xamarin.Essentials;
+using Xamarin.Forms.Maps;
 
 namespace EnterpriseAddLogs.Views
 {
@@ -15,8 +12,19 @@ namespace EnterpriseAddLogs.Views
 		{
 			InitializeComponent ();
 
-            AddLocation();
-		}
+            MoveMapToCurrentLocation();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public async void MoveMapToCurrentLocation()
+        {
+            var position = await Geolocation.GetLocationAsync();
+
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
+                                             Distance.FromMiles(1)));
+        }
 
         public async void AddLocation()
         {

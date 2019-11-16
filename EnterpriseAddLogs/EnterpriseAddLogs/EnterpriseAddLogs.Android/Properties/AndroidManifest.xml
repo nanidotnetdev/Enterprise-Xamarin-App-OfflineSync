@@ -21,5 +21,8 @@
 				<data android:scheme="nnb54" android:host="easyauth.callback" />
 			</intent-filter>
 		</activity>
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCE8vRxEvD-R6T_c73S9YksKetgHaH13dw" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
 	</application>
 </manifest>
