@@ -4,7 +4,7 @@
             x:Class="EnterpriseAddLogs.Views.HomePage">
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome!" HorizontalOptions="Center" FontSize="26"/>
-        <Label Padding="0 10" HorizontalOptions="Center"  Text="Fun Project to learn Xamarin."/>
-        <Label Padding="0 10" HorizontalOptions="Center" Text="Checkout the Menu for all the features available."/>
+        <Label Padding="0,10,0,0" HorizontalOptions="Center"  Text="Fun Project to learn Xamarin."/>
+        <Label Padding="0,10,0,0" HorizontalOptions="Center" Text="Checkout the Menu for all the features available."/>
     </StackLayout>
 </ContentPage>
