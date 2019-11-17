@@ -2,14 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xfGloss="clr-namespace:XFGloss;assembly=XFGloss"
-             x:Class="EnterpriseAddLogs.Views.SettingsPage" Title="Settings">
+             x:Class="EnterpriseAddLogs.Views.SettingsPage"
+             Title="Settings"
+             BackgroundColor="#6200ee">
 
-    <xfGloss:ContentPageGloss.BackgroundGradient>
+    <!--<xfGloss:ContentPageGloss.BackgroundGradient>
         <xfGloss:Gradient Rotation="150">
             <xfGloss:GradientStep StepColor="#002e4d" StepPercentage="0" />
             <xfGloss:GradientStep StepColor="#002e4d" StepPercentage="1" />
         </xfGloss:Gradient>
-    </xfGloss:ContentPageGloss.BackgroundGradient>
+    </xfGloss:ContentPageGloss.BackgroundGradient>-->
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" Padding="10">
             <ListView x:Name="SettingsListView" RowHeight="70"

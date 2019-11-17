@@ -6,8 +6,8 @@
 
     <xfGloss:ContentPageGloss.BackgroundGradient>
         <xfGloss:Gradient Rotation="150">
-            <xfGloss:GradientStep StepColor="#03A9F4" StepPercentage="0" />
-            <xfGloss:GradientStep StepColor="#303F9F" StepPercentage="1" />
+            <xfGloss:GradientStep StepColor="#741df0" StepPercentage="0" />
+            <xfGloss:GradientStep StepColor="#6200ee" StepPercentage="1" />
         </xfGloss:Gradient>
     </xfGloss:ContentPageGloss.BackgroundGradient>
 
