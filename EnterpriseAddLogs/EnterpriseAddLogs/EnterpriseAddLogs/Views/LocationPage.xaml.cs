@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using EnterpriseAddLogs.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Xamarin.Forms.Maps;
@@ -11,19 +12,6 @@ namespace EnterpriseAddLogs.Views
 		public LocationPage ()
 		{
 			InitializeComponent ();
-
-            MoveMapToCurrentLocation();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public async void MoveMapToCurrentLocation()
-        {
-            var position = await Geolocation.GetLocationAsync();
-
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude),
-                                             Distance.FromMiles(1)));
         }
 
         public async void AddLocation()

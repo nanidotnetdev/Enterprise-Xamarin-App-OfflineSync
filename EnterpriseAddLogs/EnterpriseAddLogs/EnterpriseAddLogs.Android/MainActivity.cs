@@ -9,10 +9,7 @@ using Plugin.Fingerprint;
 using EnterpriseAddLogs.Messaging;
 using Autofac;
 using Acr.UserDialogs;
-using Android.Content;
-using Android.Views.Accessibility;
 using EnterpriseAddLogs.BackgroundJobs;
-using EnterpriseAddLogs.Services;
 using Plugin.Jobs;
 using Android;
 
@@ -24,14 +21,6 @@ namespace EnterpriseAddLogs.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         internal static MainActivity Instance { get; private set; }
-
-        const int RequestLocationId = 0;
-
-        readonly string[] LocationPermissions =
-        {
-    Manifest.Permission.AccessCoarseLocation,
-    Manifest.Permission.AccessFineLocation
-};
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -81,23 +70,6 @@ namespace EnterpriseAddLogs.Droid
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
-        protected override void OnStart()
-        {
-            base.OnStart();
-
-            if ((int)Build.VERSION.SdkInt >= 23)
-            {
-                if (CheckSelfPermission(Manifest.Permission.AccessFineLocation) != Permission.Granted)
-                {
-                    RequestPermissions(LocationPermissions, RequestLocationId);
-                }
-                else
-                {
-                    // Permissions already granted - display a message.
-                }
-            }
         }
     }
 }
