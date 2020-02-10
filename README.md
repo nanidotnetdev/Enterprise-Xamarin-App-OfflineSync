@@ -1,4 +1,10 @@
 # Enterprise-Xamarin-App
+###Main Features###
+<ul>
+  <li>Offline sync capability using Azure Mobile Apps Library</li>
+  <li>App center integration to push updates and track usage</li>
+  <li>Azure Blob Storage integration to store Images and Videos</li>
+</ul>
 ### Login ###
 <p>
 <img width="210" height="400" alt="Login Screen"  src= "https://github.com/nanidotnetdev/Enterprise-Xamarin-App-OfflineSync/blob/master/EnterpriseAddLogs/EnterpriseAddLogs/EnterpriseAddLogs/Screenshots/Login.jpg"/>
